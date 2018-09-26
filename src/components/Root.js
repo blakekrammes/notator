@@ -8,7 +8,7 @@ class Root extends Component {
     return (
       <div className="Root">
         <header>
-          <h1 className="title">Whistler</h1>
+          <h1 className="title">Singer</h1>
         </header>
         <Button />
         <Instructions />

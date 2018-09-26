@@ -1,22 +1,21 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import './pitch.css';
 
 export class Pitch extends Component {
 	render() {
 		return (
-			<p>{this.props.pitch}</p>
+			<p className="pitch">{this.props.pitch}</p>
 		);
 	}
 }
 
-const mapStateToProps = state => (
+Pitch.defaultProps = ({
+	pitch: '0'
+});
 
-	console.log(state.pitch),
-
-{
+const mapStateToProps = state => ({
 	pitch: state.pitch
-}
-
-);
+});
 
 export default connect(mapStateToProps)(Pitch);

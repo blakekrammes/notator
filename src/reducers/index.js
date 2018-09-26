@@ -1,10 +1,10 @@
 import * as actions from '../actions';
 
 const initialState = {
-	pitch: 0
+	pitch: undefined
 };
 
-export const whistlerReducer = (state = initialState, action) => {
+export const singerReducer = (state = initialState, action) => {
 	if (action.type === actions.CHANGE_PITCH) {
 		return Object.assign({}, state, {
 			pitch: action.pitch

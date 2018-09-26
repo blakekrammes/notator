@@ -1,5 +1,5 @@
 import {createStore} from 'redux';
 
-import {whistlerReducer} from './reducers';
+import {singerReducer} from './reducers';
 
-export default createStore(whistlerReducer);
+export default createStore(singerReducer);
