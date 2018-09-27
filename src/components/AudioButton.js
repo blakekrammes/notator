@@ -3,107 +3,10 @@ import {connect} from 'react-redux';
 import Pitchfinder from 'pitchfinder';
 import Pitch from './Pitch';
 import {changePitch} from '../actions';
-import './Button.css';
+import notes from '../noteList';
+import './AudioButton.css';
 
-
-
-let notes = [
-	{
-		name: 'C4',
-		hz: {
-			min: 255,
-			max: 269
-		}
-	},
-	{
-		name: 'C#4',
-		hz: {
-			min: 270,
-			max: 285
-		}
-	},
-	{
-		name: 'D4',
-		hz: {
-			min: 286,
-			max: 302
-		}
-	},
-	{
-		name: 'D#4',
-		hz: {
-			min: 303,
-			max: 320
-		}
-	},
-	{
-		name: 'E4',
-		hz: {
-			min: 321,
-			max: 339
-		}
-	},
-	{
-		name: 'F4',
-		hz: {
-			min: 340,
-			max: 360
-		}
-	},
-	{
-		name: 'F#4',
-		hz: {
-			min: 361,
-			max: 381
-		}
-	},
-	{
-		name: 'G4',
-		hz: {
-			min: 382,
-			max: 404
-		}
-	},
-	{
-		name: 'G#4',
-		hz: {
-			min: 405,
-			max: 428
-		}
-	},
-	{
-		name: 'A4',
-		hz: {
-			min: 429,
-			max: 453
-		}
-	},
-	{
-		name: 'A#4',
-		hz: {
-			min: 454,
-			max: 480
-		}
-	},
-	{
-		name: 'B4',
-		hz: {
-			min: 481,
-			max: 509
-		}
-	},
-	{
-		name: 'C5',
-		hz: {
-			min: 510,
-			max: 539
-		}
-	}
-]; 
-
-
-
-export class Button extends Component {
+export class AudioButton extends Component {
 	toggleInput() {
 
 		let constraints = {audio: true};
@@ -143,11 +46,8 @@ export class Button extends Component {
     				else {
     					return;
     				}
-
 				});
-				// console.log(matchedPitch.name);
 				if (matchedPitch && matchedPitch.name !== undefined) {
-					console.log(matchedPitch.name);
 					this.props.dispatch(changePitch(matchedPitch.name));
 				}
 				else {
@@ -157,8 +57,7 @@ export class Button extends Component {
 		})
 		.catch(err => {
 			alert(err);
-		});
-		
+		});	
 	}
 	render() {
 		return (
@@ -170,7 +69,7 @@ export class Button extends Component {
 	}
 }
 
-export default connect()(Button);
+export default connect()(AudioButton);
 
 
 

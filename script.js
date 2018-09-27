@@ -1,12 +1,3 @@
-// import * as Pitchfinder from 'pitchfinder';
-
-
-
-
-
-
-
-
 document.addEventListener('keydown', pressNotes);
 
 document.addEventListener('keyup', releaseNotes);

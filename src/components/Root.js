@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Instructions} from './Instructions';
-import Button from './Button';
+import AudioButton from './AudioButton';
+import SheetMusic from './SheetMusic';
 import './Root.css';
 
 class Root extends Component {
@@ -9,9 +10,11 @@ class Root extends Component {
       <div className="Root">
         <header>
           <h1 className="title">Singer</h1>
+          <h3 className="range">The range is C2 – C6</h3>
         </header>
-        <Button />
+        <AudioButton />
         <Instructions />
+        <SheetMusic />
       </div>
     );
   }
