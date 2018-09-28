@@ -13,3 +13,11 @@ ReactDOM.render(
 	document.getElementById('root')
 );
 registerServiceWorker();
+
+
+
+// document.addEventListener('keydown', function() {
+// 	const STATE = store.getState();
+
+// 	store.dispatch(addNote('D'))
+// }) 

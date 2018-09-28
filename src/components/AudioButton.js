@@ -27,24 +27,17 @@ export class AudioButton extends Component {
 			//fires whenever the audio buffer defined in processor fills up
     		processor.onaudioprocess = (e) => {
     			let buffer = e.inputBuffer;
-		     	let detectPitch = Pitchfinder.YIN();
+		     	let detectPitch = Pitchfinder.AMDF();
 		     	let float32Array = buffer.getChannelData(0); // get a single channel of sound
 				let pitch = Math.round(detectPitch(float32Array)); // null if pitch cannot be identified
 
-				let matchedPitch = notes.find(function(note) {
-
+				let matchedPitch = notes.find(note => {
 					let individualNoteRange = [];
-					
 					for (let i = note.hz.min; i <= note.hz.max; i++) {
     					individualNoteRange.push(i);
     				}
-
     				if (individualNoteRange.includes(pitch)) {
     					return note.name;
-    				}
-
-    				else {
-    					return;
     				}
 				});
 				if (matchedPitch && matchedPitch.name !== undefined) {

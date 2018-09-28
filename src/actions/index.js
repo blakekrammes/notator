@@ -16,10 +16,25 @@ export const changeCurrentKeycode = keyCode => ({
 	keyCode
 });
 
-export const TOGGLE_AUGMENTATION_STATE = 'TOGGLE_AUGMENTATION_STATE';
-export const toggleAugmentationState = augmentationState => ({
-	type: TOGGLE_AUGMENTATION_STATE,
-	augmentationState
+export const PRESS_AUGMENTATION_DOT = 'PRESS_AUGMENTATION_DOT';
+export const pressAugmentationDot = () => ({
+	type: PRESS_AUGMENTATION_DOT
+});
+
+export const RELEASE_AUGMENTATION_DOT = 'RELEASE_AUGMENTATION_DOT';
+export const releaseAugmentationDot = () => ({
+	type: RELEASE_AUGMENTATION_DOT
+});
+
+export const ADD_NOTE = 'ADD_NOTE';
+export const addNote = note => ({
+	type: ADD_NOTE,
+	note
+});
+
+export const DELETE_NOTE = 'DELETE_NOTE';
+export const deleteNote = () => ({
+	type: DELETE_NOTE
 });
 
 export const CHANGE_SIXTEENTH_NOTE_COUNT = 'CHANGE_SIXTEENTH_NOTE_COUNT';

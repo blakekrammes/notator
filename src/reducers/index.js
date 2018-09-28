@@ -1,8 +1,15 @@
 import * as actions from '../actions';
 
+let musicTemplate = 
+	  "T: Composition\n" +
+	  "M: 4/4\n" +
+	  "L: 2/8\n" +
+	  "K: CMaj clef=bass\n" +
+	  `|`;
+
 const initialState = {
 	pitch: undefined,
-	sheetMusic: undefined,
+	sheetMusic: musicTemplate,
 	keyCode: undefined,
 	augmentationDotPressed: false,
 	writtenNotes: [],
@@ -25,9 +32,33 @@ export const singerReducer = (state = initialState, action) => {
 			keyCode: action.keyCode
 		});
 	}
-	else if (action.type === actions.TOGGLE_AUGMENTATION_STATE) {
+	else if (action.type === actions.PRESS_AUGMENTATION_DOT) {
 		return Object.assign({}, state, {
-			augmentationDotPressed: action.augmentationState
+			augmentationDotPressed: true
+		});
+	}
+	else if (action.type === actions.RELEASE_AUGMENTATION_DOT) {
+		return Object.assign({}, state, {
+			augmentationDotPressed: false
+		});
+	}
+	else if (action.type === actions.ADD_NOTE) {
+		return Object.assign({}, state, {
+			writtenNotes: [...state.writtenNotes, action.note]
+		});
+	}
+	else if (action.type === actions.DELETE_NOTE) {
+		console.log(state.writtenNotes);
+		let slicedNotes = state.writtenNotes.slice(0, state.writtenNotes.length - 1);
+		let slicedNotesString = state.writtenNotes.slice(0, state.writtenNotes.length - 1).join('');
+		let updatedMusicTemplate = "T: Composition\n" +
+								   "M: 4/4\n" +
+								   "L: 2/8\n" +
+								   "K: CMaj clef=bass\n" +
+							  	   `|${slicedNotesString}`;				 
+		return Object.assign({}, state, {
+			writtenNotes: slicedNotes,
+			sheetMusic: updatedMusicTemplate
 		});
 	}
 	else if (action.type === actions.CHANGE_SIXTEENTH_NOTE_COUNT) {

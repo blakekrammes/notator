@@ -1,40 +1,27 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import ABCJS from 'abcjs/midi';
+import HandleNotes from '../handleNotes';
+
 
 export class SheetMusic extends Component {
+
+ 	componentDidMount() {
+ 		ABCJS.renderAbc('sheetMusic', this.props.sheetMusic);
+ 	}
+
+ 	componentDidUpdate() {
+ 		ABCJS.renderAbc('sheetMusic', this.props.sheetMusic);
+ 	}
 		
 	render() {
-
-		document.addEventListener('keydown', doThis);
-		document.addEventListener('keyup', doThat);
-
-		function doThis(e) {
-			console.log(e.keyCode);
-		}
-
-		function doThat(e) {
-			console.log(e.keyCode);
-		}
-
-		ABCJS.renderAbc('sheetMusic', this.props.sheetMusic);
 		return (
 			<div>
-
+				<HandleNotes />
 			</div>
 		);
 	}
 }
-
-let music = "T: Composition\n" +
-		"M: 4/4\n" +
-		"L: 2/8\n" +
-		"K: Cmaj\n" +
-		`|`;
-
-SheetMusic.defaultProps = ({
-	sheetMusic: music
-});
 
 const mapStateToProps = state => ({
 	sheetMusic: state.sheetMusic,
