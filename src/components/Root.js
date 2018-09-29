@@ -9,8 +9,8 @@ class Root extends Component {
     return (
       <div className="Root">
         <header>
-          <h1 className="title">Singer</h1>
-          <h3 className="range">The range is C2 – C6</h3>
+          <h1 className="title">Sing or Play Into the Microphone and Press Keys to Create Notation</h1>
+          <h3 className="range">The range is F1 – C7</h3>
         </header>
         <AudioButton />
         <Instructions />

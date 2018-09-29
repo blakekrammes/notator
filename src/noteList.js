@@ -1,4 +1,89 @@
 let notes = [
+	// (C1 - E1 don't register with pitchfinder using YIN or AMDF)
+	{
+		name: 'C1',
+		hz: {
+			min: 33,
+			max: 34
+		}
+	},
+	{
+		name: 'C#1',
+		hz: {
+			min: 35,
+			max: 36
+		}
+	},
+	{
+		name: 'D1',
+		hz: {
+			min: 37,
+			max: 38
+		}
+	},
+	{
+		name: 'D#1',
+		hz: {
+			min: 39,
+			max: 40
+		}
+	},
+	{
+		name: 'E1',
+		hz: {
+			min: 41,
+			max: 42
+		}
+	},
+	{
+		name: 'F1',
+		hz: {
+			min: 43,
+			max: 45
+		}
+	},
+	{
+		name: 'F#1',
+		hz: {
+			min: 46,
+			max: 47
+		}
+	},
+	{
+		name: 'G1',
+		hz: {
+			min: 48,
+			max: 50
+		}
+	},
+	{
+		name: 'G#1',
+		hz: {
+			min: 51,
+			max: 53
+		}
+	},
+	{
+		name: 'A1',
+		hz: {
+			min: 54,
+			max: 56
+		}
+	},
+	{
+		name: 'A#1',
+		hz: {
+			min: 57,
+			max: 60
+		}
+	},
+	{
+		name: 'B1',
+		hz: {
+			min: 61,
+			max: 64
+		}
+	},
 	{
 		name: 'C2',
 		hz: {
@@ -340,6 +425,90 @@ let notes = [
 		hz: {
 			min: 1018,
 			max: 1078
+		}
+	},
+	{
+		name: 'C#6',
+		hz: {
+			min: 1079,
+			max: 1142
+		}
+	},
+	{
+		name: 'D6',
+		hz: {
+			min: 1143,
+			max: 1210
+		}
+	},
+	{
+		name: 'D#6',
+		hz: {
+			min: 1211,
+			max: 1282
+		}
+	},
+	{
+		name: 'E6',
+		hz: {
+			min: 1283,
+			max: 1358
+		}
+	},
+	{
+		name: 'F6',
+		hz: {
+			min: 1359,
+			max: 1439
+		}
+	},
+	{
+		name: 'F#6',
+		hz: {
+			min: 1440,
+			max: 1524
+		}
+	},
+	{
+		name: 'G6',
+		hz: {
+			min: 1525,
+			max: 1615
+		}
+	},
+	{
+		name: 'G#6',
+		hz: {
+			min: 1616,
+			max: 1711
+		}
+	},
+	{
+		name: 'A6',
+		hz: {
+			min: 1712,
+			max: 1813
+		}
+	},
+	{
+		name: 'A#6',
+		hz: {
+			min: 1814,
+			max: 1921
+		}
+	},
+	{
+		name: 'B6',
+		hz: {
+			min: 1922,
+			max: 2035
+		}
+	},
+	{
+		name: 'C7',
+		hz: {
+			min: 2036,
+			max: 2155
 		}
 	}
 ]; 

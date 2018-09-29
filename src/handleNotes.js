@@ -81,17 +81,39 @@ export class HandleNotes extends Component {
 
 		if (note[1] !== '#') {
 
-			//high pitches
-			if (parseInt(note[1], 10) >= 5) {
+			//really high pitches (C7 - TBD)
+			if (parseInt(note[1], 10) === 7) {
+			  filteredNote = `${note[0].toLowerCase()}''`;
+			}
+			//high pitches (C6 - B6)
+			else if (parseInt(note[1], 10) === 6) {
+			  filteredNote = `${note[0].toLowerCase()}'`;
+			}
+			//mid-high pitches (C5 - B5)
+			else if (parseInt(note[1], 10) === 5) {
 			  filteredNote = note[0].toLowerCase();
 			}
-			//low pitches
-			else if (parseInt(note[1], 10) <= 3) {
+			//lower pitches (C3 - B3)
+			else if (parseInt(note[1], 10) === 3) {
 			  //commas are used to designate lower octave
 			  let lowNote = `${note[0]},`;
 			  filteredNote = `${lowNote}`;
 			}
-			//mid-range pitches
+			//low pitches (C2 – B2)
+			else if (parseInt(note[1], 10) === 2) {
+			  //commas are used to designate lower octave
+			  let lowNote = `${note[0]},,`;
+			  filteredNote = lowNote;
+			  console.log(filteredNote)
+			}
+			//very low pitches (C1 – B1)
+			else if (parseInt(note[1], 10) === 1) {
+			  //commas are used to designate lower octave
+			  let lowNote = `${note[0]},,,`;
+			  filteredNote = lowNote;
+			  console.log(filteredNote)
+			}
+			//mid-range pitches (C4 - B4)
 			else {
 			  filteredNote = note[0];
 			}
@@ -102,18 +124,40 @@ export class HandleNotes extends Component {
 			let regexOfHash = /#/;
 			let noHashNote = note.replace(regexOfHash, '');
 
-			//high pitches
-			if (parseInt(noHashNote[1], 10) >= 5) {
+			//very high pitches (C7 - TBD)
+			if (parseInt(noHashNote[1], 10) === 7) {
+			  filteredNote = `^${noHashNote[0].toLowerCase()}''`;
+			}
+			//high pitches (C6 - B6)
+			else if (parseInt(noHashNote[1], 10) === 6) {
+			  filteredNote = `^${noHashNote[0].toLowerCase()}'`;
+			}
+			//mid-high pitches (C5 to B5)
+			else if (parseInt(noHashNote[1], 10) === 5) {
 			  filteredNote = `^${noHashNote[0].toLowerCase()}`;
 			}
-			//low pitches
-			else if (parseInt(noHashNote[1], 10) <= 3) {
+			//lower pitches (C3 - B3)
+			else if (parseInt(noHashNote[1], 10) === 3) {
 			  //commas are used to designate lower octave
 			  let lowNote = `${noHashNote[0]},`;
 			  filteredNote = `^${lowNote}`;
 			  console.log(filteredNote)
 			}
-			//mid-range pitches
+			//low pitches (C2 – B2)
+			else if (parseInt(noHashNote[1], 10) === 2) {
+			  //commas are used to designate lower octave
+			  let lowNote = `${noHashNote[0]},,`;
+			  filteredNote = `^${lowNote}`;
+			  console.log(filteredNote)
+			}
+			//very low pitches (C1 – B1)
+			else if (parseInt(noHashNote[1], 10) === 1) {
+			  //commas are used to designate lower octave
+			  let lowNote = `${noHashNote[0]},,,`;
+			  filteredNote = `^${lowNote}`;
+			  console.log(filteredNote)
+			}
+			//mid-range pitches (C4 - B4)
 			else {
 			  filteredNote = `^${noHashNote[0]}`;
 			} 

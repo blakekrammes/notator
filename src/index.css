@@ -7,3 +7,13 @@ body {
 .title {
 	padding: 1.3rem;
 }
+
+.abcjs-inline-midi {
+	width: 20rem;
+	margin: 1.3rem;
+}
+
+.abcjs-download-midi {
+	margin: 1.3rem;
+}
+

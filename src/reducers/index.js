@@ -49,9 +49,8 @@ export const singerReducer = (state = initialState, action) => {
 		});
 	}
 	else if (action.type === actions.DELETE_NOTE) {
-		console.log(state.writtenNotes);
 		let slicedNotes = state.writtenNotes.slice(0, state.writtenNotes.length - 1);
-		let slicedNotesString = state.writtenNotes.slice(0, state.writtenNotes.length - 1).join('');
+		let slicedNotesString = slicedNotes.join('');
 		let updatedMusicTemplate = "T: Composition\n" +
 								   "M: 4/4\n" +
 								   "L: 2/8\n" +
