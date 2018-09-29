@@ -42,3 +42,16 @@ export const changeSixteenthNoteCount = count => ({
 	type: CHANGE_SIXTEENTH_NOTE_COUNT,
 	count
 });
+
+export const CHANGE_CLEF = 'CHANGE_CLEF';
+export const changeClef = clef => ({
+	type: CHANGE_CLEF,
+	clef
+});
+
+export const UPDATE_MUSIC = 'UPDATE_MUSIC';
+export const updateMusic = () => ({
+	type: UPDATE_MUSIC
+});
+
+

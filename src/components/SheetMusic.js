@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import ABCJS from 'abcjs/midi';
 import HandleNotes from '../handleNotes';
+import ClefButton from './ClefButton';
+
 
 
 export class SheetMusic extends Component {
@@ -18,6 +20,7 @@ export class SheetMusic extends Component {
 		return (
 			<div>
 				<HandleNotes />
+				<ClefButton />
 			</div>
 		);
 	}

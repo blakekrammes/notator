@@ -4,7 +4,7 @@ let musicTemplate =
 	  "T: Composition\n" +
 	  "M: 4/4\n" +
 	  "L: 2/8\n" +
-	  "K: CMaj clef=bass\n" +
+	  "K: CMaj clef=treble\n" +
 	  `|`;
 
 const initialState = {
@@ -13,7 +13,8 @@ const initialState = {
 	keyCode: undefined,
 	augmentationDotPressed: false,
 	writtenNotes: [],
-	sixteenthNoteCount: 0
+	sixteenthNoteCount: 0,
+	clef: 'treble'
 };
 
 export const singerReducer = (state = initialState, action) => {
@@ -54,7 +55,7 @@ export const singerReducer = (state = initialState, action) => {
 		let updatedMusicTemplate = "T: Composition\n" +
 								   "M: 4/4\n" +
 								   "L: 2/8\n" +
-								   "K: CMaj clef=bass\n" +
+								   `K: CMaj clef=${state.clef}\n` +
 							  	   `|${slicedNotesString}`;				 
 		return Object.assign({}, state, {
 			writtenNotes: slicedNotes,
@@ -64,6 +65,22 @@ export const singerReducer = (state = initialState, action) => {
 	else if (action.type === actions.CHANGE_SIXTEENTH_NOTE_COUNT) {
 		return Object.assign({}, state, {
 			sixteenthNoteCount: action.count
+		});
+	}
+	else if (action.type === actions.CHANGE_CLEF) {
+		return Object.assign({}, state, {
+			clef: action.clef
+		});
+	}
+	else if (action.type === actions.UPDATE_MUSIC) {
+		let notesString = state.writtenNotes.join('');
+		let updatedMusicTemplate = "T: Composition\n" +
+								   "M: 4/4\n" +
+								   "L: 2/8\n" +
+								   `K: CMaj clef=${state.clef}\n` +
+							  	   `|${notesString}`;
+		return Object.assign({}, state, {
+			sheetMusic: updatedMusicTemplate
 		});
 	}
 	return state;

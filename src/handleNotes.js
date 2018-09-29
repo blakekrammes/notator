@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {addNote, deleteNote, pressAugmentationDot, releaseAugmentationDot, changeSixteenthNoteCount, changeSheetMusic} from './actions';
-import ABCJS from 'abcjs';
 
 export class HandleNotes extends Component {
-	constructor() {
-		super();
-	}
+	// constructor() {
+	// 	super();
+	// }
 
 	componentDidMount() {
 		document.addEventListener('keydown', this.pressKey);
@@ -59,7 +58,8 @@ export class HandleNotes extends Component {
 	      this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount - 16));
 	    }
 	    this.props.dispatch(deleteNote());
-	    // this.deleteNotes();
+	    // you may need this to refresh the music
+	    // this.writeABCNotation('');
 	  }
 
 
@@ -77,12 +77,7 @@ export class HandleNotes extends Component {
 
 	  if (suitableKeyCodes.includes(e.keyCode)) {
 
-	  	// console.log(unfilteredNote);
 		let filteredNote;
-
-		let insert = (str, index, value) => {
-			str.substr(0, index) + value + str.substr(index);
-		}
 
 		if (note[1] !== '#') {
 
@@ -175,8 +170,6 @@ export class HandleNotes extends Component {
 	}
 	
 	writeABCNotation = (noteToBeWritten) => {
-
-		console.log(noteToBeWritten);
 
 	  let notesToDisplay;
   
@@ -306,7 +299,7 @@ export class HandleNotes extends Component {
 	  "T: Composition\n" +
 	  "M: 4/4\n" +
 	  "L: 2/8\n" +
-	  "K: CMaj clef=bass\n" +
+	  `K: CMaj clef=${this.props.clef}\n` +
 	  `|${notesToDisplay}`;
 	 
 	 this.props.dispatch(changeSheetMusic(music));
@@ -333,7 +326,8 @@ const mapStateToProps = state => ({
 	keyCode: state.keyCode,
 	augmentationDotPressed: state.augmentationDotPressed,
 	writtenNotes: state.writtenNotes,
-	sixteenthNoteCount: state.sixteenthNoteCount
+	sixteenthNoteCount: state.sixteenthNoteCount,
+	clef: state.clef
 });
 
 export default connect(mapStateToProps)(HandleNotes);
