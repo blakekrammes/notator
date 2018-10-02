@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import './Pitch.css';
+import './pitch.css';
 
 export class Pitch extends Component {
 	render() {
