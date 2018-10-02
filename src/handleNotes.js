@@ -3,9 +3,6 @@ import {connect} from 'react-redux';
 import {addNote, deleteNote, pressAugmentationDot, releaseAugmentationDot, changeSixteenthNoteCount, changeSheetMusic} from './actions';
 
 export class HandleNotes extends Component {
-	// constructor() {
-	// 	super();
-	// }
 
 	componentDidMount() {
 		document.addEventListener('keydown', this.pressKey);
@@ -40,10 +37,6 @@ export class HandleNotes extends Component {
 	    else if (this.props.writtenNotes[length - 1].includes('3/')) {
 	      this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount - 6));
 	    }
-	    //if last entry was a quarter note
-	    else if (this.props.writtenNotes[length - 1].length === 1) {
-	    	this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount - 4));
-	    }
 	    //if last entry was a half note
 	    else if (this.props.writtenNotes[length - 1].includes('2')) {
 	    	this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount - 8));
@@ -57,7 +50,14 @@ export class HandleNotes extends Component {
 	    else if (this.props.writtenNotes[length - 1].includes('4')) {
 	      this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount - 16));
 	    }
+	    //if last entry was a quarter note
+	    else {
+	    	this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount - 4));
+	    }
+
 	    this.props.dispatch(deleteNote());
+	    console.log('onDelete ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
+
 	    // you may need this to refresh the music
 	    // this.writeABCNotation('');
 	  }
@@ -235,10 +235,14 @@ export class HandleNotes extends Component {
 	    else if (this.props.sixteenthNoteCount === 16) {
 	      this.props.dispatch(addNote('|'));
 	      this.props.dispatch(changeSixteenthNoteCount(0));
+	      	 console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
+
 	    }
 	    this.props.dispatch(addNote(noteToBeWritten));
 	    notesToDisplay = this.props.writtenNotes.join('');
 	    this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount + 16));
+	    	    	    console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
+
 	  }
 
 	  //if dotted half
@@ -246,13 +250,17 @@ export class HandleNotes extends Component {
 	    if (this.props.sixteenthNoteCount > 4 && this.props.sixteenthNoteCount < 16) { 
 	      return;
 	    }
-	    else if (this.propssixteenthNoteCount === 16) {
+	    else if (this.props.sixteenthNoteCount === 16) {
 	      this.props.dispatch(addNote('|'));
 	      this.props.dispatch(changeSixteenthNoteCount(0));
+	      	    	    console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
+
 	    }
 	    this.props.dispatch(addNote(noteToBeWritten));
 	    notesToDisplay = this.props.writtenNotes.join('');
 	    this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount + 12));
+	    	    	    console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
+
 	  }
 
 	  //if half note
@@ -263,10 +271,14 @@ export class HandleNotes extends Component {
 	    else if (this.props.sixteenthNoteCount === 16) {
 	      this.props.dispatch(addNote('|'));
 	      this.props.dispatch(changeSixteenthNoteCount(0));
+	      	    	    console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
+
 	    }
 	    this.props.dispatch(addNote(noteToBeWritten));
 	    notesToDisplay = this.props.writtenNotes.join('');
 	    this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount + 8));
+	    	    	    console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
+
 	  }
 
 	  //if dotted quarter
@@ -277,10 +289,14 @@ export class HandleNotes extends Component {
 	    else if (this.props.sixteenthNoteCount === 16) {
 	      this.props.dispatch(addNote('|'));
 	      this.props.dispatch(changeSixteenthNoteCount(0));
+	      	    	    console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
+
 	    }
 	    this.props.dispatch(addNote(noteToBeWritten));
 	    notesToDisplay = this.props.writtenNotes.join('');
 	    this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount + 6));
+	    	    	    console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
+
 	  }
 
 	  //if dotted eigth
@@ -291,10 +307,14 @@ export class HandleNotes extends Component {
 	    else if (this.props.sixteenthNoteCount === 16) {
 			this.props.dispatch(addNote('|'));	      
 			this.props.dispatch(changeSixteenthNoteCount(0));
+				    	    console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
+
 	    }
 	    this.props.dispatch(addNote(noteToBeWritten));
 	    notesToDisplay = this.props.writtenNotes.join('');
 	    this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount + 3));
+	    	    	    console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
+
 	  }
 
 	  //if eighth note
@@ -305,10 +325,14 @@ export class HandleNotes extends Component {
 	    else if (this.props.sixteenthNoteCount === 16) {
 	      this.props.dispatch(addNote('|'));
 	      this.props.dispatch(changeSixteenthNoteCount(0));
+	      	    	    console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
+
 	    }
 	    this.props.dispatch(addNote(noteToBeWritten));
 	    notesToDisplay = this.props.writtenNotes.join('');
 	    this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount + 2));
+	    	    	    console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
+
 	  }
 
 	  //if sixteenth note
@@ -319,10 +343,14 @@ export class HandleNotes extends Component {
 	    else if (this.props.sixteenthNoteCount === 16) {
 	      this.props.writtenNotes.push('|');
 	      this.props.dispatch(changeSixteenthNoteCount(0));
+	      	    	    console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
+
 	    }
 	    this.props.dispatch(addNote(noteToBeWritten));
 	    notesToDisplay = this.props.writtenNotes.join('');
 	    this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount + 1));
+	    	    	    console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
+
 	  }
 
 	  //if quarter note
@@ -333,10 +361,14 @@ export class HandleNotes extends Component {
 	    else if (this.props.sixteenthNoteCount === 16) {
 	      this.props.writtenNotes.push('|');
 	      this.props.dispatch(changeSixteenthNoteCount(0));
+	      	    	    console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
+
 	    }
 	    this.props.dispatch(addNote(noteToBeWritten));
 	    notesToDisplay = this.props.writtenNotes.join('');
 	    this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount + 4));
+	    	    	    console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
+
 	  }
     
 	  let music = 
@@ -365,13 +397,13 @@ export class HandleNotes extends Component {
 }
 
 const mapStateToProps = state => ({
-	pitch: state.pitch,
-	sheetMusic: state.sheetMusic,
-	keyCode: state.keyCode,
-	augmentationDotPressed: state.augmentationDotPressed,
-	writtenNotes: state.writtenNotes,
-	sixteenthNoteCount: state.sixteenthNoteCount,
-	clef: state.clef
+	pitch: state.singer.pitch,
+	sheetMusic: state.singer.sheetMusic,
+	keyCode: state.singer.keyCode,
+	augmentationDotPressed: state.singer.augmentationDotPressed,
+	writtenNotes: state.singer.writtenNotes,
+	sixteenthNoteCount: state.singer.sixteenthNoteCount,
+	clef: state.singer.clef
 });
 
 export default connect(mapStateToProps)(HandleNotes);

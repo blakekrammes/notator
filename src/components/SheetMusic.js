@@ -17,10 +17,13 @@ export class SheetMusic extends Component {
  	componentDidUpdate() {
  		ABCJS.renderAbc('sheetMusic', this.props.sheetMusic, {});
 
- 		if (ABCJS.midi.deviceSupportsMidi() && this.props.writtenNotes.length >= 1) {
+ 		if (ABCJS.midi.deviceSupportsMidi() && this.props.writtenNotes.length !== undefined && this.props.writtenNotes.length >= 1) {
  			let abcString = this.props.sheetMusic;
  			// ABCJS.renderMidi('midi-controls', abcString);
- 			ABCJS.renderMidi('midi-download', abcString, { generateDownload: true, generateInline: true });
+ 			ABCJS.renderMidi('midi-download', abcString, { 
+ 				generateDownload: true, 
+ 				generateInline: true,
+ 			});
  		}
  	}
 		
@@ -35,11 +38,11 @@ export class SheetMusic extends Component {
 }
 
 const mapStateToProps = state => ({
-	sheetMusic: state.sheetMusic,
-	keyCode: state.keyCode,
-	augmentationDotPressed: state.augmentationDotPressed,
-	writtenNotes: state.writtenNotes,
-	sixteenthNoteCount: state.sixteenthNoteCount
+	sheetMusic: state.singer.sheetMusic,
+	keyCode: state.singer.keyCode,
+	augmentationDotPressed: state.singer.augmentationDotPressed,
+	writtenNotes: state.singer.writtenNotes,
+	sixteenthNoteCount: state.singer.sixteenthNoteCount
 });
 
 export default connect(mapStateToProps)(SheetMusic);

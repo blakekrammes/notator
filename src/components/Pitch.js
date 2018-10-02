@@ -15,7 +15,7 @@ Pitch.defaultProps = ({
 });
 
 const mapStateToProps = state => ({
-	pitch: state.pitch
+	pitch: state.singer.pitch
 });
 
 export default connect(mapStateToProps)(Pitch);

@@ -55,7 +55,7 @@ export class AudioButton extends Component {
 	render() {
 		return (
 			<div>
-				<button className="input-button" onClick={this.toggleInput.bind(this)}>use live input</button>
+				<button className="input-button" onClick={() => this.toggleInput()}>use live input</button>
 				<Pitch />
 			</div>
 		);

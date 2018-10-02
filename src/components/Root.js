@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Instructions} from './Instructions';
 import AudioButton from './AudioButton';
 import SheetMusic from './SheetMusic';
+import SignupForm from './SignupForm';
 import './Root.css';
 
 class Root extends Component {
@@ -13,6 +14,7 @@ class Root extends Component {
           <h3 className="range">The range is F1 – C7</h3>
         </header>
         <AudioButton />
+        <SignupForm />
         <Instructions />
         <SheetMusic />
       </div>

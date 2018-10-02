@@ -25,7 +25,7 @@ export class ClefButton extends Component {
 }
 
 const mapStateToProps = state => ({
-	clef: state.clef
+	clef: state.singer.clef
 });
 
 export default connect(mapStateToProps)(ClefButton);

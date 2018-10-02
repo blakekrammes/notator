@@ -82,5 +82,8 @@ export const singerReducer = (state = initialState, action) => {
 			sheetMusic: updatedMusicTemplate
 		});
 	}
+	else if (action.type === actions.CREATE_USER_SUCCESS) {
+		return action.newUser;
+	}
 	return state;
 };
