@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import ABCJS from 'abcjs/midi';
 import HandleNotes from '../handleNotes';
-import ClefButton from './ClefButton';
+import ClefButton from './clefButton';
 import 'font-awesome/css/font-awesome.min.css';
 import 'abcjs/abcjs-midi.css';
 

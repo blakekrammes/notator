@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import {Instructions} from './Instructions';
-import AudioButton from './AudioButton';
-import SheetMusic from './SheetMusic';
-import SignupForm from './SignupForm';
-import './Root.css';
+import {Instructions} from './instructions';
+import AudioButton from './audioButton';
+import SheetMusic from './sheetMusic';
+import SignupForm from './signupForm';
+import './root.css';
 
 class Root extends Component {
   render() {
