@@ -11,5 +11,3 @@ export default createStore(
 		}),
 		applyMiddleware(thunk)
 );
-
-// export default createStore(combinedReducer, applyMiddleware(thunk));
