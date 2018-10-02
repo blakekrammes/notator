@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import Pitchfinder from 'pitchfinder';
-import Pitch from './pitch';
+import Pitch from './Pitch';
 import {changePitch} from '../actions';
 import notes from '../noteList';
-import './audioButton.css';
+import './AudioButton.css';
 
 export class AudioButton extends Component {
 	toggleInput() {
