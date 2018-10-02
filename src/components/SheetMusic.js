@@ -17,7 +17,7 @@ export class SheetMusic extends Component {
  	componentDidUpdate() {
  		ABCJS.renderAbc('sheetMusic', this.props.sheetMusic, {});
 
- 		if (ABCJS.midi.deviceSupportsMidi() && this.props.writtenNotes.length !== undefined && this.props.writtenNotes.length >= 1) {
+ 		if (ABCJS.midi.deviceSupportsMidi() && this.props.writtenNotes !== undefined && this.props.writtenNotes.length >= 1) {
  			let abcString = this.props.sheetMusic;
  			// ABCJS.renderMidi('midi-controls', abcString);
  			ABCJS.renderMidi('midi-download', abcString, { 

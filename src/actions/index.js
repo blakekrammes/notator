@@ -63,6 +63,7 @@ export const createUserSuccess = newUser => ({
 
 
 export const createUser = (protoUser) => dispatch => {
+
 	return fetch('https://still-wave-85687.herokuapp.com/users', {
 		method: 'post',
 		body: JSON.stringify(protoUser),
@@ -72,7 +73,6 @@ export const createUser = (protoUser) => dispatch => {
 	})
 	.then(function(res) {
 		if (!res.ok) {
-			// console.log(JSON.stringify(protoUser));
 			return Promise.reject(res.statusText);
 		}
 		return res.json();
