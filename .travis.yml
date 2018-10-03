@@ -9,6 +9,6 @@ deploy:
   provider: heroku
   api_key:
     secure: yEUpzeP29S0ovTuH685q2Wl5eV06tds2j5vYdw/w1w2TvBnB8i/zYyLajCAecKdWiCYaD69N8O1sPTxzKpnkSCJiHfAe8q53QqlQ0zpe4pKJvGWEDQE5MVFh+IUxNK73B1+Ama7Jtk+lW39Favvi1DtptKCm9tdV+vGh4Z4ffTwrrra9n2WxYDSCSEkJon7potLNG83UXkgJcNHTQYWdt+jswkKPPoAz6mdzTcZIMTke970aSB92xFZKLMIa+ZBncK2qY8cnS/sfh9LLfOIKRVfQC849fHTjQRblN1ufAN1+z/T9aZXszWpxWvVftRmG4/SabaRP468GE5Q03FgihAaxATmFdekcStYJV4rEKvsrw6vbvuFeIsYt4OtK398y9Tpqd5WFWvl35r7SqSb34rTMI435iwiL08VJ+ec8lFlKeII6XzgIOXrwKyJtsOYtautOBNI6X0um5vgaR97Z1ZV/q0rSbhVxqxZamQ7r+35LI/7tEzVeYcU4NYlNstpxf3Nz0hlD/tazMp5WcbyNnjQI38UAT02jrGksAsWJYf1Jb4piODRvq9T1LJmUGi9+rFaPRlrZz5IxIFMKHF4bhUJz50dzvFbzQEuP29d8lxgN/KI4FcZh+l+3CzEvFvpgAvoJbUzO/6tjbCEWNfYfHhufFS2vlLwLs/BqhVr6XxE=
-  app: whispering-mountain-60068
+  app: notator
   on:
-    repo: Blakesters/singer
+    repo: Blakesters/notator

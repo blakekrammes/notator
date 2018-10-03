@@ -1,25 +1,28 @@
 import React, { Component } from 'react';
+import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 import {Instructions} from './Instructions';
-import AudioButton from './AudioButton';
-import SheetMusic from './SheetMusic';
 import SignupForm from './SignupForm';
-import './Root.css';
+import LoginForm from './LoginForm';
+import Home from './Home';
 
-class Root extends Component {
+export default class Root extends Component {
   render() {
     return (
-      <div className="Root">
-        <header>
-          <h1 className="title">Sing or Play Into the Microphone and Press Keys to Create Notation</h1>
-          <h3 className="range">The range is F1 – C7</h3>
-        </header>
-        <AudioButton />
-        <SignupForm />
-        <Instructions />
-        <SheetMusic />
-      </div>
+      <Router>
+        <div className="Root">
+          <header>
+            <h1 className="title"><Link to="/">Notator</Link></h1>
+          </header>
+          <main>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/login" component={LoginForm} />
+              <Route exact path="/signup" component={SignupForm} />
+            </Switch>
+          </main>
+        </div>
+      </Router>
     );
   }
 }
 
-export default Root;  

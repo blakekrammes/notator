@@ -54,37 +54,6 @@ export const updateMusic = () => ({
 	type: UPDATE_MUSIC
 });
 
-
-export const CREATE_USER_SUCCESS = 'CREATE_USER_SUCCESS';
-export const createUserSuccess = newUser => ({
-	type: CREATE_USER_SUCCESS,
-	newUser
-});
-
-
-export const createUser = (protoUser) => dispatch => {
-
-	return fetch('https://still-wave-85687.herokuapp.com/users', {
-		method: 'post',
-		body: JSON.stringify(protoUser),
-		headers: {
-		    'Content-Type': 'application/json'
-		}
-	})
-	.then(function(res) {
-		if (!res.ok) {
-			return Promise.reject(res.statusText);
-		}
-		return res.json();
-	})
-	.then(function(user) {
-		dispatch(createUserSuccess(user));
-	})
-	.catch(function(err) {
-		console.error(err);
-	})
-}
-
 export const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS';
 export const fetchUsersSuccess = users => ({
 	type: FETCH_USERS_SUCCESS,
