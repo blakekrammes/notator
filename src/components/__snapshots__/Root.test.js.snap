@@ -15,118 +15,46 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "host",
+    "nodeType": "class",
     "props": Object {
-      "children": Array [
+      "children": <div
+        className="Root"
+>
         <header>
-          <h1
-                    className="title"
-          >
-                    Sing or Play Into the Microphone and Press Keys to Create Notation
-          </h1>
-          <h3
-                    className="range"
-          >
-                    The range is F1 – C7
-          </h3>
-</header>,
-        <Connect(AudioButton) />,
-        <ReduxForm />,
-        <Instructions />,
-        <Connect(SheetMusic) />,
-      ],
-      "className": "Root",
+                <h1
+                        className="title"
+                >
+                        <Link
+                                replace={false}
+                                to="/"
+                        >
+                                Notator
+                        </Link>
+                </h1>
+        </header>
+        <main>
+                <Switch>
+                        <Route
+                                component={[Function]}
+                                exact={true}
+                                path="/"
+                        />
+                        <Route
+                                component={[Function]}
+                                exact={true}
+                                path="/login"
+                        />
+                        <Route
+                                component={[Function]}
+                                exact={true}
+                                path="/signup"
+                        />
+                </Switch>
+        </main>
+</div>,
     },
     "ref": null,
-    "rendered": Array [
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": Array [
-            <h1
-              className="title"
->
-              Sing or Play Into the Microphone and Press Keys to Create Notation
-</h1>,
-            <h3
-              className="range"
->
-              The range is F1 – C7
-</h3>,
-          ],
-        },
-        "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "Sing or Play Into the Microphone and Press Keys to Create Notation",
-              "className": "title",
-            },
-            "ref": null,
-            "rendered": "Sing or Play Into the Microphone and Press Keys to Create Notation",
-            "type": "h1",
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "The range is F1 – C7",
-              "className": "range",
-            },
-            "ref": null,
-            "rendered": "The range is F1 – C7",
-            "type": "h3",
-          },
-        ],
-        "type": "header",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {},
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {},
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {},
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {},
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-    ],
-    "type": "div",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
+    "rendered": Object {
       "instance": null,
       "key": undefined,
       "nodeType": "host",
@@ -136,18 +64,33 @@ ShallowWrapper {
             <h1
                         className="title"
             >
-                        Sing or Play Into the Microphone and Press Keys to Create Notation
+                        <Link
+                                    replace={false}
+                                    to="/"
+                        >
+                                    Notator
+                        </Link>
             </h1>
-            <h3
-                        className="range"
-            >
-                        The range is F1 – C7
-            </h3>
 </header>,
-          <Connect(AudioButton) />,
-          <ReduxForm />,
-          <Instructions />,
-          <Connect(SheetMusic) />,
+          <main>
+            <Switch>
+                        <Route
+                                    component={[Function]}
+                                    exact={true}
+                                    path="/"
+                        />
+                        <Route
+                                    component={[Function]}
+                                    exact={true}
+                                    path="/login"
+                        />
+                        <Route
+                                    component={[Function]}
+                                    exact={true}
+                                    path="/signup"
+                        />
+            </Switch>
+</main>,
         ],
         "className": "Root",
       },
@@ -158,86 +101,377 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": Array [
-              <h1
-                className="title"
+            "children": <h1
+              className="title"
 >
-                Sing or Play Into the Microphone and Press Keys to Create Notation
+              <Link
+                            replace={false}
+                            to="/"
+              >
+                            Notator
+              </Link>
 </h1>,
-              <h3
-                className="range"
->
-                The range is F1 – C7
-</h3>,
-            ],
           },
           "ref": null,
-          "rendered": Array [
-            Object {
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <Link
+                replace={false}
+                to="/"
+>
+                Notator
+</Link>,
+              "className": "title",
+            },
+            "ref": null,
+            "rendered": Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "host",
+              "nodeType": "class",
               "props": Object {
-                "children": "Sing or Play Into the Microphone and Press Keys to Create Notation",
-                "className": "title",
+                "children": "Notator",
+                "replace": false,
+                "to": "/",
               },
               "ref": null,
-              "rendered": "Sing or Play Into the Microphone and Press Keys to Create Notation",
-              "type": "h1",
+              "rendered": "Notator",
+              "type": [Function],
             },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "The range is F1 – C7",
-                "className": "range",
-              },
-              "ref": null,
-              "rendered": "The range is F1 – C7",
-              "type": "h3",
-            },
-          ],
+            "type": "h1",
+          },
           "type": "header",
         },
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
-          "props": Object {},
+          "nodeType": "host",
+          "props": Object {
+            "children": <Switch>
+              <Route
+                            component={[Function]}
+                            exact={true}
+                            path="/"
+              />
+              <Route
+                            component={[Function]}
+                            exact={true}
+                            path="/login"
+              />
+              <Route
+                            component={[Function]}
+                            exact={true}
+                            path="/signup"
+              />
+</Switch>,
+          },
           "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {},
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {},
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {},
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                <Route
+                  component={[Function]}
+                  exact={true}
+                  path="/"
+/>,
+                <Route
+                  component={[Function]}
+                  exact={true}
+                  path="/login"
+/>,
+                <Route
+                  component={[Function]}
+                  exact={true}
+                  path="/signup"
+/>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "component": [Function],
+                  "exact": true,
+                  "path": "/",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "component": [Function],
+                  "exact": true,
+                  "path": "/login",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "component": [Function],
+                  "exact": true,
+                  "path": "/signup",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+          "type": "main",
         },
       ],
       "type": "div",
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": <div
+          className="Root"
+>
+          <header>
+                    <h1
+                              className="title"
+                    >
+                              <Link
+                                        replace={false}
+                                        to="/"
+                              >
+                                        Notator
+                              </Link>
+                    </h1>
+          </header>
+          <main>
+                    <Switch>
+                              <Route
+                                        component={[Function]}
+                                        exact={true}
+                                        path="/"
+                              />
+                              <Route
+                                        component={[Function]}
+                                        exact={true}
+                                        path="/login"
+                              />
+                              <Route
+                                        component={[Function]}
+                                        exact={true}
+                                        path="/signup"
+                              />
+                    </Switch>
+          </main>
+</div>,
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <header>
+              <h1
+                            className="title"
+              >
+                            <Link
+                                          replace={false}
+                                          to="/"
+                            >
+                                          Notator
+                            </Link>
+              </h1>
+</header>,
+            <main>
+              <Switch>
+                            <Route
+                                          component={[Function]}
+                                          exact={true}
+                                          path="/"
+                            />
+                            <Route
+                                          component={[Function]}
+                                          exact={true}
+                                          path="/login"
+                            />
+                            <Route
+                                          component={[Function]}
+                                          exact={true}
+                                          path="/signup"
+                            />
+              </Switch>
+</main>,
+          ],
+          "className": "Root",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <h1
+                className="title"
+>
+                <Link
+                                replace={false}
+                                to="/"
+                >
+                                Notator
+                </Link>
+</h1>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <Link
+                  replace={false}
+                  to="/"
+>
+                  Notator
+</Link>,
+                "className": "title",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Notator",
+                  "replace": false,
+                  "to": "/",
+                },
+                "ref": null,
+                "rendered": "Notator",
+                "type": [Function],
+              },
+              "type": "h1",
+            },
+            "type": "header",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <Switch>
+                <Route
+                                component={[Function]}
+                                exact={true}
+                                path="/"
+                />
+                <Route
+                                component={[Function]}
+                                exact={true}
+                                path="/login"
+                />
+                <Route
+                                component={[Function]}
+                                exact={true}
+                                path="/signup"
+                />
+</Switch>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": Array [
+                  <Route
+                    component={[Function]}
+                    exact={true}
+                    path="/"
+/>,
+                  <Route
+                    component={[Function]}
+                    exact={true}
+                    path="/login"
+/>,
+                  <Route
+                    component={[Function]}
+                    exact={true}
+                    path="/signup"
+/>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "component": [Function],
+                    "exact": true,
+                    "path": "/",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "component": [Function],
+                    "exact": true,
+                    "path": "/login",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "component": [Function],
+                    "exact": true,
+                    "path": "/signup",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": [Function],
+            },
+            "type": "main",
+          },
+        ],
+        "type": "div",
+      },
+      "type": [Function],
     },
   ],
   Symbol(enzyme.__options__): Object {
