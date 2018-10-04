@@ -60,8 +60,10 @@ export const fetchUsersSuccess = users => ({
 	users
 });
 
+const notatorServerURL = 'https://notatorserver.herokuapp.com'
+
 export const fetchUsers = () => dispatch => {
-	return fetch('https://still-wave-85687.herokuapp.com/users')
+	return fetch(`${notatorServerURL}/users`)
 	.then(res => {
 		if (!res.ok) {
 			return Promise.reject(res.statusText);

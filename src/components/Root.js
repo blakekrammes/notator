@@ -4,6 +4,7 @@ import {Instructions} from './Instructions';
 import SignupForm from './SignupForm';
 import LoginForm from './LoginForm';
 import Home from './Home';
+import MyCompositions from './MyCompositions';
 
 export default class Root extends Component {
   render() {
@@ -18,6 +19,7 @@ export default class Root extends Component {
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={LoginForm} />
               <Route exact path="/signup" component={SignupForm} />
+              <Route exact path="/mycompositions" component={MyCompositions} />
             </Switch>
           </main>
         </div>

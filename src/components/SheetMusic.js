@@ -17,7 +17,30 @@ let sheetMusicJSX = (
 export class SheetMusic extends Component {
 
 	saveNotation() {
-		this.props.dispatch(saveUserNotation(this.props.sheetMusic));
+		let titleText;
+		let title = prompt('What would you like to title your composition?');
+		if (title === null || title === '') {
+			titleText = 'Composition';
+		}
+		else {
+			titleText = title;
+		}
+
+		let date = new Date();
+    	let dateString = date.toString();
+    	let truncatedDateString = dateString.substring(0, dateString.length -36);
+
+    	let justNotationString = this.props.sheetMusic.substring(this.props.sheetMusic.indexOf('|') + 1);
+
+    	justNotationString = `|${justNotationString}|`;
+
+		const userInfoWithNotationString = {
+			username: this.props.currentUser.username,
+			title: titleText,
+			music: justNotationString,
+			creation: truncatedDateString
+		}
+		this.props.dispatch(saveUserNotation(userInfoWithNotationString));
 	}
 
  	componentDidMount() {
@@ -63,7 +86,8 @@ const mapStateToProps = state => ({
 	augmentationDotPressed: state.singer.augmentationDotPressed,
 	writtenNotes: state.singer.writtenNotes,
 	sixteenthNoteCount: state.singer.sixteenthNoteCount,
-	authToken: state.auth.authToken
+	authToken: state.auth.authToken,
+	currentUser: state.auth.currentUser
 });
 
 export default connect(mapStateToProps)(SheetMusic);

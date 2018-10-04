@@ -3,7 +3,7 @@ import {SubmissionError} from 'redux-form';
 import {normalizeResponseErrors} from './utils';
 import {saveAuthToken, clearAuthToken} from '../localStorage';
 
-const herokuAPIURL = 'https://still-wave-85687.herokuapp.com'
+const notatorServerURL = 'https://notatorserver.herokuapp.com'
 
 export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
 export const setAuthToken = authToken => ({
@@ -44,7 +44,7 @@ const storeAuthInfo = (authToken, dispatch) => {
 
 export const login = (loginUser) => dispatch => {
 	return (
-		fetch('https://still-wave-85687.herokuapp.com/auth/login', {
+		fetch(`${notatorServerURL}/auth/login`, {
 			method: 'post',
 			body: JSON.stringify(loginUser),
 			headers: {
@@ -77,7 +77,7 @@ export const login = (loginUser) => dispatch => {
 export const refreshAuthToken = () => (dispatch, getState) => {
 	dispatch(authRequest());
 	const authToken = getState().auth.authToken;
-	return fetch (`${herokuAPIURL}/auth/refresh`, {
+	return fetch (`${notatorServerURL}/auth/refresh`, {
 		method: 'POST',
 		headers: {
 			// Provide our existing token as credentials to get a new one

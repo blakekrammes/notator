@@ -2,10 +2,10 @@ import {SubmissionError} from 'redux-form';
 
 import {normalizeResponseErrors} from './utils';
 
-const herokuAPIURL = 'https://still-wave-85687.herokuapp.com';
+const notatorServerURL = 'https://notatorserver.herokuapp.com';
 
 export const registerUser = user => dispatch => {
-	return fetch(`${herokuAPIURL}/users`, {
+	return fetch(`${notatorServerURL}/users`, {
 		method: 'POST',
 		headers: {
 			'content-type': 'application/json'
@@ -27,15 +27,16 @@ export const registerUser = user => dispatch => {
 		});
 };
 
-export const saveUserNotation = notation => dispatch => {
-	return fetch(`${herokuAPIURL}/compositions`, {
+export const saveUserNotation = userWithNotationString => dispatch => {
+	return fetch(`${notatorServerURL}/compositions`, {
 		method: 'POST',
 		headers: {
 			'content-type': 'application/json'
 		},
-		body: JSON.stringify(notation)
+		body: JSON.stringify(userWithNotationString)
 	})
 		.then(res => normalizeResponseErrors(res))
 		.then(res => res.json())
 		.catch(err => {console.error(err)});
 };
+
