@@ -1,4 +1,6 @@
 import {SubmissionError} from 'redux-form';
+import {login} from './auth';
+import {authError} from './auth';
 
 import {normalizeResponseErrors} from './utils';
 
@@ -13,10 +15,15 @@ export const registerUser = user => dispatch => {
 		body: JSON.stringify(user)
 	})
 		.then(res => normalizeResponseErrors(res))
-		.then(res => res.json())
+		.then(res => {
+			dispatch(login(user));
+			return res.json(); 
+		})
 		.catch(err => {
+			console.log(err.message)
+			dispatch(authError(err.message));
 			const {reason, message, location} = err;
-			if (reason === 'Login Error') {
+			if (reason === 'Validation Error') {
 				// Convert Login Errors into SubmissionErrors for Redux Form
 				return Promise.reject(
 					new SubmissionError({
@@ -24,6 +31,10 @@ export const registerUser = user => dispatch => {
 					})
 				);
 			}
+		})
+		//2nd catch block if reason is validation error
+		.catch(err => {
+			console.error(err);
 		});
 };
 
@@ -40,13 +51,4 @@ export const saveUserNotation = userWithNotationString => dispatch => {
 		.catch(err => {console.error(err)});
 };
 
-
-export const deleteComposition = compositionID => dispatch => {
-	return fetch(`${notatorServerURL}/compositions/${compositionID}`, {
-		method: 'DELETE'
-	})
-		.then(res => normalizeResponseErrors(res))
-		.then(res => res.json())
-		.catch(err => {console.error(err)});
-};
 

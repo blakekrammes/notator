@@ -1,3 +1,4 @@
-.range {
+.range, .logged-in-div, .logged-out-div {
 	margin: 1.3rem;
 }
+

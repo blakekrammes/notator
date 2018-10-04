@@ -30,3 +30,21 @@ export const fetchCompositions = () => (dispatch, getState) => {
 			dispatch(fetchCompositionsError(err));
 		});
 };
+
+
+export const DELETE_COMPOSITION_SUCCESS = 'DELETE_COMPOSITION_SUCCESS';
+export const deleteCompositionSuccess = id => ( console.log('in next action ', id), {
+	type: DELETE_COMPOSITION_SUCCESS,
+	id
+});
+
+
+export const deleteComposition = compositionID => dispatch => {
+	console.log('in initial action ', compositionID)
+	return fetch(`${notatorServerURL}/compositions/${compositionID}`, {
+		method: 'DELETE'
+	})
+		.then(res => normalizeResponseErrors(res))
+		.then(res => dispatch(deleteCompositionSuccess(compositionID)))
+		.catch(err => console.error(err));
+};

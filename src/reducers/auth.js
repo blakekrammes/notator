@@ -20,7 +20,6 @@ export default function reducer(state = initialState, action) {
 		});
 	}
 	else if (action.type === CLEAR_AUTH) {
-		console.log('clearing')
 		return Object.assign({}, state, {
 			authToken: null,
 			currentUser: null
@@ -33,13 +32,13 @@ export default function reducer(state = initialState, action) {
 		});
 	}
 	else if (action.type === AUTH_SUCCESS) {
-		// console.log(action.currentUser);
 		return Object.assign({}, state, {
 			loading: false,
 			currentUser: action.currentUser
 		});
 	}
 	else if (action.type === AUTH_ERROR) {
+		// console.log(action.error)
 		return Object.assign({}, state, {
 			loading: false,
 			error: action.error

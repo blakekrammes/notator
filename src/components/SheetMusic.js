@@ -64,7 +64,7 @@ export class SheetMusic extends Component {
 	 			<div>
 			    	<HandleNotes />
 			    	<ClefButton />
-			    	<a href="" onClick={() => this.saveNotation()}>Save</a>
+			    	<a href="#" onClick={() => this.saveNotation()}>Save</a>
 		        </div> 
 	        );
  		}
