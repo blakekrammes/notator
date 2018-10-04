@@ -40,3 +40,13 @@ export const saveUserNotation = userWithNotationString => dispatch => {
 		.catch(err => {console.error(err)});
 };
 
+
+export const deleteComposition = compositionID => dispatch => {
+	return fetch(`${notatorServerURL}/compositions/${compositionID}`, {
+		method: 'DELETE'
+	})
+		.then(res => normalizeResponseErrors(res))
+		.then(res => res.json())
+		.catch(err => {console.error(err)});
+};
+
