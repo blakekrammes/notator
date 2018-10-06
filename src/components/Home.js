@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import {Instructions} from './Instructions';
 import AudioButton from './AudioButton';
 import SheetMusic from './SheetMusic';
-import {clearAuth} from '../actions/auth';
+import {clearAuth, authError} from '../actions/auth';
 import {clearAuthToken} from '../localStorage';
 import './Home.css';
 
@@ -15,7 +15,12 @@ export class Home extends Component {
 		clearAuthToken();
 	}
 
-	render() {	
+	componentDidMount() {
+		//clear any auth/signup error messages
+		this.props.dispatch(authError(null));
+	}
+
+	render() {
 		if (this.props.authToken && this.props.currentUser !== null) {
 			return (
 		    	<div className="home">

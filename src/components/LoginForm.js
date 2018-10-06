@@ -14,7 +14,7 @@ export class LoginForm extends Component {
 		let error;
 		if (this.props.error) {
 			error = (
-				<div className="form-error">
+				<div className="login-error">
 					{this.props.error}
 				</div>
 			);
@@ -38,7 +38,8 @@ export class LoginForm extends Component {
 }
 
 const mapStateToProps = state => ({
-	currentUser: state.auth.currentUser
+	currentUser: state.auth.currentUser,
+	error: state.auth.error
 });
 
 LoginForm = connect(mapStateToProps)(LoginForm);

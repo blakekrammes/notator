@@ -8,15 +8,18 @@ import 'font-awesome/css/font-awesome.min.css';
 import 'abcjs/abcjs-midi.css';
 
 let sheetMusicJSX = (
-		<div>
+		<div className="sheetMusicDiv">
 			<HandleNotes />
 			<ClefButton />
+			<div className="sheetMusic"></div>
+			<div className="sheetMusicMidi"></div>
 		</div>
 );
 
 export class SheetMusic extends Component {
 
-	saveNotation() {
+	saveNotation(e) {
+		e.preventDefault();
 		let titleText;
 		let title = prompt('What would you like to title your composition?');
 		if (title === null || title === '') {
@@ -44,16 +47,24 @@ export class SheetMusic extends Component {
 	}
 
  	componentDidMount() {
- 		ABCJS.renderAbc('sheetMusic', this.props.sheetMusic, {});
+
+ 		const abcDiv = document.querySelector('.sheetMusicDiv > .sheetMusic');
+
+ 		ABCJS.renderAbc(abcDiv, this.props.sheetMusic, {});
  	}
 
  	componentDidUpdate() {
- 		ABCJS.renderAbc('sheetMusic', this.props.sheetMusic, {});
+
+ 		const abcDiv = document.querySelector('.sheetMusicDiv > .sheetMusic');
+
+ 		ABCJS.renderAbc(abcDiv, this.props.sheetMusic, {});
 
  		if (ABCJS.midi.deviceSupportsMidi() && this.props.writtenNotes !== undefined && this.props.writtenNotes.length >= 1) {
  			let abcString = this.props.sheetMusic;
- 			// ABCJS.renderMidi('midi-controls', abcString);
- 			ABCJS.renderMidi('midi-download', abcString, { 
+
+ 			const abcMidiDiv = document.querySelector('.sheetMusicDiv > .sheetMusicMidi');
+ 			
+ 			ABCJS.renderMidi(abcMidiDiv, abcString, { 
  				generateDownload: true, 
  				generateInline: true,
  			});
@@ -61,18 +72,15 @@ export class SheetMusic extends Component {
 
  		if (this.props.writtenNotes.length >= 1 && this.props.authToken !== null) {
  			sheetMusicJSX = ( 
-	 			<div>
+	 			<div className="sheetMusicDiv">
 			    	<HandleNotes />
 			    	<ClefButton />
-			    	<a href="#" onClick={() => this.saveNotation()}>Save</a>
+			    	<a href="" onClick={(e) => this.saveNotation(e)}>Save</a>
+			    	<div className="sheetMusic"></div>
+			    	<div className="sheetMusicMidi"></div>
 		        </div> 
 	        );
  		}
- 	}
-
- 	componentWillUnmount() {
- 		//clear the music upon unmount
- 		ABCJS.renderAbc('sheetMusic', '', {});
  	}
 		
 	render() {

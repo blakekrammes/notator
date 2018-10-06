@@ -11,6 +11,14 @@ export class SignupForm extends Component {
 	}
 
 	render() {
+		let error;
+		if (this.props.error) {
+			error = (
+				<div className="signup-error">
+					{this.props.error}
+				</div>
+			);
+		}
 		if (this.props.currentUser !== null) {
 				return <Redirect to="/"/>;
 			}
@@ -18,7 +26,7 @@ export class SignupForm extends Component {
 			return (
 
 				<form className="signup-form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-					{this.props.error}
+					{error}
 					<label htmlFor="signup-username">Username</label>
 					<Field className="signup-input" name="username" id="signup-username" type="text" component="input" required />
 					<label htmlFor="signup-email">Email</label>

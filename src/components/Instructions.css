@@ -1,0 +1,160 @@
+.instruction-list {
+	display: flex;
+	flex-direction: row;
+}
+
+.note-img {
+	width: 7vw;
+	height: 7vw;
+}
+
+.note-img-whole {
+	width: 3.8vw;
+	height: 3.8vw;
+	margin-top: 2vh;
+}
+
+.note-img-text {
+	font-size: 3vw;
+	font-family: 'Quicksand', sans-serif;
+}
+
+.divider {
+	font-size: 7vw;
+}
+
+.divider.two {
+	padding-left: 5.5vw;
+}
+
+.dotted-note-text {
+	right: 5vw;
+}
+
+.etc {
+	right: 1vw;
+}
+
+.dotted-note-div {
+	margin-right: 13vw;
+}
+
+.augmentation-dot {
+	font-family: 'Cabin', sans-serif;
+	font-size: 7vw;
+	position: absolute;
+	right: -3vw;
+	bottom: -.5vw;
+}
+
+.tooltip {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.tooltip .tooltip-text {
+	visibility: hidden;
+	position: absolute;
+	width: 6vw;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    font-size: 1vw;
+    bottom: 125%;
+    left: 50%;
+    border-radius: 6px;
+    margin-left: -25%;
+    padding: 5px 0;
+}
+
+
+@media only screen  and (min-width : 1224px) {
+	.note-img-div {
+	padding: 2.5vw;
+	position: relative;
+	}
+
+	.note-img {
+		width: 3vw;
+		height: 3vw;
+	}
+
+	.note-img-whole {
+		width: 1.8vw;
+		height: 1.8vw;
+		margin-top: 2vh;
+	}
+
+	.note-img-text {
+		font-size: 3vw;
+		font-family: 'Quicksand', sans-serif;
+		position: absolute;
+		right: -.5vw;
+	}
+
+	.dotted-note-div {
+		margin-right: 13vw;
+	}
+
+	.augmentation-dot {
+		font-family: 'Cabin', sans-serif;
+		font-size: 7vw;
+		position: absolute;
+		right: -3vw;
+		bottom: -.5vw;
+	}
+
+	.divider {
+		font-size: 3vw;
+	}
+
+	.divider.two {
+		padding-left: 5.5vw;
+	}
+
+	.dotted-note-text {
+		right: -15vw;
+	}
+
+	.etc {
+		right: 1vw;
+	}
+
+	.tooltip {
+		position: relative;
+		display: inline-block;
+		cursor: pointer;
+	}
+
+	.tooltip .tooltip-text {
+		visibility: hidden;
+		position: absolute;
+		width: 6vw;
+	    background-color: #555;
+	    color: #fff;
+	    text-align: center;
+	    font-size: 1vw;
+	    bottom: 125%;
+	    left: 50%;
+	    border-radius: 6px;
+	    margin-left: -25%;
+	    padding: 5px 0;
+	}
+
+	.tooltip:hover .tooltip-text {
+		visibility: visible;
+	}
+
+	.x-img {
+		margin-top: 1vw;
+		width: 2.5vw;
+		height: 2.5vw;
+	}
+}
+
+
+
+
+
+

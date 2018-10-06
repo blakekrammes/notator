@@ -33,14 +33,13 @@ export const fetchCompositions = () => (dispatch, getState) => {
 
 
 export const DELETE_COMPOSITION_SUCCESS = 'DELETE_COMPOSITION_SUCCESS';
-export const deleteCompositionSuccess = id => ( console.log('in next action ', id), {
+export const deleteCompositionSuccess = id => ({
 	type: DELETE_COMPOSITION_SUCCESS,
 	id
 });
 
 
 export const deleteComposition = compositionID => dispatch => {
-	console.log('in initial action ', compositionID)
 	return fetch(`${notatorServerURL}/compositions/${compositionID}`, {
 		method: 'DELETE'
 	})

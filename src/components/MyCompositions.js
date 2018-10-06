@@ -34,8 +34,6 @@ export class MyCompositions extends Component {
 			})
 		: '';
 
-		console.log('the list is ', compositionList)
-
 		return (
 			<div>
 				{compositionList}

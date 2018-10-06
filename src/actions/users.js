@@ -20,7 +20,6 @@ export const registerUser = user => dispatch => {
 			return res.json(); 
 		})
 		.catch(err => {
-			console.log(err.message)
 			dispatch(authError(err.message));
 			const {reason, message, location} = err;
 			if (reason === 'Validation Error') {

@@ -1,17 +1,49 @@
 import React, { Component } from 'react';
+import './Instructions.css';
 
 export class Instructions extends Component {
-	render() {
+	render() {     
 		return (
-			<ul>
-				<li>for whole notes: press w</li>
-				<li>for half notes: press h</li>
-				<li>for quarter notes: press q</li>
-				<li>for eighth notes: press e</li>
-				<li>for sixteenth notes: press s</li>
-				<li>to create a dotted note: press . plus the base note value (up to dotted eighths)</li>
-				<li>to delete notes: press d</li>
-			</ul>
+			<div className="instruction-list">
+				{/*pngs courtesy of flaticon.com*/}
+				<div className="note-img-div">
+					<img className="note-img-whole" src="notes/whole.png" alt="whole-note"/>
+					<span className="note-img-text">w</span>
+				</div>
+				<div className="note-img-div">
+					<img className="note-img" src="/notes/half.png" alt="half-note"/>
+					<span className="note-img-text">h</span>
+				</div>
+				<div className="note-img-div">
+					<img className="note-img" src="/notes/quarter.png" alt="quarter-note"/>
+					<span className="note-img-text">q</span>
+				</div>
+				<div className="note-img-div">
+					<img className="note-img" src="/notes/eighth.png" alt="eighth-note"/>
+					<span className="note-img-text">e</span>
+				</div>
+				<div className="note-img-div">
+					<img className="note-img" src="/notes/sixteenth.png" alt="sixteenth-note"/>
+					<span className="note-img-text">s</span>
+				</div>
+				<div className="note-img-div dotted-note-div">
+					<span className="tooltip">
+						<img className="note-img dotted-note-img" src="/notes/dotted_quarter.png" alt="dotted-quarter-note"/>
+						<span className="divider">|</span>
+						<img className="note-img" src="/notes/dotted_half.png" alt="dotted-half-note"/>
+						<span className="divider one">|</span>
+						<span className="note-img-text etc">etc.</span>
+						<span className="divider two">|</span>
+						<span className="augmentation-dot">.</span>
+						<span className="note-img-text dotted-note-text">+ (note)</span> 
+						<span className="note-img-text tooltip-text">up to dotted eighths</span>
+					</span>
+				</div>
+				<div className="note-img-div x">
+					<img className="note-img x-img" src="/notes/x.png" alt="deletion-x"/>
+					<span className="note-img-text">d</span>
+				</div>
+			</div>
 		);
 	}
 }
