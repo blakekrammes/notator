@@ -54,28 +54,28 @@ export const updateMusic = () => ({
 	type: UPDATE_MUSIC
 });
 
-export const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS';
-export const fetchUsersSuccess = users => ({
-	type: FETCH_USERS_SUCCESS,
-	users
-});
+// export const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS';
+// export const fetchUsersSuccess = users => ({
+// 	type: FETCH_USERS_SUCCESS,
+// 	users
+// });
 
-const notatorServerURL = 'https://notatorserver.herokuapp.com'
+// const notatorServerURL = 'https://notatorserver.herokuapp.com'
 
-export const fetchUsers = () => dispatch => {
-	return fetch(`${notatorServerURL}/users`)
-	.then(res => {
-		if (!res.ok) {
-			return Promise.reject(res.statusText);
-		}
-		return res.json();
-	})
-	.then(users => {
-		dispatch(fetchUsersSuccess(users));
-	})
-	.catch(err => {
-		console.error(err);
-	})
-};
+// export const fetchUsers = () => dispatch => {
+// 	return fetch(`${notatorServerURL}/users`)
+// 	.then(res => {
+// 		if (!res.ok) {
+// 			return Promise.reject(res.statusText);
+// 		}
+// 		return res.json();
+// 	})
+// 	.then(users => {
+// 		dispatch(fetchUsersSuccess(users));
+// 	})
+// 	.catch(err => {
+// 		console.error(err);
+// 	})
+// };
 
 

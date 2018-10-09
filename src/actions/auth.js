@@ -71,7 +71,7 @@ export const login = (loginUser) => dispatch => {
 	        );
 		})
 		.catch(err => {
-			console.error(err);
+			// console.error(err);
 		})
 	);
 };
