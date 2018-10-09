@@ -30,11 +30,11 @@ describe('SignupForm', () => {
 
   	const wrapper = shallow(<SignupForm store={store} />);
 
-  	console.log(wrapper.find('.signup-form'));
+  	// console.log(wrapper.find('.signup-form'));
 
   	let thingy = wrapper.find('.signup-form');
 
-  	console.log(thingy)
+  	// console.log(thingy)
 
   	// expect(wrapper.find('.signup-error').hasClass('signup-error').toEqual(true));
 
