@@ -36,6 +36,27 @@ describe('authRequest', () => {
 	});
 });
 
+describe('authSuccess', () => {
+	it('should return the action', () => {
+		const mockUser = {
+			username: 'sherlock',
+			password: 'sherlock'
+		};
+		const action = authSuccess(mockUser);
+		expect(action.type).toEqual(AUTH_SUCCESS);
+		expect(action.currentUser).toEqual(mockUser);
+	});
+});
+
+describe('authError', () => {
+	it('should return the action', () => {
+		const error = 'NOOOOOOOO';
+		const action = authError(error);
+		expect(action.type).toEqual(AUTH_ERROR);
+		expect(action.error).toEqual(error);
+	});
+});
+
 describe('login', () => {
 	it('should return the action', () => {
 		const mockUser = {
@@ -57,5 +78,3 @@ describe('login', () => {
 		expect(dispatch).toHaveBeenCalledWith(storeAuthInfo(authToken));
 	});
 });
-
-

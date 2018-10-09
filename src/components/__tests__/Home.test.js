@@ -19,9 +19,26 @@ describe('Home', () => {
 	});
 
 	it('should render the logged-in JSX when authToken + user are provided', () => {
+		const callback = jest.fn();
 		const wrapper = shallow(<Home authToken={'212376538463745fdhsfafv2452635'} currentUser={'sherlock'} dispatch={mockEraseErrorfn} />);
 		let loggedInDiv = wrapper.find('.logged-in-div');
 		expect(loggedInDiv.props().className).toEqual('logged-in-div');
+
+		let linky = wrapper.find('a');
+
+		// let e = { preventDefault() {} };
+
+		// linky.props().onClick(e, callback());
+
+		// wrapper.find('a').simulate('click', { preventDefault() {} });
+
+		// expect(callback).toHaveBeenCalled();
+
+		// wrapper.find('a').prop('onClick')(mockedEvent);
+
+		// console.log(wrapper.debug())
+
+
 	});
 
 	it('should render the logged-out JSX when authToken + user are not provided', () => {

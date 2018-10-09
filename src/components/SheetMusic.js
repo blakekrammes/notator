@@ -7,14 +7,20 @@ import {saveUserNotation} from '../actions/users';
 import 'font-awesome/css/font-awesome.min.css';
 import 'abcjs/abcjs-midi.css';
 
-let sheetMusicJSX = (
-		<div className="sheetMusicDiv">
-			<HandleNotes />
-			<ClefButton />
-			<div className="sheetMusic"></div>
-			<div className="sheetMusicMidi"></div>
-		</div>
+const SheetMusicJSX = (props) => ( 
+	<div className="sheetMusicDiv">
+		<HandleNotes />
+		<ClefButton />
+		{( () => {
+    		if (props.writtenNotes.length >= 1 && props.authToken !== null) {
+    			return <a href="" onClick={(e) => props.saveNotation(e)}>Save</a>;
+    		}
+    	})()}
+		<div className="sheetMusic"></div>
+		<div className="sheetMusicMidi"></div>
+	</div>
 );
+
 
 export class SheetMusic extends Component {
 
@@ -69,22 +75,10 @@ export class SheetMusic extends Component {
  				generateInline: true,
  			});
  		}
-
- 		if (this.props.writtenNotes.length >= 1 && this.props.authToken !== null) {
- 			sheetMusicJSX = ( 
-	 			<div className="sheetMusicDiv">
-			    	<HandleNotes />
-			    	<ClefButton />
-			    	<a href="" onClick={(e) => this.saveNotation(e)}>Save</a>
-			    	<div className="sheetMusic"></div>
-			    	<div className="sheetMusicMidi"></div>
-		        </div> 
-	        );
- 		}
  	}
 		
 	render() {
-		return sheetMusicJSX;
+		return <SheetMusicJSX saveNotation={this.saveNotation} {...this.props} />;
 	}
 }
 

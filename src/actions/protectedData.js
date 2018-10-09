@@ -14,8 +14,16 @@ export const fetchCompositionsError = error => ({
 	error
 });
 
-export const fetchCompositions = () => (dispatch, getState) => {
-	const authToken = getState().auth.authToken;
+// the parameter here is just for testing purposes
+export const fetchCompositions = (passedAuthToken) => (dispatch, getState) => {
+	let authToken;
+	if (!passedAuthToken) {
+		authToken = getState().auth.authToken;
+	}
+	else {
+		authToken = passedAuthToken;
+	}
+
 	return fetch(`${notatorServerURL}/compositions/currentuser`, {
 		method: 'GET',
 		headers: {
