@@ -6,9 +6,9 @@ import 'font-awesome/css/font-awesome.min.css';
 import 'abcjs/abcjs-midi.css';
 
 export class Composition extends Component {
-	constructor(props) {
-		super(props);
-	}
+	// constructor(props) {
+	// 	super(props);
+	// }
 
 	componentDidMount() {
 		const abc = document.querySelector(`#abcdiv${this.props.id} > .musicDiv`);

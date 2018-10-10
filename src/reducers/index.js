@@ -12,9 +12,13 @@ const initialState = {
 	sheetMusic: musicTemplate,
 	keyCode: undefined,
 	augmentationDotPressed: false,
-	writtenNotes: [],
+	writtenNotes: ['|'],
 	sixteenthNoteCount: 0,
-	clef: 'treble'
+	clef: 'treble',
+	dimensions: {
+		width: window.innerWidth,
+		height: window.innerHeight
+	}
 };
 
 export const singerReducer = (state = initialState, action) => {
@@ -49,13 +53,16 @@ export const singerReducer = (state = initialState, action) => {
 		});
 	}
 	else if (action.type === actions.DELETE_NOTE) {
+		if (state.writtenNotes.length === 1) {
+			return state;
+		}
 		let slicedNotes = state.writtenNotes.slice(0, state.writtenNotes.length - 1);
 		let slicedNotesString = slicedNotes.join('');
 		let updatedMusicTemplate = "T: Composition\n" +
 								   "M: 4/4\n" +
 								   "L: 2/8\n" +
 								   `K: CMaj clef=${state.clef}\n` +
-							  	   `|${slicedNotesString}`;				 
+							  	   `${slicedNotesString}`;	
 		return Object.assign({}, state, {
 			writtenNotes: slicedNotes,
 			sheetMusic: updatedMusicTemplate
@@ -77,9 +84,17 @@ export const singerReducer = (state = initialState, action) => {
 								   "M: 4/4\n" +
 								   "L: 2/8\n" +
 								   `K: CMaj clef=${state.clef}\n` +
-							  	   `|${notesString}`;
+							  	   `${notesString}`;
 		return Object.assign({}, state, {
 			sheetMusic: updatedMusicTemplate
+		});
+	}
+	else if (action.type === actions.SET_DIMENSIONS) {
+		return Object.assign({}, state, {
+			dimensions: {
+				width: action.width,
+				height: action.height
+			}
 		});
 	}
 	return state;

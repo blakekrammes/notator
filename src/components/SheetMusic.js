@@ -4,6 +4,7 @@ import ABCJS from 'abcjs/midi';
 import HandleNotes from '../handleNotes';
 import ClefButton from './ClefButton';
 import {saveUserNotation} from '../actions/users';
+import {setDimensions} from '../actions/index';
 import 'font-awesome/css/font-awesome.min.css';
 import 'abcjs/abcjs-midi.css';
 
@@ -52,18 +53,31 @@ export class SheetMusic extends Component {
 		this.props.dispatch(saveUserNotation(userInfoWithNotationString));
 	}
 
+	// updateDimensions() {
+	// 	this.props.dispatch(setDimensions(window.innerWidth, window.innerHeight));
+	// 	// console.log(this.props.dimensions)
+	// }
+
  	componentDidMount() {
+
+ 		// window.addEventListener('resize',() => this.updateDimensions());
 
  		const abcDiv = document.querySelector('.sheetMusicDiv > .sheetMusic');
 
- 		ABCJS.renderAbc(abcDiv, this.props.sheetMusic, {});
+ 		ABCJS.renderAbc(abcDiv, this.props.sheetMusic, {
+ 			responsive: 'resize'
+ 		});
  	}
 
  	componentDidUpdate() {
 
  		const abcDiv = document.querySelector('.sheetMusicDiv > .sheetMusic');
 
- 		ABCJS.renderAbc(abcDiv, this.props.sheetMusic, {});
+ 		// if (this.props.dimensions.width )
+
+ 		ABCJS.renderAbc(abcDiv, this.props.sheetMusic, {
+ 			responsive: 'resize'
+ 		});
 
  		if (ABCJS.midi.deviceSupportsMidi() && this.props.writtenNotes !== undefined && this.props.writtenNotes.length >= 1) {
  			let abcString = this.props.sheetMusic;
@@ -73,6 +87,10 @@ export class SheetMusic extends Component {
  			ABCJS.renderMidi(abcMidiDiv, abcString, { 
  				generateDownload: true, 
  				generateInline: true,
+ 				// inlineControls: {
+ 				// 	tempo: true
+ 				// },
+ 				responsive: 'resize'
  			});
  		}
  	}
@@ -89,7 +107,8 @@ const mapStateToProps = state => ({
 	writtenNotes: state.singer.writtenNotes,
 	sixteenthNoteCount: state.singer.sixteenthNoteCount,
 	authToken: state.auth.authToken,
-	currentUser: state.auth.currentUser
+	currentUser: state.auth.currentUser,
+	dimensions: state.singer.dimensions
 });
 
 export default connect(mapStateToProps)(SheetMusic);

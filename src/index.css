@@ -30,11 +30,35 @@ button {
 }
 
 .abcjs-inline-midi {
-	width: 30rem;
-	margin: 1.3rem;
+	width: 40vw;
+	margin: 1.3vw;
 }
 
 .abcjs-download-midi {
-	margin: 1.3rem;
+	margin: 1.3vw;
+}
+
+/*.sheet-music {
+	width: 3vw;
+}*/
+
+@media only screen  and (min-width: 1224px) {
+	button {
+		font-size: 2vw;
+		padding: .5vw;
+	}
+
+	.title {
+		padding: 1.3rem;
+	}
+
+	/*.abcjs-inline-midi {
+		width: 30rem;
+		margin: 1.3rem;
+	}
+
+	.abcjs-download-midi {
+		margin: 1.3rem;
+	}*/
 }
 

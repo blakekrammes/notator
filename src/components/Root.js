@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
-import {Instructions} from './Instructions';
 import SignupForm from './SignupForm';
 import LoginForm from './LoginForm';
 import Home from './Home';

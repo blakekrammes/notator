@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import Pitchfinder from 'pitchfinder';
@@ -38,6 +39,7 @@ export class AudioButton extends Component {
     				if (individualNoteRange.includes(pitch)) {
     					return note.name;
     				}
+    				return undefined;
 				});
 				if (matchedPitch && matchedPitch.name !== undefined) {
 					this.props.dispatch(changePitch(matchedPitch.name));

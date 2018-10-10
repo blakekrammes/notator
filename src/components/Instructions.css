@@ -1,6 +1,12 @@
 .instruction-list {
 	display: flex;
 	flex-direction: row;
+	margin: 2vw;
+}
+
+.note-img-div {
+	padding: .5vw;
+	position: relative;
 }
 
 .note-img {
@@ -11,28 +17,38 @@
 .note-img-whole {
 	width: 3.8vw;
 	height: 3.8vw;
-	margin-top: 2vh;
+	margin-top: 4vw;
+	margin-left: 1.2vw;
+	margin-bottom: -.7vw;
 }
 
 .note-img-text {
-	font-size: 3vw;
+	font-size: 6vw;
 	font-family: 'Quicksand', sans-serif;
+	padding-left: 1.3vw;
+}
+
+.note-img-text.whole {
+	margin-right: 1vw;
 }
 
 .divider {
 	font-size: 7vw;
 }
 
+.divider.one {
+	padding-right: 1vw;
+}
+
 .divider.two {
-	padding-left: 5.5vw;
+	padding-left: 1vw;
 }
 
 .dotted-note-text {
-	right: 5vw;
-}
-
-.etc {
-	right: 1vw;
+	position: absolute;
+	right: -12vw;
+	top: 3vw;
+	font-size: 4.5vw;
 }
 
 .dotted-note-div {
@@ -41,10 +57,10 @@
 
 .augmentation-dot {
 	font-family: 'Cabin', sans-serif;
-	font-size: 7vw;
+	font-size: 12vw;
 	position: absolute;
-	right: -3vw;
-	bottom: -.5vw;
+	top: -5vw;
+	right: 6vw;
 }
 
 .tooltip {
@@ -68,8 +84,24 @@
     padding: 5px 0;
 }
 
+.x-img {
+	margin-top: 2.5vw;
+	width: 4.5vw;
+	height: 4.5vw;
+}
 
-@media only screen  and (min-width : 1224px) {
+/*.tooltip:active .tooltip-text {
+		visibility: visible;
+		/*transition: 3s;*/
+	/*}*/
+
+@media only screen  and (min-width: 500px) {
+	.note-img-whole {
+		margin-top: 3.5vw;
+	}
+}
+
+@media only screen  and (min-width: 1224px) {
 	.note-img-div {
 	padding: 2.5vw;
 	position: relative;
@@ -83,12 +115,16 @@
 	.note-img-whole {
 		width: 1.8vw;
 		height: 1.8vw;
-		margin-top: 2vh;
+		margin-top: 1.3vw;
+		padding-right: 2vw;
+	}
+
+	.half {
+		margin-left: -1vw;
 	}
 
 	.note-img-text {
 		font-size: 3vw;
-		font-family: 'Quicksand', sans-serif;
 		position: absolute;
 		right: -.5vw;
 	}
@@ -102,7 +138,7 @@
 		font-size: 7vw;
 		position: absolute;
 		right: -3vw;
-		bottom: -.5vw;
+		padding-top: .8vw;
 	}
 
 	.divider {
@@ -115,6 +151,7 @@
 
 	.dotted-note-text {
 		right: -15vw;
+		top: 0;
 	}
 
 	.etc {

@@ -56,7 +56,7 @@ export class HandleNotes extends Component {
 	    }
 
 	    this.props.dispatch(deleteNote());
-	    console.log('onDelete ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
+	    // console.log('onDelete ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
 
 	    // you may need this to refresh the music
 	    // this.writeABCNotation('');
@@ -104,18 +104,50 @@ export class HandleNotes extends Component {
 			  //commas are used to designate lower octave
 			  let lowNote = `${note[0]},,`;
 			  filteredNote = lowNote;
-			  console.log(filteredNote)
+			  // console.log(filteredNote)
 			}
 			//very low pitches (C1 – B1)
 			else if (parseInt(note[1], 10) === 1) {
 			  //commas are used to designate lower octave
 			  let lowNote = `${note[0]},,,`;
 			  filteredNote = lowNote;
-			  console.log(filteredNote)
+			  // console.log(filteredNote)
 			}
 			//mid-range pitches (C4 - B4)
 			else {
 			  filteredNote = note[0];
+			}
+
+			let musicString = this.props.writtenNotes.toString();
+
+			let currentMeasure = musicString.substr(musicString.lastIndexOf('|'), musicString.length);
+			// console.log(musicString)
+			// console.log(note[0]);
+
+			if (currentMeasure.includes(`^${note[0]},,,`)
+				|| currentMeasure.includes(`^${note[0]},,`)
+				|| currentMeasure.includes(`^${note[0]},`)
+				|| currentMeasure.includes(`^${note[0].toLowerCase()}''`)
+				|| currentMeasure.includes(`^${note[0].toLowerCase()}'`)
+				|| currentMeasure.includes(`^${note[0].toLowerCase()}`)
+				|| currentMeasure.includes(`^${note[0]}`) 
+				) {
+
+				let stringSinceLastSharp = currentMeasure.substr(currentMeasure.lastIndexOf('^'), currentMeasure.length);
+
+				if (stringSinceLastSharp.includes(`=${note[0]},,,`)
+				|| stringSinceLastSharp.includes(`=${note[0]},,`)
+				|| stringSinceLastSharp.includes(`=${note[0]},`)
+				|| stringSinceLastSharp.includes(`=${note[0].toLowerCase()}''`)
+				|| stringSinceLastSharp.includes(`=${note[0].toLowerCase()}'`)
+				|| stringSinceLastSharp.includes(`=${note[0].toLowerCase()}`)
+				|| stringSinceLastSharp.includes(`=${note[0]}`) 
+				) {
+					filteredNote = filteredNote;
+				}
+				else {
+					filteredNote = `=${filteredNote}`;
+				}
 			}
 		}
 
@@ -141,21 +173,21 @@ export class HandleNotes extends Component {
 			  //commas are used to designate lower octave
 			  let lowNote = `${noHashNote[0]},`;
 			  filteredNote = `^${lowNote}`;
-			  console.log(filteredNote)
+			  // console.log(filteredNote)
 			}
 			//low pitches (C2 – B2)
 			else if (parseInt(noHashNote[1], 10) === 2) {
 			  //commas are used to designate lower octave
 			  let lowNote = `${noHashNote[0]},,`;
 			  filteredNote = `^${lowNote}`;
-			  console.log(filteredNote)
+			  // console.log(filteredNote)
 			}
 			//very low pitches (C1 – B1)
 			else if (parseInt(noHashNote[1], 10) === 1) {
 			  //commas are used to designate lower octave
 			  let lowNote = `${noHashNote[0]},,,`;
 			  filteredNote = `^${lowNote}`;
-			  console.log(filteredNote)
+			  // console.log(filteredNote)
 			}
 			//mid-range pitches (C4 - B4)
 			else {
@@ -233,15 +265,17 @@ export class HandleNotes extends Component {
 	    }
 
 	    else if (this.props.sixteenthNoteCount === 16) {
-	      this.props.dispatch(addNote('|'));
+	      if (this.props.writtenNotes[this.props.writtenNotes.length - 1] !== '|') {
+		    	this.props.writtenNotes.push('|');
+		  }
 	      this.props.dispatch(changeSixteenthNoteCount(0));
-	      	 console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
+	      	 // console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
 
 	    }
 	    this.props.dispatch(addNote(noteToBeWritten));
 	    notesToDisplay = this.props.writtenNotes.join('');
 	    this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount + 16));
-	    	    	    console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
+	    	    	    // console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
 
 	  }
 
@@ -251,15 +285,17 @@ export class HandleNotes extends Component {
 	      return;
 	    }
 	    else if (this.props.sixteenthNoteCount === 16) {
-	      this.props.dispatch(addNote('|'));
+	      if (this.props.writtenNotes[this.props.writtenNotes.length - 1] !== '|') {
+		    	this.props.writtenNotes.push('|');
+		  }
 	      this.props.dispatch(changeSixteenthNoteCount(0));
-	      	    	    console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
+	      	    	    // console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
 
 	    }
 	    this.props.dispatch(addNote(noteToBeWritten));
 	    notesToDisplay = this.props.writtenNotes.join('');
 	    this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount + 12));
-	    	    	    console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
+	    	    	    // console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
 
 	  }
 
@@ -269,15 +305,17 @@ export class HandleNotes extends Component {
 	      return;
 	    }
 	    else if (this.props.sixteenthNoteCount === 16) {
-	      this.props.dispatch(addNote('|'));
+	      if (this.props.writtenNotes[this.props.writtenNotes.length - 1] !== '|') {
+		    	this.props.writtenNotes.push('|');
+		  }
 	      this.props.dispatch(changeSixteenthNoteCount(0));
-	      	    	    console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
+	      	    	    // console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
 
 	    }
 	    this.props.dispatch(addNote(noteToBeWritten));
 	    notesToDisplay = this.props.writtenNotes.join('');
 	    this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount + 8));
-	    	    	    console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
+	    	    	    // console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
 
 	  }
 
@@ -287,15 +325,17 @@ export class HandleNotes extends Component {
 	      return;
 	    }
 	    else if (this.props.sixteenthNoteCount === 16) {
-	      this.props.dispatch(addNote('|'));
+	    	if (this.props.writtenNotes[this.props.writtenNotes.length - 1] !== '|') {
+		    	this.props.writtenNotes.push('|');
+		    }
 	      this.props.dispatch(changeSixteenthNoteCount(0));
-	      	    	    console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
+	      	    	    // console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
 
 	    }
 	    this.props.dispatch(addNote(noteToBeWritten));
 	    notesToDisplay = this.props.writtenNotes.join('');
 	    this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount + 6));
-	    	    	    console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
+	    	    	    // console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
 
 	  }
 
@@ -305,15 +345,17 @@ export class HandleNotes extends Component {
 	      return;
 	    }
 	    else if (this.props.sixteenthNoteCount === 16) {
-			this.props.dispatch(addNote('|'));	      
+	    	if (this.props.writtenNotes[this.props.writtenNotes.length - 1] !== '|') {
+		    	this.props.writtenNotes.push('|');
+		    }	      
 			this.props.dispatch(changeSixteenthNoteCount(0));
-				    	    console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
+				    	    // console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
 
 	    }
 	    this.props.dispatch(addNote(noteToBeWritten));
 	    notesToDisplay = this.props.writtenNotes.join('');
 	    this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount + 3));
-	    	    	    console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
+	    	    	    // console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
 
 	  }
 
@@ -323,15 +365,17 @@ export class HandleNotes extends Component {
 	      return;
 	    }
 	    else if (this.props.sixteenthNoteCount === 16) {
-	      this.props.dispatch(addNote('|'));
+	    	if (this.props.writtenNotes[this.props.writtenNotes.length - 1] !== '|') {
+		    	this.props.writtenNotes.push('|');
+		    }
 	      this.props.dispatch(changeSixteenthNoteCount(0));
-	      	    	    console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
+	      	    	    // console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
 
 	    }
 	    this.props.dispatch(addNote(noteToBeWritten));
 	    notesToDisplay = this.props.writtenNotes.join('');
 	    this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount + 2));
-	    	    	    console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
+	    	    	    // console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
 
 	  }
 
@@ -341,15 +385,17 @@ export class HandleNotes extends Component {
 	      return;
 	    }
 	    else if (this.props.sixteenthNoteCount === 16) {
-	      this.props.writtenNotes.push('|');
+	    	if (this.props.writtenNotes[this.props.writtenNotes.length - 1] !== '|') {
+		    	this.props.writtenNotes.push('|');
+		    }
 	      this.props.dispatch(changeSixteenthNoteCount(0));
-	      	    	    console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
+	      	    	    // console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
 
 	    }
 	    this.props.dispatch(addNote(noteToBeWritten));
 	    notesToDisplay = this.props.writtenNotes.join('');
 	    this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount + 1));
-	    	    	    console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
+	    	    	    // console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
 
 	  }
 
@@ -359,15 +405,18 @@ export class HandleNotes extends Component {
 	      return;
 	    }
 	    else if (this.props.sixteenthNoteCount === 16) {
-	      this.props.writtenNotes.push('|');
+		    if (this.props.writtenNotes[this.props.writtenNotes.length - 1] !== '|') {
+		    	this.props.writtenNotes.push('|');
+		    }
+	      
 	      this.props.dispatch(changeSixteenthNoteCount(0));
-	      	    	    console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
+	      	    	    // console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
 
 	    }
 	    this.props.dispatch(addNote(noteToBeWritten));
 	    notesToDisplay = this.props.writtenNotes.join('');
 	    this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount + 4));
-	    	    	    console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
+	    	    	    // console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
 
 	  }
     
@@ -376,7 +425,7 @@ export class HandleNotes extends Component {
 	  "M: 4/4\n" +
 	  "L: 2/8\n" +
 	  `K: CMaj clef=${this.props.clef}\n` +
-	  `|${notesToDisplay}`;
+	  `${notesToDisplay}`;
 	 
 	 this.props.dispatch(changeSheetMusic(music));
 

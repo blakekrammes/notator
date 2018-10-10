@@ -8,10 +8,10 @@ export class Instructions extends Component {
 				{/*pngs courtesy of flaticon.com*/}
 				<div className="note-img-div">
 					<img className="note-img-whole" src="notes/whole.png" alt="whole-note"/>
-					<span className="note-img-text">w</span>
+					<span className="note-img-text whole">w</span>
 				</div>
 				<div className="note-img-div">
-					<img className="note-img" src="/notes/half.png" alt="half-note"/>
+					<img className="note-img half" src="/notes/half.png" alt="half-note"/>
 					<span className="note-img-text">h</span>
 				</div>
 				<div className="note-img-div">
@@ -23,7 +23,7 @@ export class Instructions extends Component {
 					<span className="note-img-text">e</span>
 				</div>
 				<div className="note-img-div">
-					<img className="note-img" src="/notes/sixteenth.png" alt="sixteenth-note"/>
+					<img className="note-img sixteenth" src="/notes/sixteenth.png" alt="sixteenth-note"/>
 					<span className="note-img-text">s</span>
 				</div>
 				<div className="note-img-div dotted-note-div">

@@ -54,6 +54,13 @@ export const updateMusic = () => ({
 	type: UPDATE_MUSIC
 });
 
+export const SET_DIMENSIONS = 'SET_DIMENSIONS';
+export const setDimensions = (width, height) => ({
+	type: SET_DIMENSIONS,
+	width,
+	height
+});
+
 // export const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS';
 // export const fetchUsersSuccess = users => ({
 // 	type: FETCH_USERS_SUCCESS,

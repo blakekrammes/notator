@@ -3,8 +3,6 @@ import {connect} from 'react-redux';
 import Composition from './Composition';
 import {fetchCompositions} from '../actions/protectedData';
 
-let compositionList;
-
 export class MyCompositions extends Component {
 	
 	componentDidMount() {

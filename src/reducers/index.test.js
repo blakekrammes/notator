@@ -29,9 +29,13 @@ describe('singerReducer', () => {
 			sheetMusic: musicTemplate,
 			keyCode: undefined,
 			augmentationDotPressed: false,
-			writtenNotes: [],
+			writtenNotes: ['|'],
 			sixteenthNoteCount: 0,
-			clef: 'treble'
+			clef: 'treble',
+			dimensions: {
+				height: 768, 
+				width: 1024
+			}
 		});
 	});
 
@@ -82,8 +86,8 @@ describe('singerReducer', () => {
 			let noteTwo = 'B';
 			state = singerReducer(state, addNote(note));
 			state = singerReducer(state, addNote(noteTwo));
-			expect(state.writtenNotes[0]).toEqual(note);
-			expect(state.writtenNotes[1]).toEqual(noteTwo);
+			expect(state.writtenNotes[1]).toEqual(note);
+			expect(state.writtenNotes[2]).toEqual(noteTwo);
 		});
 	});
 
@@ -93,7 +97,7 @@ describe('singerReducer', () => {
 			let noteToBeAddedThenDeleted = 'C';
 			state = singerReducer(state, addNote(noteToBeAddedThenDeleted));
 			state = singerReducer(state, deleteNote());
-			expect(state.writtenNotes[0]).toEqual(undefined);
+			expect(state.writtenNotes[1]).toEqual(undefined);
 		});
 	});
 
@@ -124,7 +128,7 @@ describe('singerReducer', () => {
 				  "M: 4/4\n" +
 				  "L: 2/8\n" +
 				  "K: CMaj clef=treble\n" +
-				  `|${state.writtenNotes}`;
+				  `${state.writtenNotes.join('')}`;
 			state = singerReducer(state, updateMusic());
 			expect(state.sheetMusic).toEqual(updatedMusicTemplate);
 		});

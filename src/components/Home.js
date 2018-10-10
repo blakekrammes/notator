@@ -30,7 +30,7 @@ export class Home extends Component {
 				  	</header>
 				  	<div className="logged-in-div">
 				  		<p>You are logged in as {this.props.currentUser.username}</p>
-				  		<p><Link to="/mycompositions">My Compositions</Link></p>
+				  		{/*<p><Link to="/mycompositions">My Compositions</Link></p>*/}
 				  		<a href="" onClick={(e) => this.logout(e)}>Logout</a>
 				  	</div>
 				  	<AudioButton />

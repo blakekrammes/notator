@@ -24,11 +24,11 @@ describe('Home', () => {
 		let loggedInDiv = wrapper.find('.logged-in-div');
 		expect(loggedInDiv.props().className).toEqual('logged-in-div');
 
-		let linky = wrapper.find('a');
+		let link = wrapper.find('a');
 
 		// let e = { preventDefault() {} };
 
-		// linky.props().onClick(e, callback());
+		// link.props().onClick(e, callback());
 
 		// wrapper.find('a').simulate('click', { preventDefault() {} });
 
