@@ -6,7 +6,7 @@ export class Instructions extends Component {
 		return (
 			<div className="instruction-list">
 				{/*pngs courtesy of flaticon.com*/}
-				<div className="note-img-div">
+				<div className="note-img-div wholeN">
 					<img className="note-img-whole" src="notes/whole.png" alt="whole-note"/>
 					<span className="note-img-text whole-text">w</span>
 				</div>
@@ -22,7 +22,7 @@ export class Instructions extends Component {
 					<img className="note-img" src="/notes/eighth.png" alt="eighth-note"/>
 					<span className="note-img-text eighth-text">e</span>
 				</div>
-				<div className="note-img-div">
+				<div className="note-img-div six">
 					<img className="note-img sixteenth" src="/notes/sixteenth.png" alt="sixteenth-note"/>
 					<span className="note-img-text sixteenth-text">s</span>
 				</div>

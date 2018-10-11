@@ -119,31 +119,33 @@
 
 @media only screen  and (min-width: 1050px) {
 	.description-title {
-		font-size: 4.5vw;	
+		font-size: 3vw;	
+		margin-top: -4vw;
 	}
 
 	.signup-link {
-		font-size: 4.5vw;
+		font-size: 3vw;
 	}
 
 	.compositions-link {
-		font-size: 4.5vw;
+		font-size: 3vw;
 	}
 
 	.login-link {
-		font-size: 4.5vw;
+		font-size: 3vw;
 	}
 
 	.logout-link {
-		font-size: 4.5vw;
+		font-size: 3vw;
 	}
 
 	.range {
-		font-size: 4.5vw;
+		font-size: 3vw;
+		margin-bottom: -7vw;
 	}
 
 	.status {
-		font-size: 4.5vw;
+		font-size: 3vw;
 		
 	}
 }

@@ -114,11 +114,83 @@
 	}
 }
 
-@media only screen  and (min-width: 1050px) {
+@media only screen and (min-width: 768px) {
+	.note-img-div {
+		padding: 1vw;
+	}
+	.note-img {
+		width: 5vw;
+		height: 5vw;
+	}
+	.note-img-whole {
+		width: 2.8vw;
+		height: 2.8vw;
+		margin-top: 2.6vw;
+		margin-right: -.1vw;
+	}
+	.six {
+		margin-left: -1vw;
+	}
+	.note-img.sixteenth {
+		width: 6.4vw;
+		height: 6.4vw;
+		margin-top: .7vw;
+	}
+	.note-img-text {
+		margin-left: -.6vw;
+	}
+	.dotted-note-div {
+		margin-top: -1.5vw;
+		margin-left: -1vw;
+	}
 	.augmentation-dot {
 		font-size: 12vw;
 		top: -4.68vw;
 		right: 5.5vw;
+	}
+	.note-img-text.whole-text {
+		position: relative;
+		left: -.8vw;
+	}
+}
+
+@media only screen  and (min-width: 1050px) {
+	.note-img-div {
+		padding: 1vw;
+	}
+	.note-img {
+		width: 5vw;
+		height: 5vw;
+	}
+	.note-img-whole {
+		width: 2.8vw;
+		height: 2.8vw;
+		margin-top: 2.6vw;
+		margin-right: -.1vw;
+	}
+	.six {
+		margin-left: -1vw;
+	}
+	.note-img.sixteenth {
+		width: 6.4vw;
+		height: 6.4vw;
+		margin-top: .7vw;
+	}
+	.note-img-text {
+		margin-left: -.6vw;
+	}
+	.dotted-note-div {
+		margin-top: -1.5vw;
+		margin-left: -1vw;
+	}
+	.augmentation-dot {
+		font-size: 12vw;
+		top: -4.68vw;
+		right: 5.5vw;
+	}
+	.note-img-text.whole-text {
+		position: relative;
+		left: -.8vw;
 	}
 }
 
@@ -136,8 +208,14 @@
 	.note-img-whole {
 		width: 2.3vw;
 		height: 2.3vw;
-		margin-top: 1.3vw;
+		margin-top: 1vw;
 		padding-right: 2vw;
+		padding-bottom: .4vw;
+	}
+
+	.wholeN {
+		margin-right: -4vw;
+		margin-top: -.1vw;
 	}
 
 	.note-img.sixteenth {
@@ -147,8 +225,12 @@
 		bottom: .9vw;
 	}
 
+	.six {
+		margin-top: -.8vw;
+	}
+
 	.note-img-text.sixteenth-text {
-		bottom: 1vw;
+		bottom: .9vw;
 		left: -1vw;
 		margin-right: -6vw;
 	}
@@ -165,6 +247,8 @@
 
 	.dotted-note-div {
 		margin-right: 13vw;
+		margin-top: 0;
+		margin-left: -1.7vw;
 	}
 
 	.augmentation-dot {
@@ -172,7 +256,7 @@
 		font-size: 7vw;
 		position: absolute;
 		right: -3vw;
-		padding-top: 1.2vw;
+		padding-top: 1.55vw;
 	}
 
 	.divider {
@@ -185,7 +269,7 @@
 
 	.dotted-note-text {
 		right: -15vw;
-		top: .7vw;
+		top: 1vw;
 	}
 
 	.etc {
@@ -218,14 +302,19 @@
 		visibility: visible;
 	}
 
+	.x {
+		margin-top: .5vw;
+	}
+
 	.x-img {
-		margin-top: 1.5vw;
-		width: 2.5vw;
-		height: 2.5vw;
+		margin-top: .7vw;
+		width: 3.5vw;
+		height: 3.5vw;
+		margin-right: .5vw;
 	}
 
 	.delete-text {
-		/*padding-top: vw;*/
+		margin-top: -.3vw;
 	}
 
 	.whole-text, .half-text, .quarter-text, .eighth-text, .sixteenth-text, .delete-text {

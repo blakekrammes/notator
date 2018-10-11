@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Cabin|Quicksand');
 
-/*#root {
-	display: flex;
-	flex-flow: column wrap;
-}
-*/
-
 * {
 	font-family: 'Cabin', sans-serif;
 }
@@ -39,10 +33,6 @@ button {
 	margin: 1.3vw;
 }
 
-/*.sheet-music {
-	width: 3vw;
-}*/
-
 @media only screen and (min-width: 650px) {
 	.main-title {
 		font-size: 9vw;
@@ -67,14 +57,14 @@ button {
 
 @media only screen and (min-width: 1050px) {
 	.main-title {
-		font-size: 6vw;
+		font-size: 5vw;
 	}
 	.abcjs-inline-midi {
 		width: 30vw;
 	}
 	button {
-		font-size: 4.5vw;
-		padding: 1.2vw;
+		font-size: 3vw;
+		padding: 1vw;
 	}
 }
 
