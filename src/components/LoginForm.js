@@ -32,9 +32,9 @@ export class LoginForm extends Component {
 				<form className="login-form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
 					{error}
 					<label htmlFor="login-username">Username</label>
-					<Field className="login-input" name="username" id="login-username" type="text" component="input" validate={[required, nonEmpty]} />
+					<Field className="login-input" name="username" id="login-username" type="text" component="input" required />
 					<label htmlFor="login-password">Password</label>
-					<Field className="login-input" name="password" id="login-password" type="password" component="input" validate={[required, nonEmpty]} />
+					<Field className="login-input" name="password" id="login-password" type="password" component="input" required />
 					<button className="login-button" type="submit">Login</button>
 				</form>
 			);

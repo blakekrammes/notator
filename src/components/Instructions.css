@@ -188,6 +188,13 @@
 		top: -4.68vw;
 		right: 5.5vw;
 	}
+	.divider {
+		font-size: 5vw;
+	}
+	.etc {
+		font-size: 4vw;
+		/*margin-top: -1vw;*/
+	}
 	.note-img-text.whole-text {
 		position: relative;
 		left: -.8vw;
