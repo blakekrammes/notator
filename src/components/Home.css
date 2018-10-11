@@ -1,4 +1,185 @@
 .range, .logged-in-div, .logged-out-div {
-	margin: 1.3rem;
+	margin: 4.5vw;
+	font-size: 6vw;
 }
+
+.logged-in-div, .logged-out-div {
+	margin-bottom: 7vw;
+}
+
+.description-title {
+	font-size: 7vw;
+	margin: 4.5vw;
+	margin-bottom: -2.5vw;
+}
+
+.signup-link {
+	font-size: 6.5vw;
+	padding-right: 6vw;
+}
+
+.compositions-link {
+	font-size: 6.5vw;
+	padding-right: 6vw;
+}
+
+.login-link {
+	font-size: 6.5vw;
+}
+
+.logout-link {
+	font-size: 6.5vw;
+}
+
+.status {
+	margin-top: -3vw;
+	margin-bottom: 1vw;
+	font-size: 6.5vw;
+}
+
+.range {
+	font-size: 6.5vw;
+}
+
+.sheetMusicMidi {
+	line-height: 10vw;
+}
+
+@media only screen  and (min-width: 768px) {
+	.description-title {
+		font-size: 6.5vw;
+		margin: 4.5vw;
+	}
+
+	.signup-link {
+		font-size: 6vw;
+		padding-right: 6vw;
+	}
+
+	.compositions-link {
+		font-size: 6vw;
+		padding-right: 6vw;
+	}
+
+	.login-link {
+		font-size: 6vw;
+	}
+
+	.logout-link {
+		font-size: 6vw;
+	}
+
+	.range {
+		font-size: 6vw;
+	}
+	.status {
+		font-size: 6vw;
+	}
+}
+
+@media only screen  and (min-width: 900px) {
+	.description-title {
+		font-size: 5vw;
+		margin-bottom: -4.3vw;
+		margin-top: -2vw;
+	}
+
+	.signup-link {
+		font-size: 5vw;
+		padding-right: 4vw;
+	}
+
+	.compositions-link {
+		font-size: 5vw;
+		padding-right: 4vw;
+	}
+
+	.login-link {
+		font-size: 5vw;
+	}
+
+	.logout-link {
+		font-size: 5vw;
+	}
+
+	.range {
+		font-size: 5vw;
+		margin-bottom: -3vw;
+	}
+	.status {
+		font-size: 5vw;
+		margin-top: -3.5vw;
+		margin-bottom: -.6vw;
+	}
+	.sheetMusicMidi {
+		line-height: 3vw;
+		font-size: 2.3vw;
+	}
+}
+
+@media only screen  and (min-width: 1050px) {
+	.description-title {
+		font-size: 4.5vw;	
+	}
+
+	.signup-link {
+		font-size: 4.5vw;
+	}
+
+	.compositions-link {
+		font-size: 4.5vw;
+	}
+
+	.login-link {
+		font-size: 4.5vw;
+	}
+
+	.logout-link {
+		font-size: 4.5vw;
+	}
+
+	.range {
+		font-size: 4.5vw;
+	}
+
+	.status {
+		font-size: 4.5vw;
+		
+	}
+}
+
+@media only screen  and (min-width: 1224px) {
+
+	.description-title {
+		font-size: 3.2vw;
+		margin: 4.5vw;
+		margin-top: -2vw;
+	}
+
+	.signup-link, .login-link, .logout-link, .compositions-link {
+		font-size: 2.5vw;
+		margin-bottom: 2vw;
+	}
+
+	.signup-link {
+		padding-right: 2vw;
+	}
+
+	.compositions-link {
+		padding-right: 2vw;
+	}
+
+	.status {
+		font-size: 2.5vw;
+		margin-bottom: -2.5vw;
+		margin-top: -3vw;
+	}
+	.range {
+		font-size: 2.5vw;
+		margin-top: -3vw;
+		margin-bottom: -3.5vw;
+	}
+}
+
+
 

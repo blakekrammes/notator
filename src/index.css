@@ -17,7 +17,7 @@ body {
 }
 
 button {
-	font-size: 5vw;
+	font-size: 7.5vw;
 	background: white;
 	border: 1px solid rgba(0, 0, 0, .3);
 	padding: 2vw;
@@ -25,12 +25,13 @@ button {
 	cursor: pointer;
 }
 
-.title {
-	padding: 1.3rem;
+.main-title {
+	margin: 4.5vw;
+	font-size: 13vw;
 }
 
 .abcjs-inline-midi {
-	width: 40vw;
+	width: 65vw;
 	margin: 1.3vw;
 }
 
@@ -42,23 +43,57 @@ button {
 	width: 3vw;
 }*/
 
+@media only screen and (min-width: 650px) {
+	.main-title {
+		font-size: 9vw;
+	}
+	.abcjs-inline-midi {
+		width: 50vw;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.main-title {
+		font-size: 7vw;
+	}
+	button {
+		font-size: 6vw;
+		padding: 1.8vw;
+	}
+	.abcjs-inline-midi {
+		width: 35vw;
+	}
+}
+
+@media only screen and (min-width: 1050px) {
+	.main-title {
+		font-size: 6vw;
+	}
+	.abcjs-inline-midi {
+		width: 30vw;
+	}
+	button {
+		font-size: 4.5vw;
+		padding: 1.2vw;
+	}
+}
+
 @media only screen  and (min-width: 1224px) {
+	.main-title {
+		font-size: 4.5vw;
+	}
+
 	button {
 		font-size: 2vw;
-		padding: .5vw;
+		width: 15vw;
+		padding: .8vw;
+	}
+	.abcjs-inline-midi {
+		width: 25vw;
 	}
 
-	.title {
-		padding: 1.3rem;
-	}
-
-	/*.abcjs-inline-midi {
-		width: 30rem;
-		margin: 1.3rem;
-	}
-
-	.abcjs-download-midi {
-		margin: 1.3rem;
+	/*.login-link, .signup-link, .logout-link, .compositions-link {
+		
 	}*/
 }
 

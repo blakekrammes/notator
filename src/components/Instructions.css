@@ -17,9 +17,22 @@
 .note-img-whole {
 	width: 3.8vw;
 	height: 3.8vw;
-	margin-top: 4vw;
+	margin-top: 3.6vw;
 	margin-left: 1.2vw;
 	margin-bottom: -.7vw;
+}
+
+.note-img.sixteenth {
+	width: 9vw;
+	height: 9vw;
+	position: relative;
+	bottom: 2vw;
+}
+
+.note-img-text.sixteenth-text {
+	position: relative;
+	bottom: 2vw;
+	left: .6vw;
 }
 
 .note-img-text {
@@ -28,7 +41,7 @@
 	padding-left: 1.3vw;
 }
 
-.note-img-text.whole {
+.note-img-text.whole-text {
 	margin-right: 1vw;
 }
 
@@ -101,6 +114,14 @@
 	}
 }
 
+@media only screen  and (min-width: 1050px) {
+	.augmentation-dot {
+		font-size: 12vw;
+		top: -4.68vw;
+		right: 5.5vw;
+	}
+}
+
 @media only screen  and (min-width: 1224px) {
 	.note-img-div {
 	padding: 2.5vw;
@@ -108,15 +129,22 @@
 	}
 
 	.note-img {
-		width: 3vw;
-		height: 3vw;
+		width: 4vw;
+		height: 4vw;
 	}
 
 	.note-img-whole {
-		width: 1.8vw;
-		height: 1.8vw;
+		width: 2.3vw;
+		height: 2.3vw;
 		margin-top: 1.3vw;
 		padding-right: 2vw;
+	}
+
+	.note-img.sixteenth {
+		width: 5vw;
+		height: 5vw;
+		position: relative;
+		bottom: .9vw;
 	}
 
 	.half {
@@ -138,7 +166,7 @@
 		font-size: 7vw;
 		position: absolute;
 		right: -3vw;
-		padding-top: .8vw;
+		padding-top: 1.55vw;
 	}
 
 	.divider {
@@ -151,11 +179,12 @@
 
 	.dotted-note-text {
 		right: -15vw;
-		top: 0;
+		top: .7vw;
 	}
 
 	.etc {
-		right: 1vw;
+		right: 1.5vw;
+		top: 1vw;
 	}
 
 	.tooltip {
@@ -184,9 +213,18 @@
 	}
 
 	.x-img {
-		margin-top: 1vw;
+		margin-top: 1.5vw;
 		width: 2.5vw;
 		height: 2.5vw;
+	}
+
+	.delete-text {
+		/*padding-top: vw;*/
+	}
+
+	.whole-text, .half-text, .quarter-text, .eighth-text, .sixteenth-text, .delete-text {
+		font-size: 4vw;
+		font-weight: 500;
 	}
 }
 

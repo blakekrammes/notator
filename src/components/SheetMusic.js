@@ -4,17 +4,18 @@ import ABCJS from 'abcjs/midi';
 import HandleNotes from '../handleNotes';
 import ClefButton from './ClefButton';
 import {saveUserNotation} from '../actions/users';
-import {setDimensions} from '../actions/index';
+// import {setDimensions} from '../actions/index';
 import 'font-awesome/css/font-awesome.min.css';
 import 'abcjs/abcjs-midi.css';
+import './SheetMusic.css';
 
 const SheetMusicJSX = (props) => ( 
 	<div className="sheetMusicDiv">
 		<HandleNotes />
 		<ClefButton />
 		{( () => {
-    		if (props.writtenNotes.length >= 1 && props.authToken !== null) {
-    			return <a href="" onClick={(e) => props.saveNotation(e)}>Save</a>;
+    		if (props.writtenNotes.length > 1 && props.authToken !== null) {
+    			return <a className="save-link" href="" onClick={(e) => props.saveNotation(e)}>Save</a>;
     		}
     	})()}
 		<div className="sheetMusic"></div>
@@ -38,7 +39,7 @@ export class SheetMusic extends Component {
 
 		let date = new Date();
     	let dateString = date.toString();
-    	let truncatedDateString = dateString.substring(0, dateString.length -36);
+    	let truncatedDateString = dateString.substring(0, dateString.length - 36);
 
     	let justNotationString = this.props.sheetMusic.substring(this.props.sheetMusic.indexOf('|') + 1);
 
@@ -79,7 +80,7 @@ export class SheetMusic extends Component {
  			responsive: 'resize'
  		});
 
- 		if (ABCJS.midi.deviceSupportsMidi() && this.props.writtenNotes !== undefined && this.props.writtenNotes.length >= 1) {
+ 		if (ABCJS.midi.deviceSupportsMidi() && this.props.writtenNotes !== undefined && this.props.writtenNotes.length > 1) {
  			let abcString = this.props.sheetMusic;
 
  			const abcMidiDiv = document.querySelector('.sheetMusicDiv > .sheetMusicMidi');

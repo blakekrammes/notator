@@ -1,0 +1,34 @@
+.sheetMusicDiv {
+	margin: 4.5vw;
+}
+
+.save-link {
+	margin-left: 7vw;
+	font-size: 6.5vw;
+}
+
+
+@media only screen  and (min-width: 768px) {
+	.save-link {
+		font-size: 6vw;
+	}
+}
+
+@media only screen  and (min-width: 900px) {
+	.save-link {
+		font-size: 5vw;
+	}
+}
+
+@media only screen  and (min-width: 1050px) {
+	.save-link {
+			font-size: 4.5vw;
+		}
+}
+
+@media only screen  and (min-width: 1224px) {
+	.save-link {
+		font-size: 2.5vw;
+		margin-left: 3vw;
+	}
+}

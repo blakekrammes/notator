@@ -4,6 +4,7 @@ import {deleteComposition} from '../actions/protectedData';
 import ABCJS from 'abcjs/midi';
 import 'font-awesome/css/font-awesome.min.css';
 import 'abcjs/abcjs-midi.css';
+import './Composition.css';
 
 export class Composition extends Component {
 	// constructor(props) {
@@ -15,11 +16,14 @@ export class Composition extends Component {
 
 		const abcMidi = document.querySelector(`#abcdiv${this.props.id} > .midiDiv`);
 
-		ABCJS.renderAbc(abc, this.props.musicTemplate);
+		ABCJS.renderAbc(abc, this.props.musicTemplate, {
+			responsive: 'resize'
+		});
 
 		ABCJS.renderMidi(abcMidi, this.props.musicTemplate, { 
  			generateDownload: true, 
  			generateInline: true,
+ 			responsive: 'resize'
  		});
 	}
 
@@ -28,16 +32,22 @@ export class Composition extends Component {
 
 		const abcMidi = document.querySelector(`#abcdiv${this.props.id} > .midiDiv`);
 
-		ABCJS.renderAbc(abc, this.props.musicTemplate);
+		ABCJS.renderAbc(abc, this.props.musicTemplate, {
+			responsive: 'resize'
+		});
 
 		ABCJS.renderMidi(abcMidi, this.props.musicTemplate, { 
  			generateDownload: true, 
  			generateInline: true,
+ 			responsive: 'resize'
  		});
 	}
 
 	handleDelete(e) {
-		this.props.dispatch(deleteComposition(this.props.id));
+		let confirmDelete = window.confirm('Do you want to delete this composition?');
+        if (confirmDelete === true) { 
+            this.props.dispatch(deleteComposition(this.props.id));
+        }
 	}
 
 	render() {
@@ -46,7 +56,7 @@ export class Composition extends Component {
 			<div key={this.props.id} id={`abcdiv${this.props.id}`}>
 				<div className="musicDiv"></div>
 				<div className="midiDiv"></div>
-				<button onClick={(e) => this.handleDelete(e)}>Delete</button>
+				<button className="delete-button" onClick={(e) => this.handleDelete(e)}>Delete</button>
 			</div>
 		);
 	}

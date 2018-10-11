@@ -1,18 +1,124 @@
 .signup-form {
 	display: flex;
 	flex-flow: column;
-	margin: 1.3rem;
-	font-size: 1.5rem;
-	width: 30%;
+	margin: 4.5vw;
+	font-size: 7vw;
+	width: 25vw;
 }
 
 .signup-input {
-	font-size: 1.5rem;
-	margin-bottom: .8rem;
+	font-size: 7vw;
+	margin-bottom: 7vw;
+	width: 50vw;
+	border: 1px solid rgba(0, 0, 0, .3);
+	border-radius: 2px;
+	padding: 1vw;
 }
 
 .signup-button {
-	font-size: 1.5rem;
+	font-size: 6.5vw;
 	cursor: pointer;
-	width: 30%;
+	width: 25vw;
 }
+
+@media only screen and (min-width: 650px) {
+	.signup-form {
+		display: flex;
+		flex-flow: column;
+		margin: 4.5vw;
+		font-size: 5.5vw;
+		width: 25vw;
+	}
+
+	.signup-input {
+		font-size: 5.5vw;
+		margin-bottom: 6vw;
+		width: 50vw;
+		border: 1px solid rgba(0, 0, 0, .3);
+		border-radius: 2px;
+		padding: 1vw;
+	}
+
+	.signup-button {
+		font-size: 5.5vw;
+		cursor: pointer;
+		width: 25vw;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.signup-form {
+		margin: 4.5vw;
+		font-size: 4.5vw;
+		width: 25vw;
+	}
+
+	.signup-input {
+		font-size: 4.5vw;
+		margin-bottom: 4.5vw;
+		width: 30vw;
+		border: 1px solid rgba(0, 0, 0, .3);
+		border-radius: 2px;
+	}
+
+	.signup-button {
+		font-size: 4.5vw;
+		cursor: pointer;
+		width: 25vw;
+	}
+}
+
+@media only screen and (min-width: 1050px) {
+	.signup-form {
+		margin: 4.5vw;
+		font-size: 2.5vw;
+		width: 25vw;
+	}
+
+	.signup-input {
+		font-size: 2.5vw;
+		margin-bottom: 3.5vw;
+		width: 25vw;
+		border: 1px solid rgba(0, 0, 0, .3);
+		border-radius: 2px;
+		padding: .5vw;
+	}
+
+	.signup-button {
+		font-size: 3vw;
+		cursor: pointer;
+		width: 13vw;
+		padding: 1vw;
+	}
+}
+
+@media only screen and (min-width: 1224px) {
+	.signup-form {
+		margin: 4vw;
+		font-size: 2vw;
+		width: 25vw;
+	}
+
+	.signup-input {
+		font-size: 2vw;
+		margin-bottom: 2.5vw;
+		width: 20vw;
+		border: 1px solid rgba(0, 0, 0, .3);
+		border-radius: 2px;
+		padding: .5vw;
+		margin-top: .5vw;
+	}
+
+	.signup-button {
+		font-size: 2vw;
+		cursor: pointer;
+		width: 15vw;
+		padding: .8vw;
+	}
+}
+
+
+
+
+
+

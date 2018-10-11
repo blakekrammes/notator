@@ -25,13 +25,13 @@ export class Home extends Component {
 			return (
 		    	<div className="home">
 					<header>
-				    	<h1 className="title">Sing or Play Into the Microphone and Press Keys to Create Notation</h1>
+				    	<h1 className="description-title">Sing or Play Into the Microphone and Press Keys to Create Notation</h1>
 				    	<h3 className="range">The range is F1 – C7</h3>
 				  	</header>
 				  	<div className="logged-in-div">
-				  		<p>You are logged in as {this.props.currentUser.username}</p>
-				  		{/*<p><Link to="/mycompositions">My Compositions</Link></p>*/}
-				  		<a href="" onClick={(e) => this.logout(e)}>Logout</a>
+				  		<p className="status">You are logged in as {this.props.currentUser.username}</p>
+				  		<Link to="/mycompositions" className="compositions-link">My Compositions</Link>
+				  		<a className="logout-link" href="" onClick={(e) => this.logout(e)}>Logout</a>
 				  	</div>
 				  	<AudioButton />
 				  	<Instructions />
@@ -43,12 +43,12 @@ export class Home extends Component {
 			return (
 		    	<div className="home">
 					<header>
-				    	<h1 className="title">Sing or Play Into the Microphone and Press Keys to Create Notation</h1>
+				    	<h1 className="description-title">Sing or Play Into the Microphone and Press Keys to Create Notation</h1>
 				    	<h3 className="range">The range is F1 – C7</h3>
 				  	</header>
 				  	<div className="logged-out-div">
-				  		<p><Link to="/signup">Signup</Link></p>
-				  		<p><Link to="/login">Login</Link></p>
+				  		<Link to="/signup" className="signup-link">Signup</Link>
+				  		<Link to="/login" className="login-link">Login</Link>
 				  	</div>	
 				  	<AudioButton />
 				  	<Instructions />

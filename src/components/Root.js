@@ -11,7 +11,7 @@ export default class Root extends Component {
       <Router>
         <div className="Root">
           <header>
-            <h1 className="title"><Link to="/">Notator</Link></h1>
+            <h1 className="main-title"><Link to="/">Notator</Link></h1>
           </header>
           <main>
             <Switch>

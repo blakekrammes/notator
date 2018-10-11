@@ -1,0 +1,69 @@
+.delete-button {
+	margin: 4.5vw;
+	font-size: 6vw;
+}
+
+.musicDiv {
+	margin-left: 3.5vw;
+}
+
+.midiDiv {
+	margin-left: 3.5vw;
+	line-height: 10vw;
+}
+
+/*.abcjs-inline-midi {
+	width: 65vw;
+	margin: 1.3vw;
+}
+
+.abcjs-download-midi {
+	margin: 1.3vw;
+}*/
+
+@media only screen  and (min-width: 500px) {
+	.delete-button {
+		font-size: 3vw;
+		margin-top: 1vw;
+	}
+	.midiDiv {
+		font-size: 3.8vw;
+		line-height: 10vw;
+	}
+}
+
+@media only screen and (min-width: 650px) {
+	.midiDiv {
+		font-size: 3.3vw;
+		line-height: 6.5vw;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.midiDiv {
+		font-size: 2.8vw;
+		line-height: 4vw;
+	}
+}
+
+@media only screen  and (min-width: 1050px) {
+	.delete-button {
+		font-size: 2vw;
+		padding: .8vw;
+	}
+	.midiDiv {
+		font-size: 2.3vw;
+		line-height: 2.7vw;
+	}
+}
+
+@media only screen  and (min-width: 1224px) {
+	.delete-button {
+		padding: .6vw;
+		width: 10vw;
+	}
+	.midiDiv {
+		font-size: 1.8vw;
+		line-height: 1.5vw;
+	}
+}
