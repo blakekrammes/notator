@@ -31,9 +31,8 @@
 
 .note-img-text.sixteenth-text {
 	position: relative;
-	bottom: 1vw;
-	right: .8vw;
-	margin-right: -6vw;
+	bottom: 2vw;
+	left: .6vw;
 }
 
 .note-img-text {
@@ -148,6 +147,12 @@
 		bottom: .9vw;
 	}
 
+	.note-img-text.sixteenth-text {
+		bottom: 1vw;
+		left: -1vw;
+		margin-right: -6vw;
+	}
+
 	.half {
 		margin-left: -1vw;
 	}
@@ -167,7 +172,7 @@
 		font-size: 7vw;
 		position: absolute;
 		right: -3vw;
-		padding-top: 1.55vw;
+		padding-top: 1.2vw;
 	}
 
 	.divider {
