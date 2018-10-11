@@ -31,8 +31,9 @@
 
 .note-img-text.sixteenth-text {
 	position: relative;
-	bottom: 2vw;
-	left: .6vw;
+	bottom: 1vw;
+	right: .8vw;
+	margin-right: -6vw;
 }
 
 .note-img-text {

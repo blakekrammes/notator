@@ -1,6 +1,7 @@
 import React from 'react';
 import {Home} from '../Home';
 import {shallow, mount} from 'enzyme';
+import {Link} from 'react-router-dom';
 
 describe('Home', () => {
 
@@ -9,7 +10,7 @@ describe('Home', () => {
 	const mockEraseErrorfn = jest.fn();
 	
 	beforeEach(() => {
-	 // pass the mock function as the dispatch prop 
+	 // pass a logged in component as default 
 	 wrapper = shallow(<Home authToken={'212376538463745fdhsfafv2452635'} currentUser={'sherlock'} dispatch={mockEraseErrorfn} />);
 	 
 	});
@@ -19,26 +20,19 @@ describe('Home', () => {
 	});
 
 	it('should render the logged-in JSX when authToken + user are provided', () => {
-		const callback = jest.fn();
-		const wrapper = shallow(<Home authToken={'212376538463745fdhsfafv2452635'} currentUser={'sherlock'} dispatch={mockEraseErrorfn} />);
 		let loggedInDiv = wrapper.find('.logged-in-div');
 		expect(loggedInDiv.props().className).toEqual('logged-in-div');
+	});
 
-		let link = wrapper.find('a');
+	it('should call the logout function when the logout link is clicked', () => {
+		const spy = jest.spyOn(Home.prototype, 'logout');
+		wrapper.find('a').simulate('click', { preventDefault() {} });
+		expect(Home.prototype.logout).toHaveBeenCalled();
+	});
 
-		// let e = { preventDefault() {} };
-
-		// link.props().onClick(e, callback());
-
-		// wrapper.find('a').simulate('click', { preventDefault() {} });
-
-		// expect(callback).toHaveBeenCalled();
-
-		// wrapper.find('a').prop('onClick')(mockedEvent);
-
-		// console.log(wrapper.debug())
-
-
+	it('should contain the compositions link with the correct route if the user is logged in', () => {
+		const compositionsLink = wrapper.find('.compositions-link');
+		expect(compositionsLink.props().to).toEqual('/mycompositions');
 	});
 
 	it('should render the logged-out JSX when authToken + user are not provided', () => {
@@ -47,7 +41,17 @@ describe('Home', () => {
 		expect(loggedOutDiv.props().className).toEqual('logged-out-div');
 	});
 
+	it('should contain the login link with the correct route', () => {
+		const wrapper = shallow(<Home authToken={null} currentUser={null} dispatch={mockEraseErrorfn} />);
+		let loginLink = wrapper.find('.login-link');
+		expect(loginLink.props().to).toEqual('/login');
+	});
 
+	it('should contain the signup link with the correct route', () => {
+		const wrapper = shallow(<Home authToken={null} currentUser={null} dispatch={mockEraseErrorfn} />);
+		let signupLink = wrapper.find('.signup-link');
+		expect(signupLink.props().to).toEqual('/signup');
+	});
 });
 
 

@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {reduxForm, Field} from 'redux-form';
 import {registerUser} from '../actions/users';
 import {Redirect} from 'react-router';
+import {BrowserRouter as Router} from 'react-router-dom';
 import './SignupForm.css';
 
 export class SignupForm extends Component {
@@ -20,11 +21,14 @@ export class SignupForm extends Component {
 			);
 		}
 		if (this.props.currentUser !== null) {
-				return <Redirect to="/"/>;
+				return ( 
+						<Router>
+							<Redirect to="/"/>
+						</Router>
+				);
 			}
 		else {
 			return (
-
 				<form className="signup-form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
 					{error}
 					<label htmlFor="signup-username">Username</label>
@@ -34,7 +38,6 @@ export class SignupForm extends Component {
 					<label htmlFor="signup-password">Password</label>
 					<Field className="signup-input" name="password" id="signup-password" type="password" component="input" required />
 					<button className="signup-button" type="submit">Signup</button>
-
 				</form>
 			);
 		}
@@ -46,8 +49,8 @@ const mapStateToProps = state => ({
 	error: state.auth.error
 });
 
-SignupForm = connect(mapStateToProps)(SignupForm);
+let ConnectedSignupForm = connect(mapStateToProps)(SignupForm);
 
 export default reduxForm({
 	form: 'signup'
-})(SignupForm);
+})(ConnectedSignupForm);

@@ -9,7 +9,7 @@ export default class Root extends Component {
   render() {
     return (
       <Router>
-        <div className="Root">
+        <div className="root">
           <header>
             <h1 className="main-title"><Link to="/">Notator</Link></h1>
           </header>

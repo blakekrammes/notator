@@ -1,45 +1,47 @@
 import React from 'react';
 import {SignupForm} from '../SignupForm';
 import {shallow} from 'enzyme';
-import configureStore from 'redux-mock-store';
-
-const mockStore = configureStore();
 
 describe('SignupForm', () => {
 
   it('should render without crashing', () => {
-
- 	const store = mockStore({
- 		auth: {
- 			currentUser: 'bob'
- 		}
- 	});
-
-  	shallow(<SignupForm store={store} />);
-
+  	shallow(<SignupForm currentUser='bob' />);
   });
 
-  it('should show an error if no user is given', () => {
-
- 	const store = mockStore({
- 		auth: {
- 			currentUser: null,
- 			error: 'NOOOOOOO'
- 		}
- 	});
-
-  	const wrapper = shallow(<SignupForm store={store} />);
-
-  	// console.log(wrapper.find('.signup-form'));
-
-  	let thingy = wrapper.find('.signup-form');
-
-  	// console.log(thingy)
-
-  	// expect(wrapper.find('.signup-error').hasClass('signup-error').toEqual(true));
-
+  it('should register an error if it exists', () => {
+    const mockCallback = jest.fn();
+  	const wrapper = shallow(<SignupForm currentUser={null} error='some auth error' handleSubmit={mockCallback} />);
+    const errorDiv = wrapper.find('.signup-error');
+    expect(errorDiv.props().className).toEqual('signup-error');
   });
 
+  it('should not register an error if it does not exists', () => {
+    const mockCallback = jest.fn();
+    const wrapper = shallow(<SignupForm currentUser={null} error={null} handleSubmit={mockCallback} />);
+    const errorDiv = wrapper.find('.signup-error-error');
+    expect(errorDiv.length).toEqual(0);
+  });
 
+  it('should contain a Redirect to `/` if there is a currentUser', () => {
+    const mockCallback = jest.fn();
+    const wrapper = shallow(<SignupForm currentUser='bertrand' error={null} handleSubmit={mockCallback} />);
+    expect(wrapper.props().children.props.to).toEqual('/');
+  });
 
+  it('should fire onSubmit when the form is submitted', () => {
+    const spy = jest.fn();
+    // const spy2 = jest.fn();
+    function testHandleSubmit(fn) {
+      const values = {
+        username: 'bob',
+        email: 'bob@gmail.com'
+      }
+      fn(values);
+    }
+    const mockSubmitCallback = jest.fn();
+    const wrapper = shallow(<SignupForm currentUser={null} error={null} handleSubmit={testHandleSubmit} dispatch={spy} />);
+    const form = wrapper.find('.signup-form');
+    form.simulate('submit');
+    expect(spy).toHaveBeenCalled();
+  });
 });

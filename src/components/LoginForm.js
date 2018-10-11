@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {reduxForm, Field, focus} from 'redux-form';
 import {login} from '../actions/auth';
 import {required, nonEmpty} from '../validators';
+import {BrowserRouter as Router} from 'react-router-dom';
 import {Redirect} from 'react-router';
 import './LoginForm.css';
 
@@ -20,7 +21,11 @@ export class LoginForm extends Component {
 			);
 		}
 		if (this.props.currentUser !== null) {
-				return <Redirect to="/"/>;
+				return ( 
+						<Router>
+							<Redirect to="/"/>
+						</Router>
+				);
 			}
 		else {	
 			return (
@@ -42,12 +47,12 @@ const mapStateToProps = state => ({
 	error: state.auth.error
 });
 
-LoginForm = connect(mapStateToProps)(LoginForm);
+let ConnectedLoginForm = connect(mapStateToProps)(LoginForm);
 
 export default reduxForm({
 	form: 'login',
 	onSubmitFail: (errors, dispatch) => dispatch(focus('login', 'username'))
-})(LoginForm);
+})(ConnectedLoginForm);
 
 
 
