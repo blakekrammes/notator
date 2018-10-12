@@ -97,10 +97,31 @@
     padding: 5px 0;
 }
 
+.x {
+	position: relative;
+	right: 17vw;
+	top: -1.1vw;
+}
+
 .x-img {
-	margin-top: 2.5vw;
-	width: 4.5vw;
-	height: 4.5vw;
+	margin-top: 1.5vw;
+	width: 6.5vw;
+	height: 6.5vw;
+}
+.etc {
+	visibility: hidden;
+}
+.divider.one, .divider.two {
+	visibility: hidden;
+}
+.dotted-note-text {
+	margin-right: 17.5vw;
+	margin-top: 6vw;
+}
+.augmentation-dot {
+	font-size: 12vw;
+	top: 1.5vw;
+	right: 23.5vw;
 }
 
 /*.tooltip:active .tooltip-text {
@@ -114,47 +135,14 @@
 	}
 }
 
-@media only screen and (min-width: 768px) {
-	.note-img-div {
-		padding: 1vw;
-	}
-	.note-img {
-		width: 5vw;
-		height: 5vw;
-	}
-	.note-img-whole {
-		width: 2.8vw;
-		height: 2.8vw;
-		margin-top: 2.6vw;
-		margin-right: -.1vw;
-	}
-	.six {
-		margin-left: -1vw;
-	}
-	.note-img.sixteenth {
-		width: 6.4vw;
-		height: 6.4vw;
-		margin-top: .7vw;
-	}
-	.note-img-text {
-		margin-left: -.6vw;
-	}
-	.dotted-note-div {
-		margin-top: -1.5vw;
-		margin-left: -1vw;
-	}
-	.augmentation-dot {
-		font-size: 12vw;
-		top: -4.68vw;
-		right: 5.5vw;
-	}
-	.note-img-text.whole-text {
-		position: relative;
-		left: -.8vw;
-	}
-}
+/*@media only screen and (min-width: 768px) {
+	
+}*/
 
 @media only screen  and (min-width: 1050px) {
+	.instruction-list {
+		margin-left: 3vw;
+	}
 	.note-img-div {
 		padding: 1vw;
 	}
@@ -180,24 +168,33 @@
 		margin-left: -.6vw;
 	}
 	.dotted-note-div {
-		margin-top: -1.5vw;
-		margin-left: -1vw;
+		margin-top: .1vw;
+		margin-left: -2.5vw;
 	}
 	.augmentation-dot {
 		font-size: 12vw;
-		top: -4.68vw;
-		right: 5.5vw;
+		top: -1.1vw;
+		right: 19.5vw;
+	}
+	.dotted-note-text {
+		margin-top: 4.3vw;
+		margin-right: 18vw;
+		font-size: 3.5vw;
 	}
 	.divider {
 		font-size: 5vw;
 	}
-	.etc {
-		font-size: 4vw;
-		/*margin-top: -1vw;*/
-	}
 	.note-img-text.whole-text {
 		position: relative;
 		left: -.8vw;
+	}
+	.x-img {
+		margin-bottom: -1vw;
+	}
+	.x {
+		position: relative;
+		right: 18.5vw;
+		bottom: 1.5vw;
 	}
 }
 
@@ -262,8 +259,8 @@
 		font-family: 'Cabin', sans-serif;
 		font-size: 7vw;
 		position: absolute;
-		right: -3vw;
-		padding-top: 1.55vw;
+		right: 6.5vw;
+		margin-top: -2.7vw;
 	}
 
 	.divider {
@@ -275,13 +272,8 @@
 	}
 
 	.dotted-note-text {
-		right: -15vw;
-		top: 1vw;
-	}
-
-	.etc {
-		right: 1.5vw;
-		top: 1vw;
+		right: -23vw;
+		top: -4vw;
 	}
 
 	.tooltip {
@@ -310,7 +302,8 @@
 	}
 
 	.x {
-		margin-top: .5vw;
+		margin-top: 1.5vw;
+		margin-left: 7vw;
 	}
 
 	.x-img {
@@ -318,10 +311,6 @@
 		width: 3.5vw;
 		height: 3.5vw;
 		margin-right: .5vw;
-	}
-
-	.delete-text {
-		margin-top: -.3vw;
 	}
 
 	.whole-text, .half-text, .quarter-text, .eighth-text, .sixteenth-text, .delete-text {
