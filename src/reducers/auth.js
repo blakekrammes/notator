@@ -3,7 +3,8 @@ import {
 	CLEAR_AUTH,
 	AUTH_REQUEST,
 	AUTH_SUCCESS,
-	AUTH_ERROR
+	AUTH_ERROR,
+	LOADING
 } from '../actions/auth';
 
 const initialState = {
@@ -43,6 +44,18 @@ export default function reducer(state = initialState, action) {
 			loading: false,
 			error: action.error
 		});
+	}
+	else if (action.type === LOADING) {
+		if (state.loading === false) {
+			return Object.assign({}, state, {
+				loading: true
+			});
+		}
+		else {
+			return Object.assign({}, state, {
+				loading: false
+			});
+		}
 	}
 	return state;
 }

@@ -1,3 +1,6 @@
-.clef-button {
-
+@media only screen  and (min-width: 1224px) {
+	.clef-button {
+		margin-top: -3.5vw;
+	}
+	
 }

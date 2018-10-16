@@ -33,6 +33,11 @@ export const authError = error => ({
 	error
 });
 
+export const LOADING = 'LOADING';
+export const loading = () => ({
+	type: LOADING
+});
+
 // Stores the auth token in state and localStorage, and decodes and stores
 // the user data stored in the token
 const storeAuthInfo = (authToken, dispatch) => {

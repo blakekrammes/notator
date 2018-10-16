@@ -4,3 +4,12 @@
 	margin-bottom: -4vw;
 }
 
+@media only screen and (min-width: 1224px) {
+	.input-button {
+		margin: 4.5vw;
+		margin-top: -7vw;
+		margin-bottom: -1vw;
+		position: relative;
+		bottom: 3.5vw;
+	}
+}

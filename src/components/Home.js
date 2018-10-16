@@ -26,7 +26,7 @@ export class Home extends Component {
 		    	<div className="home">
 					<header>
 				    	<h1 className="description-title">Sing or Play Into the Microphone and Press Keys to Create Notation</h1>
-				    	<h3 className="range">The range is F1 – C7</h3>
+				    	<h3 className="range">The range is F1 – C7 <Link to="/instructions">Instructions</Link></h3>
 				  	</header>
 				  	<div className="logged-in-div">
 				  		<p className="status">You are logged in as {this.props.currentUser.username}</p>
@@ -44,7 +44,7 @@ export class Home extends Component {
 		    	<div className="home">
 					<header>
 				    	<h1 className="description-title">Sing or Play Into the Microphone and Press Keys to Create Notation</h1>
-				    	<h3 className="range">The range is F1 – C7</h3>
+				    	<h3 className="range">The range is F1 – C7   ~   <Link to="/instructions">Instructions</Link></h3>
 				  	</header>
 				  	<div className="logged-out-div">
 				  		<Link to="/signup" className="signup-link">Signup</Link>

@@ -4,7 +4,6 @@ import ABCJS from 'abcjs/midi';
 import HandleNotes from '../handleNotes';
 import ClefButton from './ClefButton';
 import {saveUserNotation} from '../actions/users';
-// import {setDimensions} from '../actions/index';
 import 'font-awesome/css/font-awesome.min.css';
 import 'abcjs/abcjs-midi.css';
 import './SheetMusic.css';
@@ -41,17 +40,19 @@ export class SheetMusic extends Component {
     	let dateString = date.toString();
     	let truncatedDateString = dateString.substring(0, dateString.length - 36);
 
-    	let justNotationString = this.props.sheetMusic.substring(this.props.sheetMusic.indexOf('|') + 1);
+    	console.log(this.props)
 
-    	justNotationString = `|${justNotationString}|`;
+    	// let justNotationString = this.props.sheetMusic.substring(this.props.sheetMusic.indexOf('|') + 1);
 
-		const userInfoWithNotationString = {
-			username: this.props.currentUser.username,
-			title: titleText,
-			music: justNotationString,
-			creation: truncatedDateString
-		}
-		this.props.dispatch(saveUserNotation(userInfoWithNotationString));
+    	// justNotationString = `|${justNotationString}|`;
+
+		// const userInfoWithNotationString = {
+		// 	username: this.props.currentUser.username,
+		// 	title: titleText,
+		// 	music: justNotationString,
+		// 	creation: truncatedDateString
+		// }
+		// this.props.dispatch(saveUserNotation(userInfoWithNotationString));
 	}
 
 	// updateDimensions() {
@@ -88,9 +89,6 @@ export class SheetMusic extends Component {
  			ABCJS.renderMidi(abcMidiDiv, abcString, { 
  				generateDownload: true, 
  				generateInline: true,
- 				// inlineControls: {
- 				// 	tempo: true
- 				// },
  				responsive: 'resize'
  			});
  		}
@@ -108,8 +106,7 @@ const mapStateToProps = state => ({
 	writtenNotes: state.singer.writtenNotes,
 	sixteenthNoteCount: state.singer.sixteenthNoteCount,
 	authToken: state.auth.authToken,
-	currentUser: state.auth.currentUser,
-	dimensions: state.singer.dimensions
+	currentUser: state.auth.currentUser
 });
 
 export default connect(mapStateToProps)(SheetMusic);

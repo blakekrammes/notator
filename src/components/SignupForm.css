@@ -4,11 +4,12 @@
 	margin: 4.5vw;
 	font-size: 7vw;
 	width: 25vw;
+	margin-top: -3vw;
 }
 
 .signup-input {
 	font-size: 7vw;
-	margin-bottom: 7vw;
+	margin-bottom: 5vw;
 	width: 50vw;
 	border: 1px solid rgba(0, 0, 0, .3);
 	border-radius: 2px;
@@ -21,28 +22,69 @@
 	width: 25vw;
 }
 
-@media only screen and (min-width: 650px) {
+.account-status {
+	font-size: 4.6vw;
+}
+
+.signup-error {
+	width: 30vw;
+	font-weight: 900;
+	color: red;
+}
+
+@media only screen and (min-width: 500px) {
 	.signup-form {
 		display: flex;
 		flex-flow: column;
 		margin: 4.5vw;
 		font-size: 5.5vw;
 		width: 25vw;
+		margin-top: -3vw;
 	}
 
 	.signup-input {
 		font-size: 5.5vw;
-		margin-bottom: 6vw;
-		width: 50vw;
+		margin-bottom: 4vw;
+		width: 45vw;
 		border: 1px solid rgba(0, 0, 0, .3);
 		border-radius: 2px;
 		padding: 1vw;
 	}
 
 	.signup-button {
-		font-size: 5.5vw;
+		font-size: 5vw;
 		cursor: pointer;
 		width: 25vw;
+	}
+	.account-status {
+		font-size: 4.5vw;
+	}
+}
+
+@media only screen and (min-width: 650px) {
+	.signup-form {
+		margin: 4.5vw;
+		font-size: 5.5vw;
+		width: 25vw;
+		margin-top: -3vw;
+	}
+
+	.signup-input {
+		font-size: 5.5vw;
+		margin-bottom: 4vw;
+		width: 45vw;
+		border: 1px solid rgba(0, 0, 0, .3);
+		border-radius: 2px;
+		padding: 1vw;
+	}
+
+	.signup-button {
+		font-size: 5vw;
+		cursor: pointer;
+		width: 25vw;
+	}
+	.account-status {
+		font-size: 4vw;
 	}
 }
 
@@ -51,20 +93,51 @@
 		margin: 4.5vw;
 		font-size: 4.5vw;
 		width: 25vw;
+		margin-top: -3vw;
 	}
 
 	.signup-input {
-		font-size: 4.5vw;
-		margin-bottom: 4.5vw;
+		font-size: 4vw;
+		margin-bottom: 3.3vw;
 		width: 30vw;
 		border: 1px solid rgba(0, 0, 0, .3);
 		border-radius: 2px;
 	}
 
 	.signup-button {
-		font-size: 4.5vw;
+		font-size: 4vw;
 		cursor: pointer;
 		width: 25vw;
+		padding: 1vw;
+	}
+	.account-status {
+		font-size: 3vw;
+	}
+}
+
+@media only screen  and (min-width: 900px) {
+	.signup-form {
+		font-size: 3.5vw;
+		width: 25vw;
+		margin-top: -3vw;
+	}
+
+	.signup-input {
+		font-size: 3vw;
+		margin-bottom: 2.5vw;
+		width: 30vw;
+		border: 1px solid rgba(0, 0, 0, .3);
+		border-radius: 2px;
+	}
+
+	.signup-button {
+		font-size: 3vw;
+		cursor: pointer;
+		width: 18vw;
+		padding: .7vw;
+	}
+	.account-status {
+		font-size: 2.5vw;
 	}
 }
 
@@ -73,11 +146,12 @@
 		margin: 4.5vw;
 		font-size: 2.5vw;
 		width: 25vw;
+		margin-top: -3vw;
 	}
 
 	.signup-input {
 		font-size: 2.5vw;
-		margin-bottom: 3.5vw;
+		margin-bottom: 2vw;
 		width: 25vw;
 		border: 1px solid rgba(0, 0, 0, .3);
 		border-radius: 2px;
@@ -85,28 +159,30 @@
 	}
 
 	.signup-button {
-		font-size: 3vw;
+		font-size: 2.5vw;
 		cursor: pointer;
 		width: 13vw;
-		padding: 1vw;
+		padding: .7vw;
+	}
+	.account-status {
+		font-size: 2vw;
 	}
 }
 
 @media only screen and (min-width: 1224px) {
 	.signup-form {
-		margin: 4vw;
 		font-size: 2vw;
 		width: 25vw;
 	}
 
 	.signup-input {
 		font-size: 2vw;
-		margin-bottom: 2.5vw;
+		margin-bottom: 1.7vw;
 		width: 20vw;
 		border: 1px solid rgba(0, 0, 0, .3);
 		border-radius: 2px;
 		padding: .5vw;
-		margin-top: .5vw;
+		margin-top: .4vw;
 	}
 
 	.signup-button {

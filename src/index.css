@@ -10,6 +10,19 @@ body {
   font-family: sans-serif;
 }
 
+a {
+	text-decoration: none;
+	color: rgb(0, 0, 0);
+	border-bottom: 1px solid rgba(0, 0, 0, .3);
+	transition: .2s;
+	padding-bottom: 5px;
+}
+
+a:hover {
+	color: rgba(0, 0, 0, .6);
+	transition: .2s;
+}
+
 button {
 	font-size: 7.5vw;
 	background: white;
@@ -17,6 +30,12 @@ button {
 	padding: 2vw;
 	border-radius: 2px;
 	cursor: pointer;
+	transition: .2s;
+}
+
+button:hover {
+	transition: .2s;
+	background: rgba(0, 0, 0, .1);
 }
 
 .main-title {
@@ -33,12 +52,26 @@ button {
 	margin: 1.3vw;
 }
 
+@media only screen and (min-width: 500px) {
+	.main-title {
+		font-size: 10vw;
+	}
+	button {
+		font-size: 6vw;
+		padding: 1.5vw;
+	}
+}
+
 @media only screen and (min-width: 650px) {
 	.main-title {
 		font-size: 9vw;
 	}
 	.abcjs-inline-midi {
 		width: 50vw;
+	}
+	button {
+		font-size: 5.5vw;
+		padding: 1.5vw;
 	}
 }
 
@@ -47,8 +80,8 @@ button {
 		font-size: 7vw;
 	}
 	button {
-		font-size: 6vw;
-		padding: 1.8vw;
+		font-size: 4.5vw;
+		padding: 1.5vw;
 	}
 	.abcjs-inline-midi {
 		width: 35vw;
@@ -81,9 +114,5 @@ button {
 	.abcjs-inline-midi {
 		width: 25vw;
 	}
-
-	/*.login-link, .signup-link, .logout-link, .compositions-link {
-		
-	}*/
 }
 

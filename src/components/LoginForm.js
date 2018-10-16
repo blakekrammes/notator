@@ -3,13 +3,16 @@ import {connect} from 'react-redux';
 import {reduxForm, Field, focus} from 'redux-form';
 import {login} from '../actions/auth';
 import {required, nonEmpty} from '../validators';
-import {BrowserRouter as Router} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {Redirect} from 'react-router';
+import {loading} from '../actions/auth';
+import {ResizeSpinLoader} from 'react-css-loaders';
 import './LoginForm.css';
 
 export class LoginForm extends Component {
 	onSubmit(values) {
 		this.props.dispatch(login(values));
+		this.props.dispatch(loading());
 	}
 	render() {
 		let error;
@@ -21,12 +24,11 @@ export class LoginForm extends Component {
 			);
 		}
 		if (this.props.currentUser !== null) {
-				return ( 
-						<Router>
-							<Redirect to="/"/>
-						</Router>
-				);
+				return <Redirect to="/"/>;
 			}
+		else if (this.props.loading === true) {
+			return <ResizeSpinLoader />;
+		}
 		else {	
 			return (
 				<form className="login-form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
@@ -36,6 +38,7 @@ export class LoginForm extends Component {
 					<label htmlFor="login-password">Password</label>
 					<Field className="login-input" name="password" id="login-password" type="password" component="input" required />
 					<button className="login-button" type="submit">Login</button>
+					<p className="account-status"><Link to="/signup">Need to signup?</Link></p>
 				</form>
 			);
 		}
@@ -44,7 +47,8 @@ export class LoginForm extends Component {
 
 const mapStateToProps = state => ({
 	currentUser: state.auth.currentUser,
-	error: state.auth.error
+	error: state.auth.error,
+	loading: state.auth.loading
 });
 
 let ConnectedLoginForm = connect(mapStateToProps)(LoginForm);

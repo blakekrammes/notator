@@ -79,7 +79,7 @@
 .tooltip {
 	position: relative;
 	display: inline-block;
-	cursor: pointer;
+	/*cursor: pointer;*/
 }
 
 .tooltip .tooltip-text {
@@ -89,14 +89,18 @@
     background-color: #555;
     color: #fff;
     text-align: center;
-    font-size: 1vw;
+    font-size: 1.1vw;
     bottom: 125%;
     left: 50%;
     border-radius: 6px;
     margin-left: -25%;
-    padding: 5px 0;
+    padding: 15px 15px;
 }
 
+/*.tooltip:hover .tooltip-text {
+	visibility: visible;
+}
+*/
 .x {
 	position: relative;
 	right: 17vw;
@@ -135,9 +139,12 @@
 	}
 }
 
-/*@media only screen and (min-width: 768px) {
-	
-}*/
+@media only screen and (min-width: 768px) {
+	.instruction-list {
+		margin-bottom: -3vw;
+		margin-top: -2vw;
+	}
+}
 
 @media only screen  and (min-width: 1050px) {
 	.instruction-list {
@@ -199,9 +206,12 @@
 }
 
 @media only screen  and (min-width: 1224px) {
+	.instruction-list {
+		margin-bottom: -4vw;
+	}
 	.note-img-div {
-	padding: 2.5vw;
-	position: relative;
+		padding: 2.5vw;
+		position: relative;
 	}
 
 	.note-img {
@@ -279,7 +289,7 @@
 	.tooltip {
 		position: relative;
 		display: inline-block;
-		cursor: pointer;
+		/*cursor: pointer;*/
 	}
 
 	.tooltip .tooltip-text {
@@ -289,17 +299,15 @@
 	    background-color: #555;
 	    color: #fff;
 	    text-align: center;
-	    font-size: 1vw;
 	    bottom: 125%;
 	    left: 50%;
 	    border-radius: 6px;
 	    margin-left: -25%;
-	    padding: 5px 0;
 	}
 
-	.tooltip:hover .tooltip-text {
+	/*.tooltip:hover .tooltip-text {
 		visibility: visible;
-	}
+	}*/
 
 	.x {
 		margin-top: 1.5vw;

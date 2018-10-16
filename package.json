@@ -9,6 +9,7 @@
     "jwt-decode": "^2.2.0",
     "pitchfinder": "^2.0.9",
     "react": "^16.5.2",
+    "react-css-loaders": "0.0.5",
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",
     "react-router": "^4.3.1",
