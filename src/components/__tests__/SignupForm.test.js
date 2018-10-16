@@ -25,7 +25,7 @@ describe('SignupForm', () => {
   it('should contain a Redirect to `/` if there is a currentUser', () => {
     const mockCallback = jest.fn();
     const wrapper = shallow(<SignupForm currentUser='bertrand' error={null} handleSubmit={mockCallback} />);
-    expect(wrapper.props().children.props.to).toEqual('/');
+    expect(wrapper.props().to).toEqual('/');
   });
 
   it('should fire onSubmit when the form is submitted', () => {

@@ -30,7 +30,7 @@ describe('Root', () => {
 		expect(homeRoute.props().path).toEqual('/');
 	});
 
-	it.only('should render the login Route HOC component with the login component and the correct route', () => {
+	it('should render the login Route HOC component with the login component and the correct route', () => {
 		const wrapper = shallow(<Root />);
 		const loginRoute = wrapper.find(`[path='/login']`);
 		expect(loginRoute.props().component.WrappedComponent).toEqual(LoginForm);

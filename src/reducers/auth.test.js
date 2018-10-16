@@ -4,7 +4,8 @@ import {
 	clearAuth,
 	authRequest,
 	authSuccess,
-	authError
+	authError,
+	loading
 } from '../actions/auth';
 
 describe('authReducer', () => {
@@ -71,6 +72,14 @@ describe('authReducer', () => {
 			let error = 'noooooooooooo';
 			state = reducer(state, authError(error));
 			expect(state.error).toEqual(error);
+		});
+	});
+
+	describe('loading', () => {
+		it('should display loading when the laoding action in dispatched', () => {
+			let state;
+			state = reducer(state, loading());
+			expect(state.loading).toEqual(true);
 		});
 	});
 });

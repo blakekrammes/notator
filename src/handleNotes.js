@@ -9,6 +9,11 @@ export class HandleNotes extends Component {
 		document.addEventListener('keyup', this.releaseKey);
 	}
 
+	componentWillUnmount() {
+		document.removeEventListener('keydown', this.pressKey);
+		document.removeEventListener('keyup', this.releaseKey);
+	}
+
 	pressKey = (e) => {
 
 	  // delete handling for notes

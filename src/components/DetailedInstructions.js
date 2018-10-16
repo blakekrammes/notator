@@ -12,8 +12,8 @@ export default class DetailedInstructions extends Component {
 				</div>
 				<ul className="detailed-instructions-list">
 					<li>for whole notes, press w</li>
-					<li>for quarter notes, press q</li>
 					<li>for half notes, press h</li>
+					<li>for quarter notes, press q</li>
 					<li>for eighth notes, press e</li>
 					<li>for sixteenth notes, press s</li>
 					<li>for dotted notes, first press . then press the base note value's letter (up to dotted eighths)</li>

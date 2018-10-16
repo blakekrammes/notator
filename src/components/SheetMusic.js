@@ -22,8 +22,11 @@ const SheetMusicJSX = (props) => (
 	</div>
 );
 
-
 export class SheetMusic extends Component {
+	constructor(props) {
+		super(props);
+		this.saveNotation = this.saveNotation.bind(this);
+	}
 
 	saveNotation(e) {
 		e.preventDefault();
@@ -40,19 +43,17 @@ export class SheetMusic extends Component {
     	let dateString = date.toString();
     	let truncatedDateString = dateString.substring(0, dateString.length - 36);
 
-    	console.log(this.props)
+    	let justNotationString = this.props.sheetMusic.substring(this.props.sheetMusic.indexOf('|') + 1);
 
-    	// let justNotationString = this.props.sheetMusic.substring(this.props.sheetMusic.indexOf('|') + 1);
+    	justNotationString = `|${justNotationString}|`;
 
-    	// justNotationString = `|${justNotationString}|`;
-
-		// const userInfoWithNotationString = {
-		// 	username: this.props.currentUser.username,
-		// 	title: titleText,
-		// 	music: justNotationString,
-		// 	creation: truncatedDateString
-		// }
-		// this.props.dispatch(saveUserNotation(userInfoWithNotationString));
+		const userInfoWithNotationString = {
+			username: this.props.currentUser.username,
+			title: titleText,
+			music: justNotationString,
+			creation: truncatedDateString
+		}
+		this.props.dispatch(saveUserNotation(userInfoWithNotationString));
 	}
 
 	// updateDimensions() {

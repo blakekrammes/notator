@@ -34,7 +34,7 @@ export class SignupForm extends Component {
 				<form className="signup-form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
 					{error}
 					<label htmlFor="signup-username">Username</label>
-					<Field className="signup-input" name="username" id="signup-username" type="text" component="input" required />
+					<Field className="signup-input" name="username" id="signup-username" type="text" component="input" autoFocus required />
 					<label htmlFor="signup-email">Email</label>
 					<Field className="signup-input" name="email" id="signup-email" type="email" component="input" required />
 					<label htmlFor="signup-password">Password</label>

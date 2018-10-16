@@ -10,7 +10,9 @@ import {
 	AUTH_ERROR,
 	authError,
 	login,
-	refreshAuthToken
+	refreshAuthToken,
+	LOADING,
+	loading
 } from './auth';
 
 describe('setAuthToken', () => {
@@ -54,6 +56,13 @@ describe('authError', () => {
 		const action = authError(error);
 		expect(action.type).toEqual(AUTH_ERROR);
 		expect(action.error).toEqual(error);
+	});
+});
+
+describe('loading', () => {
+	it('should return the action', () => {
+		const action = loading();
+		expect(action.type).toEqual(LOADING);
 	});
 });
 
