@@ -14,11 +14,7 @@ const initialState = {
 	augmentationDotPressed: false,
 	writtenNotes: ['|'],
 	sixteenthNoteCount: 0,
-	clef: 'treble',
-	dimensions: {
-		width: window.innerWidth,
-		height: window.innerHeight
-	}
+	clef: 'treble'
 };
 
 export const singerReducer = (state = initialState, action) => {
@@ -87,14 +83,6 @@ export const singerReducer = (state = initialState, action) => {
 							  	   `${notesString}`;
 		return Object.assign({}, state, {
 			sheetMusic: updatedMusicTemplate
-		});
-	}
-	else if (action.type === actions.SET_DIMENSIONS) {
-		return Object.assign({}, state, {
-			dimensions: {
-				width: action.width,
-				height: action.height
-			}
 		});
 	}
 	return state;
