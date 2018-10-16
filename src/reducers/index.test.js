@@ -31,11 +31,7 @@ describe('singerReducer', () => {
 			augmentationDotPressed: false,
 			writtenNotes: ['|'],
 			sixteenthNoteCount: 0,
-			clef: 'treble',
-			dimensions: {
-				height: 768, 
-				width: 1024
-			}
+			clef: 'treble'
 		});
 	});
 
