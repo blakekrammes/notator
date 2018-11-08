@@ -14,6 +14,11 @@ export const fetchCompositionsError = error => ({
 	error
 });
 
+// export const FETCH_DEMO_COMPOSITIONS = 'FETCH_DEMO_COMPOSITIONS';
+// export const fetchDemoCompositions = () => ({
+// 	type: FETCH_DEMO_COMPOSITIONS
+// });
+
 // the parameter here is just for testing purposes
 export const fetchCompositions = (passedAuthToken) => (dispatch, getState) => {
 	let authToken;
@@ -38,7 +43,6 @@ export const fetchCompositions = (passedAuthToken) => (dispatch, getState) => {
 			dispatch(fetchCompositionsError(err));
 		});
 };
-
 
 export const DELETE_COMPOSITION_SUCCESS = 'DELETE_COMPOSITION_SUCCESS';
 export const deleteCompositionSuccess = id => ({

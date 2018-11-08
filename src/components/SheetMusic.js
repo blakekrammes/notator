@@ -4,6 +4,7 @@ import ABCJS from 'abcjs/midi';
 import HandleNotes from '../handleNotes';
 import ClefButton from './ClefButton';
 import {saveUserNotation} from '../actions/users';
+import {saveDemoNotation} from '../actions/index';
 import 'font-awesome/css/font-awesome.min.css';
 import 'abcjs/abcjs-midi.css';
 import './SheetMusic.css';
@@ -14,6 +15,9 @@ const SheetMusicJSX = (props) => (
 		<ClefButton />
 		{( () => {
     		if (props.writtenNotes.length > 1 && props.authToken !== null) {
+    			return <a className="save-link" href="" onClick={(e) => props.saveNotation(e)}>Save</a>;
+    		}
+    		else if (props.writtenNotes.length > 1 && props.demo === true) {
     			return <a className="save-link" href="" onClick={(e) => props.saveNotation(e)}>Save</a>;
     		}
     	})()}
@@ -47,13 +51,24 @@ export class SheetMusic extends Component {
 
     	justNotationString = `|${justNotationString}|`;
 
-		const userInfoWithNotationString = {
-			username: this.props.currentUser.username,
-			title: titleText,
-			music: justNotationString,
-			creation: truncatedDateString
+    	if (this.props.demo === true) {
+
+    		let demoPiece = {
+    			title: titleText,
+    			music: justNotationString
+    		}
+    		this.props.dispatch(saveDemoNotation(demoPiece));
+    	}
+
+    	else {
+			const userInfoWithNotationString = {
+				username: this.props.currentUser.username,
+				title: titleText,
+				music: justNotationString,
+				creation: truncatedDateString
+			}
+			this.props.dispatch(saveUserNotation(userInfoWithNotationString));
 		}
-		this.props.dispatch(saveUserNotation(userInfoWithNotationString));
 	}
 
 	// updateDimensions() {
@@ -107,7 +122,8 @@ const mapStateToProps = state => ({
 	writtenNotes: state.singer.writtenNotes,
 	sixteenthNoteCount: state.singer.sixteenthNoteCount,
 	authToken: state.auth.authToken,
-	currentUser: state.auth.currentUser
+	currentUser: state.auth.currentUser,
+	demo: state.auth.demo
 });
 
 export default connect(mapStateToProps)(SheetMusic);

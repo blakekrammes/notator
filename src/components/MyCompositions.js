@@ -2,22 +2,27 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import Composition from './Composition';
 import {fetchCompositions} from '../actions/protectedData';
+import {Redirect} from 'react-router-dom';
 
 export class MyCompositions extends Component {
 	
 	componentDidMount() {
-		this.props.dispatch(fetchCompositions());
-	}
-
-	componentDidUpdate() {
-		
+		if (this.props.demo === false && this.props.authToken === null && this.props.currentUser === null) {
+			this.props.dispatch(fetchCompositions());
+		}
 	}
 
 	render() {
 
-		let compositionList = (this.props.data !== '') 
+		let compositionList;
 
-		? this.props.data.compositions.map((composition, index) => {
+		if (this.props.demo === false && this.props.authToken === null && this.props.currentUser === null) {
+			return <Redirect to="/" />;
+		}
+
+		else if (this.props.demo === true) {
+
+			compositionList = this.props.demoNotation.map((composition, index) => {
 
 				let musicTemplate = 
 				  	`T: ${composition.title}\n` +
@@ -26,12 +31,30 @@ export class MyCompositions extends Component {
 					`K: CMaj clef=treble\n` +
 				 	`${composition.music}`;
 
-				return (	
-					<Composition id={composition.id} musicTemplate={musicTemplate} key={index} />
+			 	return (	
+					<Composition id={index + 3 * 5} title={composition.title} musicTemplate={musicTemplate} key={index} />
 				);
 			})
-		: '';
+		}
 
+		else {
+			compositionList = (this.props.data !== '') 
+
+			? this.props.data.compositions.map((composition, index) => {
+
+					let musicTemplate = 
+					  	`T: ${composition.title}\n` +
+					  	"M: 4/4\n" +
+					  	"L: 2/8\n" +
+						`K: CMaj clef=treble\n` +
+					 	`${composition.music}`;
+
+					return (	
+						<Composition id={composition.id} musicTemplate={musicTemplate} key={index} />
+					);
+				})
+			: '';
+		}
 		return (
 			<div>
 				{compositionList}
@@ -45,7 +68,11 @@ MyCompositions.defaultProps = ({
 });
 
 const mapStateToProps = state => ({
-	data: state.protectedData.data
+	authToken: state.auth.authToken,
+	currentUser: state.auth.currentUser,
+	data: state.protectedData.data,
+	demo: state.auth.demo,
+	demoNotation: state.singer.demoNotation
 });
 
 export default connect(mapStateToProps)(MyCompositions);

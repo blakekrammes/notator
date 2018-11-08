@@ -4,14 +4,16 @@ import {
 	AUTH_REQUEST,
 	AUTH_SUCCESS,
 	AUTH_ERROR,
-	LOADING
+	LOADING,
+	SET_DEMO
 } from '../actions/auth';
 
 const initialState = {
 	authToken: null, // authToken !== null does not mean it has been validated
 	currentUser: null,
 	loading: false,
-	error: null
+	error: null,
+	demo: false,
 };
 
 export default function reducer(state = initialState, action) {
@@ -39,7 +41,6 @@ export default function reducer(state = initialState, action) {
 		});
 	}
 	else if (action.type === AUTH_ERROR) {
-		// console.log(action.error)
 		return Object.assign({}, state, {
 			loading: false,
 			error: action.error
@@ -54,6 +55,18 @@ export default function reducer(state = initialState, action) {
 		else {
 			return Object.assign({}, state, {
 				loading: false
+			});
+		}
+	}
+	else if (action.type === SET_DEMO) {
+		if (state.demo === true) {
+			return Object.assign({}, state, {
+				demo: false
+			});
+		}
+		else {
+			return Object.assign({}, state, {
+				demo: true
 			});
 		}
 	}

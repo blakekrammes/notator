@@ -50,4 +50,3 @@ export const saveUserNotation = userWithNotationString => dispatch => {
 		.catch(err => {console.error(err)});
 };
 
-

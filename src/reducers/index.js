@@ -14,7 +14,20 @@ const initialState = {
 	augmentationDotPressed: false,
 	writtenNotes: ['|'],
 	sixteenthNoteCount: 0,
-	clef: 'treble'
+	clef: 'treble',
+	demoNotation: [
+		{
+			title: 'Mary Had a Little Lamb',
+			music: 'edcd|eee2'
+		},
+		{
+			title: 'Twinkle Twinkle',
+			music: 'ccgg|aag2'
+		},
+		{
+			title: 'Yankees',
+			music:'ccde|cedg,'
+		}]
 };
 
 export const singerReducer = (state = initialState, action) => {
@@ -83,6 +96,16 @@ export const singerReducer = (state = initialState, action) => {
 							  	   `${notesString}`;
 		return Object.assign({}, state, {
 			sheetMusic: updatedMusicTemplate
+		});
+	}
+	else if (action.type === actions.SAVE_DEMO_NOTATION) {
+		return Object.assign({}, state, {
+			demoNotation: [...state.demoNotation, action.notation]
+		});
+	}
+	else if (action.type === actions.DELETE_DEMO_NOTATION) {
+		return Object.assign({}, state, {
+			demoNotation: state.demoNotation.filter(item => action.title !== item.title)
 		});
 	}
 	return state;

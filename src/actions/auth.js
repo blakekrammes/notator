@@ -38,6 +38,11 @@ export const loading = () => ({
 	type: LOADING
 });
 
+export const SET_DEMO = 'SET_DEMO';
+export const setDemo = () => ({
+	type: SET_DEMO
+});
+
 // Stores the auth token in state and localStorage, and decodes and stores
 // the user data stored in the token
 const storeAuthInfo = (authToken, dispatch) => {

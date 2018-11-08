@@ -43,10 +43,23 @@
 	border-bottom: 10px solid pink;
 	transition: .1s;
 	padding-bottom: 4px;
+	padding-right: 6vw;
 }
 
 .login-link:hover {
 	border-bottom: 20px solid pink;
+	transition: .1s;
+}
+
+.demo-link {
+	font-size: 6.5vw;
+	border-bottom: 10px solid aqua;
+	transition: .1s;
+	padding-bottom: 4px;
+}
+
+.demo-link:hover {
+	border-bottom: 20px solid aqua;
 	transition: .1s;
 }
 
@@ -94,6 +107,11 @@
 
 	.login-link {
 		font-size: 5.5vw;
+		padding-right: 4.5vw;
+	}
+
+	.demo-link {
+		font-size: 5.5vw;
 	}
 
 	.logout-link {
@@ -123,16 +141,21 @@
 	}
 
 	.compositions-link {
-		font-size: 4vw;
+		font-size: 4.5vw;
 		padding-right: 6vw;
 	}
 
 	.login-link {
-		font-size: 4vw;
+		font-size: 4.5vw;
+		padding-right: 4vw;
+	}
+
+	.demo-link {
+		font-size: 4.5vw;
 	}
 
 	.logout-link {
-		font-size: 4vw;
+		font-size: 4.5vw;
 	}
 
 	.range {
@@ -163,6 +186,10 @@
 	}
 
 	.login-link {
+		font-size: 4.5vw;
+	}
+
+	.demo-link {
 		font-size: 4.5vw;
 	}
 
@@ -197,6 +224,11 @@
 	}
 
 	.login-link {
+		font-size: 4vw;
+		padding-right: 4vw;
+	}
+
+	.demo-link {
 		font-size: 4vw;
 	}
 
@@ -235,6 +267,10 @@
 
 	.login-link {
 		font-size: 3vw;
+		padding-right: 3.5vw;
+	}
+	.demo-link {
+		font-size: 3vw;
 	}
 
 	.logout-link {
@@ -260,12 +296,16 @@
 		margin-top: -4vw;
 	}
 
-	.signup-link, .login-link, .logout-link, .compositions-link {
+	.signup-link, .login-link, .logout-link, .compositions-link, .demo-link {
 		font-size: 2.5vw;
 		margin-bottom: 2vw;
 	}
 
 	.signup-link {
+		padding-right: 2vw;
+	}
+
+	.login-link {
 		padding-right: 2vw;
 	}
 

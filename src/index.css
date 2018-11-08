@@ -24,7 +24,7 @@ a:hover {
 }
 
 button {
-	font-size: 7.5vw;
+	font-size: 6.5vw;
 	background: white;
 	border: 1px solid rgba(0, 0, 0, .3);
 	padding: 2vw;
@@ -57,7 +57,7 @@ button:hover {
 		font-size: 10vw;
 	}
 	button {
-		font-size: 6vw;
+		font-size: 5vw;
 		padding: 1.5vw;
 	}
 }
@@ -70,7 +70,7 @@ button:hover {
 		width: 50vw;
 	}
 	button {
-		font-size: 5.5vw;
+		font-size: 4.5vw;
 		padding: 1.5vw;
 	}
 }
@@ -80,7 +80,7 @@ button:hover {
 		font-size: 7vw;
 	}
 	button {
-		font-size: 4.5vw;
+		font-size: 3.5vw;
 		padding: 1.5vw;
 	}
 	.abcjs-inline-midi {
@@ -96,7 +96,7 @@ button:hover {
 		width: 30vw;
 	}
 	button {
-		font-size: 3vw;
+		font-size: 2.5vw;
 		padding: 1vw;
 	}
 }

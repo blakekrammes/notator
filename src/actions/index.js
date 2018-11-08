@@ -54,6 +54,18 @@ export const updateMusic = () => ({
 	type: UPDATE_MUSIC
 });
 
+export const SAVE_DEMO_NOTATION = 'SAVE_DEMO_NOTATION';
+export const saveDemoNotation = notation => ({
+	type: SAVE_DEMO_NOTATION,
+	notation
+});
+
+export const DELETE_DEMO_NOTATION = 'DELETE_DEMO_NOTATION';
+export const deleteDemoNotation = title => ({
+	type: DELETE_DEMO_NOTATION,
+	title
+});
+
 // export const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS';
 // export const fetchUsersSuccess = users => ({
 // 	type: FETCH_USERS_SUCCESS,

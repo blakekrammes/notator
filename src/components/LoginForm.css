@@ -2,28 +2,28 @@
 	display: flex;
 	flex-flow: column;
 	margin: 4.5vw;
-	font-size: 7vw;
+	font-size: 1.5rem;
 	width: 25vw;
-	margin-top: -3vw;
+	margin-top: 0rem;
 }
 
 .login-input {
-	font-size: 7vw;
-	margin-bottom: 5vw;
-	width: 50vw;
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+	width: 10rem;
 	border: 1px solid rgba(0, 0, 0, .3);
 	border-radius: 2px;
 	padding: 1vw;
 }
 
 .login-button {
-	font-size: 6.5vw;
+	font-size: 1.5rem;
 	cursor: pointer;
-	width: 25vw;
+	width: 6rem;
 }
 
 .account-status {
-	font-size: 4.6vw;
+	font-size: 1.4rem;
 	width: 100vw;
 }
 
@@ -34,163 +34,188 @@
 }
 
 @media only screen and (min-width: 500px) {
+	.login-username, .login-password {
+		font-size: 1.5rem;
+	}
+	.account-status {
+		font-size: 1.4rem;
+	}
 	.login-form {
-		display: flex;
-		flex-flow: column;
-		margin: 4.5vw;
-		font-size: 5.5vw;
+		font-size: 1.4rem;
 		width: 25vw;
-		margin-top: -3vw;
+		margin-top: -.5rem;
 	}
 
 	.login-input {
-		font-size: 5.5vw;
-		margin-bottom: 4vw;
-		width: 45vw;
+		font-size: 1.3rem;
+		margin-bottom: 1rem;
+		width: 14rem;
 		border: 1px solid rgba(0, 0, 0, .3);
 		border-radius: 2px;
-		padding: 1vw;
+		padding: .5vw;
+		margin-top: .2rem;
 	}
 
 	.login-button {
-		font-size: 5vw;
+		font-size: 1.4rem;
 		cursor: pointer;
-		width: 25vw;
-	}
-	.account-status {
-		font-size: 4.5vw;
+		width: 7rem;
+		padding: .2rem;
 	}
 }
 
 @media only screen and (min-width: 650px) {
+	.login-username, .login-password {
+		font-size: 1.5rem;
+	}
+	.account-status {
+		font-size: 1.4rem;
+	}
 	.login-form {
-		margin: 4.5vw;
-		font-size: 5.5vw;
+		font-size: 1.4rem;
 		width: 25vw;
-		margin-top: -3vw;
+		margin-top: -1rem;
 	}
 
 	.login-input {
-		font-size: 5.5vw;
-		margin-bottom: 4vw;
-		width: 45vw;
+		font-size: 1.3rem;
+		margin-bottom: 1rem;
+		width: 14rem;
 		border: 1px solid rgba(0, 0, 0, .3);
 		border-radius: 2px;
-		padding: 1vw;
+		padding: .5vw;
+		margin-top: .2rem;
 	}
 
 	.login-button {
-		font-size: 5vw;
+		font-size: 1.4rem;
 		cursor: pointer;
-		width: 25vw;
-	}
-	.account-status {
-		font-size: 4vw;
+		width: 7rem;
+		padding: .2rem;
 	}
 }
 
 @media only screen and (min-width: 768px) {
+	.login-username, .login-password {
+		font-size: 1.5rem;
+	}
+	.account-status {
+		font-size: 1.4rem;
+	}
 	.login-form {
-		margin: 4.5vw;
-		font-size: 4.5vw;
+		font-size: 1.4rem;
 		width: 25vw;
-		margin-top: -3vw;
+		margin-top: -1.3rem;
 	}
 
 	.login-input {
-		font-size: 4vw;
-		margin-bottom: 3.3vw;
-		width: 30vw;
+		font-size: 1.3rem;
+		margin-bottom: 1rem;
+		width: 14rem;
 		border: 1px solid rgba(0, 0, 0, .3);
 		border-radius: 2px;
+		padding: .5vw;
+		margin-top: .2rem;
 	}
 
 	.login-button {
-		font-size: 4vw;
+		font-size: 1.4rem;
 		cursor: pointer;
-		width: 25vw;
-		padding: 1vw;
-	}
-	.account-status {
-		font-size: 3vw;
+		width: 7rem;
+		padding: .2rem;
 	}
 }
 
 @media only screen  and (min-width: 900px) {
+	.login-username, .login-password {
+		font-size: 1.5rem;
+	}
+	.account-status {
+		font-size: 1.4rem;
+	}
 	.login-form {
-		font-size: 3.5vw;
+		font-size: 1.4rem;
 		width: 25vw;
-		margin-top: -3vw;
+		margin-top: -2rem;
 	}
 
 	.login-input {
-		font-size: 3vw;
-		margin-bottom: 2.5vw;
-		width: 30vw;
+		font-size: 1.3rem;
+		margin-bottom: 1rem;
+		width: 14rem;
 		border: 1px solid rgba(0, 0, 0, .3);
 		border-radius: 2px;
+		padding: .5vw;
+		margin-top: .2rem;
 	}
 
 	.login-button {
-		font-size: 3vw;
+		font-size: 1.4rem;
 		cursor: pointer;
-		width: 18vw;
-		padding: .7vw;
-	}
-	.account-status {
-		font-size: 2.5vw;
+		width: 7rem;
+		padding: .2rem;
 	}
 }
 
 @media only screen and (min-width: 1050px) {
+	.login-username, .login-password {
+		font-size: 1.5rem;
+	}
+	.account-status {
+		font-size: 1.4rem;
+	}
 	.login-form {
-		margin: 4.5vw;
-		font-size: 2.5vw;
+		font-size: 1.4rem;
 		width: 25vw;
-		margin-top: -3vw;
+		margin-top: -2rem;
 	}
 
 	.login-input {
-		font-size: 2.5vw;
-		margin-bottom: 2vw;
-		width: 25vw;
+		font-size: 1.3rem;
+		margin-bottom: 1rem;
+		width: 14rem;
 		border: 1px solid rgba(0, 0, 0, .3);
 		border-radius: 2px;
 		padding: .5vw;
+		margin-top: .2rem;
 	}
 
 	.login-button {
-		font-size: 2.5vw;
+		font-size: 1.4rem;
 		cursor: pointer;
-		width: 13vw;
-		padding: .7vw;
-	}
-	.account-status {
-		font-size: 2vw;
+		width: 7rem;
+		padding: .2rem;
 	}
 }
 
 @media only screen and (min-width: 1224px) {
+	.login-username, .login-password {
+		font-size: 1.5rem;
+	}
+	.account-status {
+		font-size: 1.4rem;
+	}
 	.login-form {
-		font-size: 2vw;
+		font-size: 1.4rem;
 		width: 25vw;
+		margin-top: -2.5rem;
 	}
 
 	.login-input {
-		font-size: 2vw;
-		margin-bottom: 1.7vw;
-		width: 20vw;
+		font-size: 1.3rem;
+		margin-bottom: 1rem;
+		width: 14rem;
 		border: 1px solid rgba(0, 0, 0, .3);
 		border-radius: 2px;
 		padding: .5vw;
-		margin-top: .4vw;
+		margin-top: .2rem;
 	}
 
 	.login-button {
-		font-size: 2vw;
+		font-size: 1.4rem;
 		cursor: pointer;
-		width: 15vw;
-		padding: .8vw;
+		width: 7rem;
+		padding: .2rem;
 	}
 }
 

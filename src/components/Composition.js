@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {deleteComposition} from '../actions/protectedData';
+import {deleteDemoNotation} from '../actions/index';
 import ABCJS from 'abcjs/midi';
 import 'font-awesome/css/font-awesome.min.css';
 import 'abcjs/abcjs-midi.css';
@@ -46,13 +47,19 @@ export class Composition extends Component {
 	handleDelete(e) {
 		let confirmDelete = window.confirm('Do you want to delete this composition?');
         if (confirmDelete === true) { 
-            this.props.dispatch(deleteComposition(this.props.id));
+
+        	if (this.props.demo === true) {
+        		this.props.dispatch(deleteDemoNotation(this.props.title));
+        	}
+
+        	else {
+        		this.props.dispatch(deleteComposition(this.props.id));
+        	}
         }
 	}
 
 	render() {
 		return(
-
 			<div key={this.props.id} id={`abcdiv${this.props.id}`}>
 				<div className="musicDiv"></div>
 				<div className="midiDiv"></div>
@@ -62,4 +69,8 @@ export class Composition extends Component {
 	}
 }
 
-export default connect()(Composition);
+const mapStateToProps = state => ({
+	demo: state.auth.demo
+});
+
+export default connect(mapStateToProps)(Composition);
