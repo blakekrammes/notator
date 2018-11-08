@@ -31,7 +31,21 @@ describe('singerReducer', () => {
 			augmentationDotPressed: false,
 			writtenNotes: ['|'],
 			sixteenthNoteCount: 0,
-			clef: 'treble'
+			clef: 'treble',
+			demoNotation: [
+				{
+					title: 'Mary Had a Little Lamb',
+					music: 'edcd|eee2'
+				},
+				{
+					title: 'Twinkle Twinkle',
+					music: 'ccgg|aag2'
+				},
+				{
+					title: 'Yankees',
+					music:'ccde|cedg,'
+				}
+			]
 		});
 	});
 

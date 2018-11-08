@@ -17,7 +17,8 @@ describe('authReducer', () => {
 			authToken: null,
 			currentUser: null,
 			loading: false,
-			error: null
+			error: null,
+			demo: false
 		});
 	});
 

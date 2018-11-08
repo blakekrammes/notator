@@ -27,7 +27,8 @@ const initialState = {
 		{
 			title: 'Yankees',
 			music:'ccde|cedg,'
-		}]
+		}
+	]
 };
 
 export const singerReducer = (state = initialState, action) => {
