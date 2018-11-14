@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Instructions.css';
 
 export class Instructions extends Component {
-	render() {     
+	render() {
 		return (
 			<div className="instruction-list">
 				{/*pngs courtesy of flaticon.com*/}

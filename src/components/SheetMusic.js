@@ -61,6 +61,7 @@ export class SheetMusic extends Component {
     	}
 
     	else {
+    		console.log('hello world')
 			const userInfoWithNotationString = {
 				username: this.props.currentUser.username,
 				title: titleText,

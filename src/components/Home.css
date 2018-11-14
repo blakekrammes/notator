@@ -16,61 +16,67 @@
 .signup-link {
 	font-size: 6.5vw;
 	padding-right: 6vw;
-	border-bottom: 10px solid yellow;
-	transition: .1s;
+	border-bottom: 10px solid rgba(42,71,71,.45);
+	transition: .15s ease-out;
 	padding-bottom: 4px;
 }
 
 .signup-link:hover {
-	border-bottom: 20px solid yellow;
-	transition: .1s;
+	padding-bottom: 6px;
+	border-bottom: 10px solid rgba(42,71,71,.1);
+	transition: .15s ease-in;
 }
 
 .compositions-link {
 	font-size: 6.5vw;
 	padding-right: 6vw;
-	border-bottom: 10px solid green;
-	transition: .1s;
+	border-bottom: 10px solid rgba(42,71,71,.45);
+	transition: .15s ease-out;
 }
 
 .compositions-link:hover {
-	border-bottom: 20px solid green;
-	transition: .1s;
+	padding-bottom: 6px;
+	border-bottom: 10px solid rgba(42,71,71,.1);
+	transition: .15s ease-in;
 }
 
 .login-link {
 	font-size: 6.5vw;
-	border-bottom: 10px solid pink;
-	transition: .1s;
+	border-bottom: 10px solid rgba(42,71,71,.45);
+	transition: .15s ease-out;
 	padding-bottom: 4px;
 	padding-right: 6vw;
 }
 
 .login-link:hover {
-	border-bottom: 20px solid pink;
-	transition: .1s;
+	padding-bottom: 6px;
+	border-bottom: 10px solid rgba(42,71,71,.1);
+	transition: .15s ease-in;
 }
 
 .demo-link {
 	font-size: 6.5vw;
-	border-bottom: 10px solid aqua;
-	transition: .1s;
+	border-bottom: 10px solid rgba(42,71,71,.45);
+	transition: .2s ease-out;
 	padding-bottom: 4px;
 }
 
 .demo-link:hover {
-	border-bottom: 20px solid aqua;
-	transition: .1s;
+	padding-bottom: 6px;
+	border-bottom: 10px solid rgba(42,71,71,.1);
+	transition: .15s ease-in;
 }
 
 .logout-link {
 	font-size: 6.5vw;
-	border-bottom: 10px solid magenta;
+	border-bottom: 10px solid rgba(42,71,71,.45);
+	transition: .15s ease-out;
 }
 
 .logout-link:hover {
-	border-bottom: 20px solid magenta;
-	transition: .1s;
+	padding-bottom: 6px;
+	border-bottom: 10px solid rgba(42,71,71,.1);
+	transition: .15s ease-in;
 }
 
 .status {
@@ -136,26 +142,26 @@
 	}
 
 	.signup-link {
-		font-size: 4.5vw;
-		padding-right: 6vw;
+		font-size: 4.2vw;
+		padding-right: 4.2vw;
 	}
 
 	.compositions-link {
-		font-size: 4.5vw;
-		padding-right: 6vw;
+		font-size: 4.2vw;
+		padding-right: 4.2vw;
 	}
 
 	.login-link {
-		font-size: 4.5vw;
-		padding-right: 4vw;
+		font-size: 4.2vw;
+		padding-right: 4.2vw;
 	}
 
 	.demo-link {
-		font-size: 4.5vw;
+		font-size: 4.2vw;
 	}
 
 	.logout-link {
-		font-size: 4.5vw;
+		font-size: 4.2vw;
 	}
 
 	.range {
@@ -176,29 +182,29 @@
 	}
 
 	.signup-link {
-		font-size: 4.5vw;
-		padding-right: 6vw;
+		font-size: 4vw;
+		padding-right: 4vw;
 	}
 
 	.compositions-link {
-		font-size: 4.5vw;
-		padding-right: 6vw;
+		font-size: 4vw;
+		padding-right: 4vw;
 	}
 
 	.login-link {
-		font-size: 4.5vw;
+		font-size: 4vw;
 	}
 
 	.demo-link {
-		font-size: 4.5vw;
+		font-size: 4vw;
 	}
 
 	.logout-link {
-		font-size: 4.5vw;
+		font-size: 4vw;
 	}
 
 	.range {
-		font-size: 4.5vw;
+		font-size: 4vw;
 		margin-bottom: -3.5vw;
 	}
 	.status {

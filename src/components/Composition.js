@@ -60,7 +60,7 @@ export class Composition extends Component {
 
 	render() {
 		return(
-			<div key={this.props.id} id={`abcdiv${this.props.id}`}>
+			<div className="composition-div" key={this.props.id} id={`abcdiv${this.props.id}`}>
 				<div className="musicDiv"></div>
 				<div className="midiDiv"></div>
 				<button className="delete-button" onClick={(e) => this.handleDelete(e)}>Delete</button>

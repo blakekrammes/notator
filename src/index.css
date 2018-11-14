@@ -1,13 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Cabin|Quicksand');
 
 * {
+	box-sizing: border-box;
 	font-family: 'Cabin', sans-serif;
+	text-shadow: 1px 1px rgba(255,228,181,0.35); 
 }
 
-body {
+body, html {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+}
+
+body {
+	background: linear-gradient(to bottom rgba(255,255,255,.5), rgba(255,255,255,.65)), url('background.jpg') repeat-y;
+	background-size: cover;
 }
 
 a {
@@ -23,9 +30,19 @@ a:hover {
 	transition: .2s;
 }
 
+input {
+	background: rgb(0,0,0,.1);
+	/*transition: .1s;*/
+}
+
+input:focus {
+	background: rgb(244, 243, 242);
+	/*transition: .1s;*/
+}
+
 button {
+	background: rgb(244, 243, 242);
 	font-size: 6.5vw;
-	background: white;
 	border: 1px solid rgba(0, 0, 0, .3);
 	padding: 2vw;
 	border-radius: 2px;
@@ -70,8 +87,8 @@ button:hover {
 		width: 50vw;
 	}
 	button {
-		font-size: 4.5vw;
-		padding: 1.5vw;
+		font-size: 3.7vw;
+		padding: 1.4vw;
 	}
 }
 
@@ -80,8 +97,8 @@ button:hover {
 		font-size: 7vw;
 	}
 	button {
-		font-size: 3.5vw;
-		padding: 1.5vw;
+		font-size: 3.2vw;
+		padding: 1.2vw;
 	}
 	.abcjs-inline-midi {
 		width: 35vw;

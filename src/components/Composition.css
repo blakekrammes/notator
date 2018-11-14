@@ -5,11 +5,17 @@
 
 .musicDiv {
 	margin-left: 3.5vw;
+	width: 95% !important;
 }
 
 .midiDiv {
 	margin-left: 3.5vw;
 	line-height: 10vw;
+}
+
+.composition-div {
+    background: rgba(255,255,255,.55);
+    margin: 2rem 2rem;
 }
 
 /*.abcjs-inline-midi {

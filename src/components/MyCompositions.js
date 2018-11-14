@@ -7,7 +7,7 @@ import {Redirect} from 'react-router-dom';
 export class MyCompositions extends Component {
 	
 	componentDidMount() {
-		if (this.props.demo === false && this.props.authToken === null && this.props.currentUser === null) {
+		if (this.props.demo === false && this.props.authToken !== null) {
 			this.props.dispatch(fetchCompositions());
 		}
 	}
@@ -16,7 +16,7 @@ export class MyCompositions extends Component {
 
 		let compositionList;
 
-		if (this.props.demo === false && this.props.authToken === null && this.props.currentUser === null) {
+		if (this.props.demo === false && this.props.authToken === null) {
 			return <Redirect to="/" />;
 		}
 
@@ -38,7 +38,8 @@ export class MyCompositions extends Component {
 		}
 
 		else {
-			compositionList = (this.props.data !== '') 
+			console.log(this.props.data.compositions)
+			compositionList = this.props.data !== ''
 
 			? this.props.data.compositions.map((composition, index) => {
 
