@@ -17,6 +17,7 @@
     background: rgba(255,255,255,.55);
     border-radius: 4px;
     margin: 0 2rem;
+    border-bottom: 10px solid rgba(0,0,0,.1);
 }
 
 /*.abcjs-inline-midi {
