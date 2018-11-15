@@ -27,7 +27,7 @@ export class SignupForm extends Component {
 				return <Redirect to="/"/>;
 			}
 		else if (this.props.loading === true) {
-			return <ResizeSpinLoader />;
+			return <ResizeSpinLoader background="rgba(244,243,242,1)"/>;
 		}
 		else {
 			return (
