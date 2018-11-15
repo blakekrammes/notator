@@ -14,7 +14,7 @@ body, html {
 
 body {
 	background: linear-gradient(to bottom rgba(255,255,255,.5), rgba(255,255,255,.65)), url('background.jpg') repeat-y;
-	background-size: cover;
+	/*background-size: cover;*/
 }
 
 a {
