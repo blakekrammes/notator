@@ -55,6 +55,9 @@ export class AudioButton extends Component {
 		});	
 	}
 	render() {
+		if (window.webkitAudioContext) {
+				alert('Notator is not supported in this browser. Please use Chrome or Firefox instead.');
+			}
 		return (
 			<div>
 				<button className="input-button" onClick={() => this.toggleInput()}>Use live input</button>

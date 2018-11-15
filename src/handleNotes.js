@@ -139,7 +139,7 @@ export class HandleNotes extends Component {
 				) {
 
 				let stringSinceLastSharp = currentMeasure.substr(currentMeasure.lastIndexOf('^'), currentMeasure.length);
-
+				// checks if natural was stated before in the measure
 				if (stringSinceLastSharp.includes(`=${note[0]},,,`)
 				|| stringSinceLastSharp.includes(`=${note[0]},,`)
 				|| stringSinceLastSharp.includes(`=${note[0]},`)
@@ -148,7 +148,6 @@ export class HandleNotes extends Component {
 				|| stringSinceLastSharp.includes(`=${note[0].toLowerCase()}`)
 				|| stringSinceLastSharp.includes(`=${note[0]}`) 
 				) {
-					filteredNote = filteredNote;
 				}
 				else {
 					filteredNote = `=${filteredNote}`;
