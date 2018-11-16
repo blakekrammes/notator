@@ -13,13 +13,18 @@
 
 ![Written notes](https://github.com/Blakesters/notator/blob/master/screenshots/notes.png)
 
+## Detailed instructions
+
+![Detailed instructions](https://github.com/Blakesters/notator/blob/master/screenshots/instructions.png)
+
+
 ## Save and view past compositions if you have an account
 #### (You can also play back and download the MIDI of any previously written compositions)
 
 ![Past compositions](https://github.com/Blakesters/notator/blob/master/screenshots/past_compositions.png)
 
 **Summary:**
-Detect pitch from the microphone, then press keyboard keys while the note displays to write music. You can play back or download the notes as MIDI after writing. You can also save your past compositions on Notator for later reference if you have an account.
+Detect pitch from the microphone, then press keyboard keys while the pitch displays to write music notation. You can play back or download the notes as MIDI after writing. You can also save your past compositions on Notator for later reference if you have an account.
 
 **Technologies used:** 
 (React with Redux, Node.js with Express, MongoDB with Mongoose, abc.js, pitchfinder [npm])
