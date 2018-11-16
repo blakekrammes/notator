@@ -1,22 +1,25 @@
 ### Link to live site: https://notator.herokuapp.com
-## Home
+## Home page
 
 ![Home Page](https://github.com/Blakesters/notator/blob/master/screenshots/home.png)
 
-## Recognize the pitch 
+## Recognize the pitch by singing or playing an instrument into the microphone
+#### (Piano works particularly well for recognition)
 
 ![Pitch recognition](https://github.com/Blakesters/notator/blob/master/screenshots/pitch.png)
 
-## Write notes
+## Write notes by pressing the first letter of the note value while the pitch displays
+#### (w for whole notes, h for half, etc.)
 
 ![Written notes](https://github.com/Blakesters/notator/blob/master/screenshots/notes.png)
 
-## View past compositions 
+## Save and view past compositions if you have an account
+#### (You can also play back and download the MIDI of any previously written compositions)
 
 ![Past compositions](https://github.com/Blakesters/notator/blob/master/screenshots/past_compositions.png)
 
 **Summary:**
-Use live audio input from the microphone to recognize pitch, then press keys to create music notation
+Detect pitch from the microphone, then press keyboard keys while the note displays to write music. You can play back or download the notes as MIDI after writing. You can also save your past compositions on Notator for later reference if you have an account.
 
 **Technologies used:** 
-(React, Node.js, MongoDB, abc.js, pitchfinder [npm])
+(React with Redux, Node.js with Express, MongoDB with Mongoose, abc.js, pitchfinder [npm])
