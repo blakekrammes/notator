@@ -23,9 +23,6 @@ export class MyCompositions extends Component {
 		else if (this.props.demo === true) {
 
 			compositionList = this.props.demoNotation.map((composition, index) => {
-
-				console.log(composition)
-
 				let musicTemplate = 
 				  	`T: ${composition.title}\n` +
 				  	`M: ${composition.timeSignature}\n` +
@@ -40,7 +37,6 @@ export class MyCompositions extends Component {
 		}
 
 		else {
-			console.log(this.props.data.compositions)
 			compositionList = this.props.data !== ''
 
 			? this.props.data.compositions.map((composition, index) => {
