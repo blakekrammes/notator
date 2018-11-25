@@ -15,18 +15,33 @@ const initialState = {
 	writtenNotes: ['|'],
 	sixteenthNoteCount: 0,
 	clef: 'treble',
+	timeSignature: '4/4',
+	baseNoteValue: '2/8',
+	key: 'CMaj',
 	demoNotation: [
 		{
 			title: 'Mary Had a Little Lamb',
-			music: 'edcd|eee2'
+			music: 'edcd|eee2',
+			clef: 'treble',
+			timeSignature: '4/4',
+			baseNoteValue: '2/8',
+			key: 'CMaj'
 		},
 		{
 			title: 'Twinkle Twinkle',
-			music: 'ccgg|aag2'
+			music: 'ccgg|aag2',
+			clef: 'treble',
+			timeSignature: '4/4',
+			baseNoteValue: '2/8',
+			key: 'CMaj'
 		},
 		{
 			title: 'Yankees',
-			music:'ccde|cedg,'
+			music:'ccde|cedg,',
+			clef: 'treble',
+			timeSignature: '4/4',
+			baseNoteValue: '2/8',
+			key: 'CMaj'
 		}
 	]
 };
@@ -69,9 +84,9 @@ export const singerReducer = (state = initialState, action) => {
 		let slicedNotes = state.writtenNotes.slice(0, state.writtenNotes.length - 1);
 		let slicedNotesString = slicedNotes.join('');
 		let updatedMusicTemplate = "T: Composition\n" +
-								   "M: 4/4\n" +
-								   "L: 2/8\n" +
-								   `K: CMaj clef=${state.clef}\n` +
+								   `M: ${state.timeSignature}\n` +
+								   `L: ${state.baseNoteValue}\n` +
+								   `K: ${state.key} clef=${state.clef}\n` +
 							  	   `${slicedNotesString}`;	
 		return Object.assign({}, state, {
 			writtenNotes: slicedNotes,
@@ -88,12 +103,24 @@ export const singerReducer = (state = initialState, action) => {
 			clef: action.clef
 		});
 	}
+	else if (action.type === actions.CHANGE_TIME_SIGNATURE) {
+		if (action.timeSignature.includes('/4')) {
+			return Object.assign({}, state, {
+				timeSignature: action.timeSignature
+			});
+		}
+		else if (action.timeSignature.includes('/8')) {
+			return Object.assign({}, state, {
+				timeSignature: action.timeSignature
+			});
+		}
+	}
 	else if (action.type === actions.UPDATE_MUSIC) {
 		let notesString = state.writtenNotes.join('');
 		let updatedMusicTemplate = "T: Composition\n" +
-								   "M: 4/4\n" +
-								   "L: 2/8\n" +
-								   `K: CMaj clef=${state.clef}\n` +
+								   `M: ${state.timeSignature}\n` +
+								   `L: ${state.baseNoteValue}\n` +
+								   `K: ${state.key} clef=${state.clef}\n` +
 							  	   `${notesString}`;
 		return Object.assign({}, state, {
 			sheetMusic: updatedMusicTemplate

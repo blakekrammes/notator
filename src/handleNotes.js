@@ -23,7 +23,15 @@ export class HandleNotes extends Component {
 
 	    //if last entry was a barline
 	    if (this.props.writtenNotes[length - 1] === '|') {
-	      this.props.dispatch(changeSixteenthNoteCount(16));
+				if (this.props.timeSignature === '4/4') {
+					this.props.dispatch(changeSixteenthNoteCount(16));
+				}
+				else if (this.props.timeSignature === '3/4' || this.props.timeSignature === '6/8') {
+					this.props.dispatch(changeSixteenthNoteCount(12));
+				}
+				else if (this.props.timeSignature === '2/4') {
+					this.props.dispatch(changeSixteenthNoteCount(8));
+				}
 	    }
 
 	    //if last entry was a sixteenth note
@@ -50,7 +58,6 @@ export class HandleNotes extends Component {
 	    else if (this.props.writtenNotes[length - 1].includes('3') && !this.props.writtenNotes[length - 1].includes('/')) {
 	      this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount - 12));
 	    }
-
 	    //if last entry was a whole note
 	    else if (this.props.writtenNotes[length - 1].includes('4')) {
 	      this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount - 16));
@@ -59,14 +66,8 @@ export class HandleNotes extends Component {
 	    else {
 	    	this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount - 4));
 	    }
-
 	    this.props.dispatch(deleteNote());
-	    // console.log('onDelete ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
-
-	    // you may need this to refresh the music
-	    // this.writeABCNotation('');
 	  }
-
 
 	  if (this.props.pitch === undefined || this.props.pitch === '0') {
 	  	return;
@@ -109,14 +110,12 @@ export class HandleNotes extends Component {
 			  //commas are used to designate lower octave
 			  let lowNote = `${note[0]},,`;
 			  filteredNote = lowNote;
-			  // console.log(filteredNote)
 			}
 			//very low pitches (C1 – B1)
 			else if (parseInt(note[1], 10) === 1) {
 			  //commas are used to designate lower octave
 			  let lowNote = `${note[0]},,,`;
 			  filteredNote = lowNote;
-			  // console.log(filteredNote)
 			}
 			//mid-range pitches (C4 - B4)
 			else {
@@ -264,171 +263,304 @@ export class HandleNotes extends Component {
 
 	  //if whole note 
 	  else if (noteToBeWritten.includes('4') && !noteToBeWritten.includes('/')) {
-	    if (this.props.sixteenthNoteCount !== 0 && this.props.sixteenthNoteCount !== 16) {
-	      return;
-	    }
-
-	    else if (this.props.sixteenthNoteCount === 16) {
-	      if (this.props.writtenNotes[this.props.writtenNotes.length - 1] !== '|') {
-		    	this.props.writtenNotes.push('|');
-		  }
-	      this.props.dispatch(changeSixteenthNoteCount(0));
-	      	 // console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
-
-	    }
-	    this.props.dispatch(addNote(noteToBeWritten));
-	    notesToDisplay = this.props.writtenNotes.join('');
-	    this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount + 16));
-	    	    	    // console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
-
+			if (this.props.timeSignature === '4/4') {
+				if (this.props.sixteenthNoteCount !== 0 && this.props.sixteenthNoteCount !== 16) {
+					return;
+				}
+				else if (this.props.sixteenthNoteCount === 16) {
+					if (this.props.writtenNotes[this.props.writtenNotes.length - 1] !== '|') {
+						this.props.writtenNotes.push('|');
+				}
+					this.props.dispatch(changeSixteenthNoteCount(0));
+				}
+				this.props.dispatch(addNote(noteToBeWritten));
+				notesToDisplay = this.props.writtenNotes.join('');
+				this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount + 16));
+			}
+			else if (this.props.timeSignature === '2/4' || this.props.timeSignature === '3/4' || this.props.timeSignature.includes('/8')) {
+				return;
+			}
 	  }
 
 	  //if dotted half
 	  else if (noteToBeWritten.includes('3') && !noteToBeWritten.includes('/')) {
-	    if (this.props.sixteenthNoteCount > 4 && this.props.sixteenthNoteCount < 16) { 
-	      return;
-	    }
-	    else if (this.props.sixteenthNoteCount === 16) {
-	      if (this.props.writtenNotes[this.props.writtenNotes.length - 1] !== '|') {
-		    	this.props.writtenNotes.push('|');
-		  }
-	      this.props.dispatch(changeSixteenthNoteCount(0));
-	      	    	    // console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
-
-	    }
-	    this.props.dispatch(addNote(noteToBeWritten));
-	    notesToDisplay = this.props.writtenNotes.join('');
-	    this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount + 12));
-	    	    	    // console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
-
+			if (this.props.timeSignature === '4/4') {
+				if (this.props.sixteenthNoteCount > 4 && this.props.sixteenthNoteCount < 16) { 
+					return;
+				}
+				else if (this.props.sixteenthNoteCount === 16) {
+					if (this.props.writtenNotes[this.props.writtenNotes.length - 1] !== '|') {
+						this.props.writtenNotes.push('|');
+					}
+					this.props.dispatch(changeSixteenthNoteCount(0));
+				}
+			}
+			else if (this.props.timeSignature === '3/4' || this.props.timeSignature === '6/8') {
+				if (this.props.sixteenthNoteCount !== 0 && this.props.sixteenthNoteCount !== 12) { 
+					return;
+				}
+				else if (this.props.sixteenthNoteCount === 12) {
+					if (this.props.writtenNotes[this.props.writtenNotes.length - 1] !== '|') {
+						this.props.writtenNotes.push('|');
+					}
+					this.props.dispatch(changeSixteenthNoteCount(0));
+				}
+			}
+			else if (this.props.timeSignature === '2/4') {
+				return;
+			}
+			this.props.dispatch(addNote(noteToBeWritten));
+			notesToDisplay = this.props.writtenNotes.join('');
+			this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount + 12));
 	  }
 
 	  //if half note
 	  else if (noteToBeWritten.includes('2') && !noteToBeWritten.includes('/')) {
-	    if (this.props.sixteenthNoteCount > 8 && this.props.sixteenthNoteCount < 16) { 
-	      return;
-	    }
-	    else if (this.props.sixteenthNoteCount === 16) {
-	      if (this.props.writtenNotes[this.props.writtenNotes.length - 1] !== '|') {
-		    	this.props.writtenNotes.push('|');
-		  }
-	      this.props.dispatch(changeSixteenthNoteCount(0));
-	      	    	    // console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
 
-	    }
+			if (this.props.timeSignature === '4/4') {
+				if (this.props.sixteenthNoteCount > 8 && this.props.sixteenthNoteCount < 16) { 
+					return;
+				}
+				else if (this.props.sixteenthNoteCount === 16) {
+					if (this.props.writtenNotes[this.props.writtenNotes.length - 1] !== '|') {
+						this.props.writtenNotes.push('|');
+					}
+					this.props.dispatch(changeSixteenthNoteCount(0));
+				}
+			}
+			else if (this.props.timeSignature === '3/4' || this.props.timeSignature === '6/8') {
+				if (this.props.sixteenthNoteCount > 4 && this.props.sixteenthNoteCount < 12) { 
+					return;
+				}
+				else if (this.props.sixteenthNoteCount === 12) {
+					if (this.props.writtenNotes[this.props.writtenNotes.length - 1] !== '|') {
+						this.props.writtenNotes.push('|');
+					}
+					this.props.dispatch(changeSixteenthNoteCount(0));
+				}
+			}
+			else if (this.props.timeSignature === '2/4') {
+				if (this.props.sixteenthNoteCount > 0 && this.props.sixteenthNoteCount < 8) { 
+					return;
+				}
+				else if (this.props.sixteenthNoteCount === 8) {
+					if (this.props.writtenNotes[this.props.writtenNotes.length - 1] !== '|') {
+						this.props.writtenNotes.push('|');
+					}
+					this.props.dispatch(changeSixteenthNoteCount(0));
+				}
+			}
+			// if not at the end of a measure or if there's enough room in the measure
 	    this.props.dispatch(addNote(noteToBeWritten));
 	    notesToDisplay = this.props.writtenNotes.join('');
-	    this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount + 8));
-	    	    	    // console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
-
+			this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount + 8));
 	  }
 
 	  //if dotted quarter
 	  else if (noteToBeWritten.includes('3/') && !noteToBeWritten.includes('//')) {
-	    if (this.props.sixteenthNoteCount > 10 && this.props.sixteenthNoteCount < 16) { 
-	      return;
-	    }
-	    else if (this.props.sixteenthNoteCount === 16) {
-	    	if (this.props.writtenNotes[this.props.writtenNotes.length - 1] !== '|') {
-		    	this.props.writtenNotes.push('|');
-		    }
-	      this.props.dispatch(changeSixteenthNoteCount(0));
-	      	    	    // console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
-
-	    }
+			if (this.props.timeSignature === '4/4') {
+				if (this.props.sixteenthNoteCount > 10 && this.props.sixteenthNoteCount < 16) { 
+					return;
+				}
+				else if (this.props.sixteenthNoteCount === 16) {
+					if (this.props.writtenNotes[this.props.writtenNotes.length - 1] !== '|') {
+						this.props.writtenNotes.push('|');
+					}
+					this.props.dispatch(changeSixteenthNoteCount(0));
+				}
+			}
+			else if (this.props.timeSignature === '3/4' || this.props.timeSignature === '6/8') {
+				if (this.props.sixteenthNoteCount > 6 && this.props.sixteenthNoteCount < 12) { 
+					return;
+				}
+				else if (this.props.sixteenthNoteCount === 12) {
+					if (this.props.writtenNotes[this.props.writtenNotes.length - 1] !== '|') {
+						this.props.writtenNotes.push('|');
+					}
+					this.props.dispatch(changeSixteenthNoteCount(0));
+				}
+			}
+			else if (this.props.timeSignature === '2/4') {
+				if (this.props.sixteenthNoteCount > 2 && this.props.sixteenthNoteCount < 8) { 
+					return;
+				}
+				else if (this.props.sixteenthNoteCount === 8) {
+					if (this.props.writtenNotes[this.props.writtenNotes.length - 1] !== '|') {
+						this.props.writtenNotes.push('|');
+					}
+					this.props.dispatch(changeSixteenthNoteCount(0));
+				}
+			}
 	    this.props.dispatch(addNote(noteToBeWritten));
 	    notesToDisplay = this.props.writtenNotes.join('');
 	    this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount + 6));
-	    	    	    // console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
-
 	  }
 
 	  //if dotted eigth
 	  else if (noteToBeWritten.includes('3//')) {
-	    if (this.props.sixteenthNoteCount > 13 && this.props.sixteenthNoteCount < 16) { 
-	      return;
-	    }
-	    else if (this.props.sixteenthNoteCount === 16) {
-	    	if (this.props.writtenNotes[this.props.writtenNotes.length - 1] !== '|') {
-		    	this.props.writtenNotes.push('|');
-		    }	      
-			this.props.dispatch(changeSixteenthNoteCount(0));
-				    	    // console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
-
-	    }
+			if (this.props.timeSignature === '4/4') {
+				if (this.props.sixteenthNoteCount > 13 && this.props.sixteenthNoteCount < 16) { 
+					return;
+				}
+				else if (this.props.sixteenthNoteCount === 16) {
+					if (this.props.writtenNotes[this.props.writtenNotes.length - 1] !== '|') {
+						this.props.writtenNotes.push('|');
+					}	      
+				this.props.dispatch(changeSixteenthNoteCount(0));
+				}
+			}
+			else if (this.props.timeSignature === '3/4' || this.props.timeSignature === '6/8') {
+				if (this.props.sixteenthNoteCount > 9 && this.props.sixteenthNoteCount < 12) { 
+					return;
+				}
+				else if (this.props.sixteenthNoteCount === 12) {
+					if (this.props.writtenNotes[this.props.writtenNotes.length - 1] !== '|') {
+						this.props.writtenNotes.push('|');
+					}	      
+				this.props.dispatch(changeSixteenthNoteCount(0));
+				}
+			}
+			else if (this.props.timeSignature === '2/4') {
+				if (this.props.sixteenthNoteCount > 5 && this.props.sixteenthNoteCount < 8) { 
+					return;
+				}
+				else if (this.props.sixteenthNoteCount === 8) {
+					if (this.props.writtenNotes[this.props.writtenNotes.length - 1] !== '|') {
+						this.props.writtenNotes.push('|');
+					}
+					this.props.dispatch(changeSixteenthNoteCount(0));
+				}
+			}
 	    this.props.dispatch(addNote(noteToBeWritten));
 	    notesToDisplay = this.props.writtenNotes.join('');
 	    this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount + 3));
-	    	    	    // console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
-
 	  }
 
 	  //if eighth note
 	  else if (noteToBeWritten.includes('/2')) {
-	    if (this.props.sixteenthNoteCount > 14 && this.props.sixteenthNoteCount < 16) { 
-	      return;
-	    }
-	    else if (this.props.sixteenthNoteCount === 16) {
-	    	if (this.props.writtenNotes[this.props.writtenNotes.length - 1] !== '|') {
-		    	this.props.writtenNotes.push('|');
-		    }
-	      this.props.dispatch(changeSixteenthNoteCount(0));
-	      	    	    // console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
-
-	    }
+			if (this.props.timeSignature === '4/4') {
+				if (this.props.sixteenthNoteCount > 14 && this.props.sixteenthNoteCount < 16) { 
+					return;
+				}
+				else if (this.props.sixteenthNoteCount === 16) {
+					if (this.props.writtenNotes[this.props.writtenNotes.length - 1] !== '|') {
+						this.props.writtenNotes.push('|');
+					}
+					this.props.dispatch(changeSixteenthNoteCount(0));
+				}
+			}
+			else if (this.props.timeSignature === '3/4' || this.props.timeSignature === '6/8') {
+				if (this.props.sixteenthNoteCount > 10 && this.props.sixteenthNoteCount < 12) { 
+					return;
+				}
+				else if (this.props.sixteenthNoteCount === 12) {
+					if (this.props.writtenNotes[this.props.writtenNotes.length - 1] !== '|') {
+						this.props.writtenNotes.push('|');
+					}
+					this.props.dispatch(changeSixteenthNoteCount(0));
+				}
+			}
+			else if (this.props.timeSignature === '2/4') {
+				if (this.props.sixteenthNoteCount > 6 && this.props.sixteenthNoteCount < 8) { 
+					return;
+				}
+				else if (this.props.sixteenthNoteCount === 8) {
+					if (this.props.writtenNotes[this.props.writtenNotes.length - 1] !== '|') {
+						this.props.writtenNotes.push('|');
+					}
+					this.props.dispatch(changeSixteenthNoteCount(0));
+				}
+			}
 	    this.props.dispatch(addNote(noteToBeWritten));
 	    notesToDisplay = this.props.writtenNotes.join('');
 	    this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount + 2));
-	    	    	    // console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
-
 	  }
 
 	  //if sixteenth note
 	  else if (noteToBeWritten.includes('/4')) {
-	    if (this.props.sixteenthNoteCount > 15 && this.props.sixteenthNoteCount < 16) { 
-	      return;
-	    }
-	    else if (this.props.sixteenthNoteCount === 16) {
-	    	if (this.props.writtenNotes[this.props.writtenNotes.length - 1] !== '|') {
-		    	this.props.writtenNotes.push('|');
-		    }
-	      this.props.dispatch(changeSixteenthNoteCount(0));
-	      	    	    // console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
-
-	    }
+			if (this.props.timeSignature === '4/4') {
+				if (this.props.sixteenthNoteCount > 15 && this.props.sixteenthNoteCount < 16) { 
+					return;
+				}
+				else if (this.props.sixteenthNoteCount === 16) {
+					if (this.props.writtenNotes[this.props.writtenNotes.length - 1] !== '|') {
+						this.props.writtenNotes.push('|');
+					}
+					this.props.dispatch(changeSixteenthNoteCount(0));
+				}
+			}
+			else if (this.props.timeSignature === '3/4' || this.props.timeSignature === '6/8') {
+				if (this.props.sixteenthNoteCount > 11 && this.props.sixteenthNoteCount < 12) { 
+					return;
+				}
+				else if (this.props.sixteenthNoteCount === 12) {
+					if (this.props.writtenNotes[this.props.writtenNotes.length - 1] !== '|') {
+						this.props.writtenNotes.push('|');
+					}
+					this.props.dispatch(changeSixteenthNoteCount(0));
+				}
+			}
+			else if (this.props.timeSignature === '2/4') {
+				if (this.props.sixteenthNoteCount > 7 && this.props.sixteenthNoteCount < 8) { 
+					return;
+				}
+				else if (this.props.sixteenthNoteCount === 8) {
+					if (this.props.writtenNotes[this.props.writtenNotes.length - 1] !== '|') {
+						this.props.writtenNotes.push('|');
+					}
+					this.props.dispatch(changeSixteenthNoteCount(0));
+				}
+			}
 	    this.props.dispatch(addNote(noteToBeWritten));
 	    notesToDisplay = this.props.writtenNotes.join('');
 	    this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount + 1));
-	    	    	    // console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
-
 	  }
 
 	  //if quarter note
 	  else {
-	    if (this.props.sixteenthNoteCount > 12 && this.props.sixteenthNoteCount < 16) { 
-	      return;
-	    }
-	    else if (this.props.sixteenthNoteCount === 16) {
-		    if (this.props.writtenNotes[this.props.writtenNotes.length - 1] !== '|') {
-		    	this.props.writtenNotes.push('|');
-		    }
-	      
-	      this.props.dispatch(changeSixteenthNoteCount(0));
-	      	    	    // console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
-
-	    }
+			if (this.props.timeSignature === '4/4') {
+				if (this.props.sixteenthNoteCount > 12 && this.props.sixteenthNoteCount < 16) { 
+					return;
+				}
+				else if (this.props.sixteenthNoteCount === 16) {
+					if (this.props.writtenNotes[this.props.writtenNotes.length - 1] !== '|') {
+						this.props.writtenNotes.push('|');
+					}
+					this.props.dispatch(changeSixteenthNoteCount(0));
+				}
+			}
+			else if (this.props.timeSignature === '3/4' || this.props.timeSignature === '6/8') {
+				if (this.props.sixteenthNoteCount > 8 && this.props.sixteenthNoteCount < 12) { 
+					return;
+				}
+				else if (this.props.sixteenthNoteCount === 12) {
+					if (this.props.writtenNotes[this.props.writtenNotes.length - 1] !== '|') {
+						this.props.writtenNotes.push('|');
+					}
+					this.props.dispatch(changeSixteenthNoteCount(0));
+				}
+			}
+			else if (this.props.timeSignature === '2/4') {
+				if (this.props.sixteenthNoteCount > 4 && this.props.sixteenthNoteCount < 8) { 
+					return;
+				}
+				else if (this.props.sixteenthNoteCount === 8) {
+					if (this.props.writtenNotes[this.props.writtenNotes.length - 1] !== '|') {
+						this.props.writtenNotes.push('|');
+					}
+					this.props.dispatch(changeSixteenthNoteCount(0));
+				}
+			}
 	    this.props.dispatch(addNote(noteToBeWritten));
 	    notesToDisplay = this.props.writtenNotes.join('');
 	    this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount + 4));
-	    	    	    // console.log('onAdd ', 'writtenNotes is ', this.props.writtenNotes, ' and sixteenthNoteCount is ', this.props.sixteenthNoteCount);
-
 	  }
     
 	  let music = 
 	  "T: Composition\n" +
-	  "M: 4/4\n" +
-	  "L: 2/8\n" +
-	  `K: CMaj clef=${this.props.clef}\n` +
+	  `M: ${this.props.timeSignature}\n` +
+	  `L: ${this.props.baseNoteValue}\n` +
+	  `K: ${this.props.key} clef=${this.props.clef}\n` +
 	  `${notesToDisplay}`;
 	 
 	 this.props.dispatch(changeSheetMusic(music));
@@ -456,7 +588,11 @@ const mapStateToProps = state => ({
 	augmentationDotPressed: state.singer.augmentationDotPressed,
 	writtenNotes: state.singer.writtenNotes,
 	sixteenthNoteCount: state.singer.sixteenthNoteCount,
-	clef: state.singer.clef
+	clef: state.singer.clef,
+	timeSignature: state.singer.timeSignature,
+	baseNoteValue: state.singer.baseNoteValue,
+	key: state.singer.key,
+	timeSignature: state.singer.timeSignature
 });
 
 export default connect(mapStateToProps)(HandleNotes);

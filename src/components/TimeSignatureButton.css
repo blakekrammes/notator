@@ -1,0 +1,12 @@
+.timesignatures {
+    display: none;
+}
+
+.timesignatures:hover {
+    background: white;
+}
+
+.timesignature-buttons-div {
+    position: absolute;
+    z-index: 5;
+}

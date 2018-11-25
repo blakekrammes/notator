@@ -24,11 +24,13 @@ export class MyCompositions extends Component {
 
 			compositionList = this.props.demoNotation.map((composition, index) => {
 
+				console.log(composition)
+
 				let musicTemplate = 
 				  	`T: ${composition.title}\n` +
-				  	"M: 4/4\n" +
-				  	"L: 2/8\n" +
-					`K: CMaj clef=treble\n` +
+				  	`M: ${composition.timeSignature}\n` +
+				  	`L: ${composition.baseNoteValue}\n` +
+					`K: ${composition.key} clef=${composition.clef}\n` +
 				 	`${composition.music}`;
 
 			 	return (	
@@ -45,9 +47,9 @@ export class MyCompositions extends Component {
 
 					let musicTemplate = 
 					  	`T: ${composition.title}\n` +
-					  	"M: 4/4\n" +
-					  	"L: 2/8\n" +
-						`K: CMaj clef=treble\n` +
+					  	`M: ${composition.timeSignature}\n` +
+					  	`L: ${composition.baseNoteValue}\n` +
+						`K: ${composition.key} clef=${composition.clef}\n` +
 					 	`${composition.music}`;
 
 					return (	

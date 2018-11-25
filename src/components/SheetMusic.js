@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import ABCJS from 'abcjs/midi';
 import HandleNotes from '../handleNotes';
 import ClefButton from './ClefButton';
+import TimeSignatureButton from './TimeSignatureButton';
 import {saveUserNotation} from '../actions/users';
 import {saveDemoNotation} from '../actions/index';
 import 'font-awesome/css/font-awesome.min.css';
@@ -13,6 +14,7 @@ const SheetMusicJSX = (props) => (
 	<div className="sheetMusicDiv">
 		<HandleNotes />
 		<ClefButton />
+		<TimeSignatureButton />
 		{( () => {
     		if (props.writtenNotes.length > 1 && props.authToken !== null) {
     			return <a className="save-link" href="" onClick={(e) => props.saveNotation(e)}>Save</a>;
@@ -55,32 +57,31 @@ export class SheetMusic extends Component {
 
     		let demoPiece = {
     			title: titleText,
-    			music: justNotationString
+				music: justNotationString,
+				clef: this.props.clef,
+				timeSignature: this.props.timeSignature,
+				baseNoteValue: this.props.baseNoteValue,
+				key: this.props.key
     		}
     		this.props.dispatch(saveDemoNotation(demoPiece));
     	}
 
     	else {
-    		console.log('hello world')
 			const userInfoWithNotationString = {
 				username: this.props.currentUser.username,
 				title: titleText,
 				music: justNotationString,
+				clef: this.props.clef,
+				timeSignature: this.props.timeSignature,
+				baseNoteValue: this.props.baseNoteValue,
+				key: this.props.key,
 				creation: truncatedDateString
 			}
 			this.props.dispatch(saveUserNotation(userInfoWithNotationString));
 		}
 	}
 
-	// updateDimensions() {
-	// 	this.props.dispatch(setDimensions(window.innerWidth, window.innerHeight));
-	// 	// console.log(this.props.dimensions)
-	// }
-
  	componentDidMount() {
-
- 		// window.addEventListener('resize',() => this.updateDimensions());
-
  		const abcDiv = document.querySelector('.sheetMusicDiv > .sheetMusic');
 
  		ABCJS.renderAbc(abcDiv, this.props.sheetMusic, {
@@ -91,8 +92,6 @@ export class SheetMusic extends Component {
  	componentDidUpdate() {
 
  		const abcDiv = document.querySelector('.sheetMusicDiv > .sheetMusic');
-
- 		// if (this.props.dimensions.width )
 
  		ABCJS.renderAbc(abcDiv, this.props.sheetMusic, {
  			responsive: 'resize'
@@ -122,6 +121,10 @@ const mapStateToProps = state => ({
 	augmentationDotPressed: state.singer.augmentationDotPressed,
 	writtenNotes: state.singer.writtenNotes,
 	sixteenthNoteCount: state.singer.sixteenthNoteCount,
+	clef: state.singer.clef,
+	timeSignature: state.singer.timeSignature,
+	baseNoteValue: state.singer.baseNoteValue,
+	key: state.singer.key,
 	authToken: state.auth.authToken,
 	currentUser: state.auth.currentUser,
 	demo: state.auth.demo

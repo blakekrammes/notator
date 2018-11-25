@@ -49,6 +49,12 @@ export const changeClef = clef => ({
 	clef
 });
 
+export const CHANGE_TIME_SIGNATURE = 'CHANGE_TIME_SIGNATURE';
+export const changeTimeSignature = timeSignature => ({
+	type: CHANGE_TIME_SIGNATURE,
+	timeSignature
+});	
+
 export const UPDATE_MUSIC = 'UPDATE_MUSIC';
 export const updateMusic = () => ({
 	type: UPDATE_MUSIC
