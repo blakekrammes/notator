@@ -43,7 +43,7 @@
 	.login-form {
 		font-size: 1.4rem;
 		width: 25vw;
-		margin-top: -.5rem;
+		margin-top: 1rem;
 	}
 
 	.login-input {
@@ -74,7 +74,7 @@
 	.login-form {
 		font-size: 1.4rem;
 		width: 25vw;
-		margin-top: -1rem;
+		margin-top: 1rem;
 	}
 
 	.login-input {
@@ -105,7 +105,7 @@
 	.login-form {
 		font-size: 1.4rem;
 		width: 25vw;
-		margin-top: -1.3rem;
+		margin-top: 1rem;
 	}
 
 	.login-input {
@@ -136,7 +136,6 @@
 	.login-form {
 		font-size: 1.4rem;
 		width: 25vw;
-		margin-top: -2rem;
 	}
 
 	.login-input {
@@ -167,7 +166,6 @@
 	.login-form {
 		font-size: 1.4rem;
 		width: 25vw;
-		margin-top: -2rem;
 	}
 
 	.login-input {
@@ -198,7 +196,6 @@
 	.login-form {
 		font-size: 1.4rem;
 		width: 25vw;
-		margin-top: -2.5rem;
 	}
 
 	.login-input {

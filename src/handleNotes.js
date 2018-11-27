@@ -591,8 +591,7 @@ const mapStateToProps = state => ({
 	clef: state.singer.clef,
 	timeSignature: state.singer.timeSignature,
 	baseNoteValue: state.singer.baseNoteValue,
-	key: state.singer.key,
-	timeSignature: state.singer.timeSignature
+	key: state.singer.key
 });
 
 export default connect(mapStateToProps)(HandleNotes);

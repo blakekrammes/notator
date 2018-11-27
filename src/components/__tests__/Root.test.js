@@ -17,12 +17,6 @@ describe('Root', () => {
 		expect(rootDiv.props().className).toEqual('root');
 	});
 
-	it('should contain the home link with the correct route', () => {
-		const wrapper = shallow(<Root />);
-		const homeLink = wrapper.find(`[to='/']`);
-		expect(homeLink.props().to).toEqual('/');
-	});
-
 	it('should render the home Route HOC component with the Home component and the correct route', () => {
 		const wrapper = shallow(<Root />);
 		const homeRoute = wrapper.find(`[path='/']`);

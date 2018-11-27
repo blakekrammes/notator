@@ -31,17 +31,20 @@ export class SignupForm extends Component {
 		}
 		else {
 			return (
-				<form className="signup-form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-					{error}
-					<label htmlFor="signup-username">Username</label>
-					<Field className="signup-input" name="username" id="signup-username" type="text" component="input" autoFocus required />
-					<label htmlFor="signup-email">Email</label>
-					<Field className="signup-input" name="email" id="signup-email" type="email" component="input" required />
-					<label htmlFor="signup-password">Password</label>
-					<Field className="signup-input" name="password" id="signup-password" type="password" component="input" required />
-					<button className="signup-button" type="submit">Signup</button>
-					<p className="account-status"><Link to="/login">Login instead?</Link></p>
-				</form>
+				<div>
+					<h1 className="main-title"><Link to="/">Notator</Link></h1>
+					<form className="signup-form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+						{error}
+						<label htmlFor="signup-username">Username</label>
+						<Field className="signup-input" name="username" id="signup-username" type="text" component="input" autoFocus required />
+						<label htmlFor="signup-email">Email</label>
+						<Field className="signup-input" name="email" id="signup-email" type="email" component="input" required />
+						<label htmlFor="signup-password">Password</label>
+						<Field className="signup-input" name="password" id="signup-password" type="password" component="input" required />
+						<button className="signup-button" type="submit">Signup</button>
+						<p className="account-status"><Link to="/login">Login instead?</Link></p>
+					</form>
+				</div>
 			);
 		}
 	}

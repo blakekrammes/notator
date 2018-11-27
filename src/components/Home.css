@@ -1,255 +1,270 @@
-.range, .logged-in-div, .logged-out-div {
-	margin: 4.5vw;
-	font-size: 6vw;
+main {
+	margin-top: 3rem;
 }
 
 .logged-in-div, .logged-out-div {
-	margin-bottom: 7vw;
-}
-
-.description-title {
-	font-size: 7vw;
-	margin: 4.5vw;
-	margin-bottom: -2.5vw;
+	margin-bottom: 0;
+	margin-top: 1rem;
+	display: flex;
+	flex-wrap: wrap;
+	margin-right: .8rem;
 }
 
 .signup-link {
-	font-size: 6.5vw;
-	padding-right: 6vw;
-	border-bottom: 10px solid rgba(42,71,71,.45);
+	font-size: .68rem;
+	padding-right: .6rem;
+	/* border-bottom: 10px solid rgba(42,71,71,.45); */
 	transition: .15s ease-out;
 	padding-bottom: 4px;
 }
 
 .signup-link:hover {
-	padding-bottom: 6px;
-	border-bottom: 10px solid rgba(42,71,71,.1);
+	/* padding-bottom: 6px; */
+	/* border-bottom: 10px solid rgba(42,71,71,.1); */
 	transition: .15s ease-in;
 }
 
 .compositions-link {
-	font-size: 6.5vw;
-	padding-right: 6vw;
-	border-bottom: 10px solid rgba(42,71,71,.45);
+	font-size: .68rem;
+	padding-right: .6rem;
+	/* border-bottom: 10px solid rgba(42,71,71,.45); */
 	transition: .15s ease-out;
 }
 
 .compositions-link:hover {
-	padding-bottom: 6px;
-	border-bottom: 10px solid rgba(42,71,71,.1);
+	/* padding-bottom: 6px; */
+	/* border-bottom: 10px solid rgba(42,71,71,.1); */
 	transition: .15s ease-in;
 }
 
 .login-link {
-	font-size: 6.5vw;
-	border-bottom: 10px solid rgba(42,71,71,.45);
+	font-size: .68rem;
+	/* border-bottom: 10px solid rgba(42,71,71,.45); */
 	transition: .15s ease-out;
 	padding-bottom: 4px;
-	padding-right: 6vw;
+	padding-right: .6rem;
 }
 
 .login-link:hover {
-	padding-bottom: 6px;
-	border-bottom: 10px solid rgba(42,71,71,.1);
+	/* padding-bottom: 6px; */
+	/* border-bottom: 10px solid rgba(42,71,71,.1); */
 	transition: .15s ease-in;
 }
 
 .demo-link {
-	font-size: 6.5vw;
-	border-bottom: 10px solid rgba(42,71,71,.45);
+	font-size: .68rem;
+	/* border-bottom: 10px solid rgba(42,71,71,.45); */
 	transition: .2s ease-out;
 	padding-bottom: 4px;
+	padding-right: .6rem;
 }
 
 .demo-link:hover {
-	padding-bottom: 6px;
-	border-bottom: 10px solid rgba(42,71,71,.1);
+	/* padding-bottom: 6px; */
+	/* border-bottom: 10px solid rgba(42,71,71,.1); */
+	transition: .15s ease-in;
+}
+
+.instructions-link {
+	padding-bottom: 4px; 
+	font-size: .68rem;
+	/* border-bottom: 10px solid rgba(42,71,71,.45); */
+	transition: .2s ease-out;
+}
+
+.instructions-link:hover {
+	/* padding-bottom: 6px; */
+	/* border-bottom: 10px solid rgba(42,71,71,.1); */
 	transition: .15s ease-in;
 }
 
 .logout-link {
-	font-size: 6.5vw;
-	border-bottom: 10px solid rgba(42,71,71,.45);
+	font-size: .68rem;
+	/* border-bottom: 10px solid rgba(42,71,71,.45); */
 	transition: .15s ease-out;
+	padding-right: .6rem;
 }
 
 .logout-link:hover {
-	padding-bottom: 6px;
-	border-bottom: 10px solid rgba(42,71,71,.1);
+	/* padding-bottom: 6px; */
+	/* border-bottom: 10px solid rgba(42,71,71,.1); */
 	transition: .15s ease-in;
 }
 
 .status {
-	margin-top: -3vw;
-	margin-bottom: 1vw;
-	font-size: 6.5vw;
-}
-
-.range {
-	font-size: 6.5vw;
+	color: rgba(0,0,0,.8);
+	position: absolute;
+	right: 0;
+	top: -.5rem;
+	margin-right: 1.8rem;
+	font-size: .68rem;
 }
 
 .sheetMusicMidi {
 	line-height: 10vw;
 }
 
+.abc-buttons {
+	display: flex;
+	padding: 0 3rem;
+	justify-content: center;
+}
+
 @media only screen  and (min-width: 500px) {
-	.description-title {
-		font-size: 6vw;
-		margin: 4.5vw;
-		margin-top: -2vw;
-		margin-bottom: -3vw;
+	main {
+		margin-top: 5rem;
+	}
+	.logged-out-div, .logged-in-div {
+		line-height: 2.15rem;
+		margin-right: 1.3rem;
 	}
 
 	.signup-link {
-		font-size: 5.5vw;
-		padding-right: 6vw;
+		font-size: 1rem;
+		padding-right: 1rem;
 	}
 
 	.compositions-link {
-		font-size: 5.5vw;
-		padding-right: 6vw;
+		font-size: 1rem;
+		padding-right: 1rem;
 	}
 
 	.login-link {
-		font-size: 5.5vw;
-		padding-right: 4.5vw;
+		font-size: 1rem;
+		padding-right: 1rem;
 	}
 
 	.demo-link {
-		font-size: 5.5vw;
+		font-size: 1rem;
+		padding-right: 1rem;
+	}
+
+	.instructions-link {
+		font-size: 1rem;
 	}
 
 	.logout-link {
-		font-size: 5.5vw;
+		font-size: 1rem;
+		padding-right: 1rem;
 	}
 
-	.range {
-		font-size: 5.5vw;
-		margin-bottom: -3.5vw;
-	}
 	.status {
-		font-size: 5.5vw;
+		font-size: 1rem;
+		margin-right: 3rem;
+		margin-top: .65rem;
+	}
+	.abc-buttons {
+		display: flex;
+		padding: 0 3rem;
+		justify-content: start;
 	}
 }
 
 @media only screen  and (min-width: 650px) {
-	.description-title {
-		font-size: 5vw;
-		margin: 4.5vw;
-		margin-top: -2vw;
-		margin-bottom: -3vw;
+	main {
+		margin-top: 7rem;
+	}
+	.logged-in-div, .logged-out-div {
+		margin-top: 1.6rem; 
+		margin-right: 2rem;
 	}
 
 	.signup-link {
-		font-size: 4.2vw;
-		padding-right: 4.2vw;
+		font-size: 1.2rem;
+		padding-right: 1rem;
 	}
 
 	.compositions-link {
-		font-size: 4.2vw;
-		padding-right: 4.2vw;
+		font-size: 1.2rem;
+		padding-right: 1rem;
 	}
 
 	.login-link {
-		font-size: 4.2vw;
-		padding-right: 4.2vw;
+		font-size: 1.2rem;
+		padding-right: 1rem;
 	}
 
 	.demo-link {
-		font-size: 4.2vw;
+		font-size: 1.2rem;
+		padding-right: 1rem;
+	}
+
+	.instructions-link {
+		font-size: 1.2rem;
 	}
 
 	.logout-link {
-		font-size: 4.2vw;
+		font-size: 1.2rem;
+		padding-right: 1rem;
 	}
 
-	.range {
-		font-size: 4vw;
-		margin-bottom: -3.5vw;
-	}
 	.status {
-		font-size: 4vw;
+		font-size: 1.2rem;
+		margin-right: 3.8rem;
+		margin-top: 1rem;
 	}
 }
 
 @media only screen  and (min-width: 768px) {
-	.description-title {
-		font-size: 5vw;
-		margin: 4.5vw;
-		margin-top: -2vw;
-		margin-bottom: -3vw;
+	.logged-in-div, .logged-out-div {
+		margin-top: 1.75rem;
 	}
-
 	.signup-link {
-		font-size: 4vw;
-		padding-right: 4vw;
+		font-size: 1.2rem;
 	}
-
 	.compositions-link {
-		font-size: 4vw;
-		padding-right: 4vw;
+		font-size: 1.2rem;
 	}
-
 	.login-link {
-		font-size: 4vw;
+		font-size: 1.2rem;
 	}
-
 	.demo-link {
-		font-size: 4vw;
+		font-size: 1.2rem;
 	}
-
+	.instructions-link {
+		font-size: 1.2rem;
+	}
 	.logout-link {
-		font-size: 4vw;
-	}
-
-	.range {
-		font-size: 4vw;
-		margin-bottom: -3.5vw;
+		font-size: 1.2rem;
 	}
 	.status {
-		font-size: 4.5vw;
+		font-size: 1.2rem;
 	}
 }
 
 @media only screen  and (min-width: 900px) {
-	.description-title {
-		font-size: 4vw;
-		margin-bottom: -4.3vw;
-		margin-top: -3vw;
-	}
-
 	.signup-link {
-		font-size: 4vw;
-		padding-right: 4vw;
+		font-size: 1.2rem;
+		padding-right: 1rem;
 	}
 
 	.compositions-link {
-		font-size: 4vw;
-		padding-right: 4vw;
+		font-size: 1.2rem;
+		padding-right: 1rem;
 	}
 
 	.login-link {
-		font-size: 4vw;
-		padding-right: 4vw;
+		font-size: 1.2rem;
+		padding-right: 1rem;
 	}
 
 	.demo-link {
-		font-size: 4vw;
+		font-size: 1.2rem;
+		padding-right: 1rem;
+	}
+
+	.instructions-link {
+		font-size: 1.2rem;
 	}
 
 	.logout-link {
-		font-size: 4vw;
+		font-size: 1.2rem;
+		padding-right: 1rem;
 	}
 
-	.range {
-		font-size: 4vw;
-		margin-bottom: -4vw;
-	}
 	.status {
-		font-size: 4vw;
-		margin-top: -3.5vw;
-		margin-bottom: -.6vw;
+		font-size: 1.2rem;
+		margin-right: 3.9rem;
 	}
 	.sheetMusicMidi {
 		line-height: 3vw;
@@ -258,76 +273,17 @@
 }
 
 @media only screen  and (min-width: 1050px) {
-	.description-title {
-		font-size: 3vw;	
-		margin-top: -4vw;
-	}
-
-	.signup-link {
-		font-size: 3vw;
-	}
-
-	.compositions-link {
-		font-size: 3vw;
-	}
-
-	.login-link {
-		font-size: 3vw;
-		padding-right: 3.5vw;
-	}
-	.demo-link {
-		font-size: 3vw;
-	}
-
-	.logout-link {
-		font-size: 3vw;
-	}
-
-	.range {
-		font-size: 3vw;
-		margin-bottom: -4vw;
-	}
-
-	.status {
-		font-size: 3vw;
-		
+	.logged-in-div, .logged-out-div {
+		margin-right: 2.7rem;
 	}
 }
 
 @media only screen  and (min-width: 1224px) {
-
-	.description-title {
-		font-size: 3.2vw;
-		margin: 4.5vw;
-		margin-top: -4vw;
+	.logged-in-div, .logged-out-div {
+		margin-right: 3rem;
 	}
-
-	.signup-link, .login-link, .logout-link, .compositions-link, .demo-link {
-		font-size: 2.5vw;
-		margin-bottom: 2vw;
-	}
-
-	.signup-link {
-		padding-right: 2vw;
-	}
-
-	.login-link {
-		padding-right: 2vw;
-	}
-
-	.compositions-link {
-		padding-right: 2vw;
-	}
-
-	.status {
-		font-size: 2.5vw;
-		margin-bottom: -2.5vw;
-		margin-top: -3vw;
-	}
-	.range {
-		font-size: 2.5vw;
-		margin-top: -3.8vw;
-		margin-bottom: -3.5vw;
+	.abc-buttons {
+		margin-bottom: 2.4rem; 
 	}
 }
 

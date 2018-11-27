@@ -30,15 +30,18 @@ export class LoginForm extends Component {
 		}
 		else {	
 			return (
-				<form className="login-form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-					{error}
-					<label htmlFor="login-username">Username</label>
-					<Field className="login-input" name="username" id="login-username" type="text" component="input" autoFocus required />
-					<label htmlFor="login-password">Password</label>
-					<Field className="login-input" name="password" id="login-password" type="password" component="input" required />
-					<button className="login-button" type="submit">Login</button>
-					<p className="account-status"><Link to="/signup">Need to signup?</Link></p>
-				</form>
+				<div>
+					<h1 className="main-title"><Link to="/">Notator</Link></h1>
+					<form className="login-form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+						{error}
+						<label htmlFor="login-username">Username</label>
+						<Field className="login-input" name="username" id="login-username" type="text" component="input" autoFocus required />
+						<label htmlFor="login-password">Password</label>
+						<Field className="login-input" name="password" id="login-password" type="password" component="input" required />
+						<button className="login-button" type="submit">Login</button>
+						<p className="account-status"><Link to="/signup">Need to signup?</Link></p>
+					</form>
+				</div>
 			);
 		}
 	}

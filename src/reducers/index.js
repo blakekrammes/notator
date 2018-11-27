@@ -79,7 +79,9 @@ export const singerReducer = (state = initialState, action) => {
 	}
 	else if (action.type === actions.DELETE_NOTE) {
 		if (state.writtenNotes.length === 1) {
-			return state;
+			return Object.assign({}, state, {
+				writtenNotes: ['|']
+			});
 		}
 		let slicedNotes = state.writtenNotes.slice(0, state.writtenNotes.length - 1);
 		let slicedNotesString = slicedNotes.join('');

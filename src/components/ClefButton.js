@@ -18,9 +18,16 @@ export class ClefButton extends Component {
 	}
 
 	render() {
-		return (
-			<button className="clef-button" onClick={() => this.switchClef()}>Change Clefs</button>
-		);
+		if (this.props.clef === 'treble') {
+			return (
+				<button className="clef-button home-buttons" onClick={() => this.switchClef()}><img src="bass-clef.png" alt="bass-clef" className="clef-icon"/></button>
+			);
+		}
+		else {
+			return (
+				<button className="clef-button home-buttons" onClick={() => this.switchClef()}><img src="treble-clef.png" alt="treble-clef" className="clef-icon"/></button>
+			);
+		}
 	}
 }
 

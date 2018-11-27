@@ -1,5 +1,10 @@
-.timesignatures {
+.timesignature-button {
+    max-width: max-content;
+}
+
+button.timesignatures {
     display: none;
+    width: 114%;
 }
 
 .timesignatures:hover {

@@ -1,34 +1,34 @@
-.input-button {
+/* .input-button {
 	margin: 4.5vw;
 	margin-top: 2vw;
 	margin-bottom: -4vw;
-}
+} */
 
 @media only screen and (min-width: 500px) {
 	.input-button {
-		margin-top: -1rem;
+		/* margin-top: -1rem; */
 	}
 }
 
 
 @media only screen and (min-width: 768px) {
 	.input-button {
-		margin-top: -2rem;
+		/* margin-top: -2rem; */
 	}
 }
 
 @media only screen and (min-width: 1050px) {
 	.input-button {
-		margin-top: -4rem;
+		/* margin-top: -4rem; */
 	}
 }
 
 @media only screen and (min-width: 1224px) {
 	.input-button {
-		margin: 4.5vw;
-		margin-top: -7vw;
-		margin-bottom: -1vw;
+		/* margin: 4.5vw;
+		/* margin-top: -7vw; */
+		/* margin-bottom: -1vw;
 		position: relative;
-		bottom: 3.5vw;
+		bottom: 3.5vw; */ 
 	}
 }

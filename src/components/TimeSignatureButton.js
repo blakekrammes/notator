@@ -10,10 +10,10 @@ export class TimeSignatureButton extends Component {
 
     showTimeSignatureButtons() {
         if (buttons[0].style.display === 'none' || buttons[0].style.display === '') {
-            buttons[0].style.display = 'inline-block';
-            buttons[1].style.display = 'inline-block';
-            buttons[2].style.display = 'inline-block';
-            buttons[3].style.display = 'inline-block';
+            buttons[0].style.display = 'block';
+            buttons[1].style.display = 'block';
+            buttons[2].style.display = 'block';
+            buttons[3].style.display = 'block';
         }
         else {
             buttons[0].style.display = 'none';
@@ -39,16 +39,16 @@ export class TimeSignatureButton extends Component {
         else {
             return (
                 <div className="timesignature-div">
-                    <button className="timesignature-button" 
+                    <button className="timesignature-button home-buttons" 
                         onClick={() => this.showTimeSignatureButtons()}>
-                        Change Time Signature
-                        <i className="fa fa-caret-down"></i>
+                        <img src="time-signature.png" alt="time-signature" className="time-signature-icon"/>
+                            <br></br><i className="fa fa-caret-down"></i>
                         </button>
                         <div className="timesignature-buttons-div">
-                            <button className="timesignatures 2/4" onClick={(e) => this.changeTimeSignature(e)}>2/4</button>
-                            <button className="timesignatures 3/4" onClick={(e) => this.changeTimeSignature(e)}>3/4</button>
-                            <button className="timesignatures 4/4" onClick={(e) => this.changeTimeSignature(e)}>4/4</button>
-                            <button className="timesignatures 6/8" onClick={(e) => this.changeTimeSignature(e)}>6/8</button>
+                            <button className="timesignatures 2/4 home-buttons" onClick={(e) => this.changeTimeSignature(e)}>2/4</button>
+                            <button className="timesignatures 3/4 home-buttons" onClick={(e) => this.changeTimeSignature(e)}>3/4</button>
+                            <button className="timesignatures 4/4 home-buttons" onClick={(e) => this.changeTimeSignature(e)}>4/4</button>
+                            <button className="timesignatures 6/8 home-buttons" onClick={(e) => this.changeTimeSignature(e)}>6/8</button>
                         </div>
                 </div>  
             );

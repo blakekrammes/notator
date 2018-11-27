@@ -2,10 +2,10 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import Pitchfinder from 'pitchfinder';
-import Pitch from './Pitch';
 import {changePitch} from '../actions';
 import notes from '../noteList';
 import './AudioButton.css';
+import 'font-awesome/css/font-awesome.min.css';
 
 export class AudioButton extends Component {
 	toggleInput() {
@@ -59,10 +59,11 @@ export class AudioButton extends Component {
 				alert('Notator is not supported in this browser. Please use Chrome or Firefox instead.');
 			}
 		return (
-			<div>
-				<button className="input-button" onClick={() => this.toggleInput()}>Use live input</button>
-				<Pitch />
+			<button className="input-button home-buttons" onClick={() => this.toggleInput()}>
+			<div className="mic-div">
+				<i className="fa fa-microphone"></i>
 			</div>
+			</button>
 		);
 	}
 }

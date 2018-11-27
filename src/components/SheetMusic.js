@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import ABCJS from 'abcjs/midi';
 import HandleNotes from '../handleNotes';
-import ClefButton from './ClefButton';
-import TimeSignatureButton from './TimeSignatureButton';
 import {saveUserNotation} from '../actions/users';
 import {saveDemoNotation} from '../actions/index';
 import 'font-awesome/css/font-awesome.min.css';
@@ -13,12 +11,11 @@ import './SheetMusic.css';
 const SheetMusicJSX = (props) => ( 
 	<div className="sheetMusicDiv">
 		<HandleNotes />
-		<ClefButton />
-		<TimeSignatureButton />
+		{/* anonymous function being called to write inline JSX */}
 		{( () => {
     		if (props.writtenNotes.length > 1 && props.authToken !== null) {
     			return <a className="save-link" href="" onClick={(e) => props.saveNotation(e)}>Save</a>;
-    		}
+			}
     		else if (props.writtenNotes.length > 1 && props.demo === true) {
     			return <a className="save-link" href="" onClick={(e) => props.saveNotation(e)}>Save</a>;
     		}
@@ -97,17 +94,25 @@ export class SheetMusic extends Component {
  			responsive: 'resize'
  		});
 
+
  		if (ABCJS.midi.deviceSupportsMidi() && this.props.writtenNotes !== undefined && this.props.writtenNotes.length > 1) {
  			let abcString = this.props.sheetMusic;
-
- 			const abcMidiDiv = document.querySelector('.sheetMusicDiv > .sheetMusicMidi');
- 			
+			const abcMidiDiv = document.querySelector('.sheetMusicDiv > .sheetMusicMidi');
  			ABCJS.renderMidi(abcMidiDiv, abcString, { 
  				generateDownload: true, 
  				generateInline: true,
  				responsive: 'resize'
  			});
- 		}
+		 }
+		 // remove the download/playback
+		 else {
+			let abcString = this.props.sheetMusic;
+			const abcMidiDiv = document.querySelector('.sheetMusicDiv > .sheetMusicMidi');
+			ABCJS.renderMidi(abcMidiDiv, abcString, { 
+				generateDownload: false, 
+				generateInline: false
+			});
+		 }
  	}
 		
 	render() {
