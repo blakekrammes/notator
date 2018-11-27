@@ -8,6 +8,23 @@ let buttons = document.getElementsByClassName('timesignatures');
 
 export class TimeSignatureButton extends Component {
 
+    componentDidMount() {
+        document.addEventListener('click', this.removeTimeSignatureButtons);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('click', this.removeTimeSignatureButtons);
+    }
+
+    removeTimeSignatureButtons(e) {
+        if (e.target.className !== 'timesignature-button home-buttons' && e.target.className !== 'time-signature-icon' && e.target.className !== 'fa fa-caret-down') {
+            buttons[0].style.display = 'none';
+            buttons[1].style.display = 'none';
+            buttons[2].style.display = 'none';
+            buttons[3].style.display = 'none';
+        }
+    }
+
     showTimeSignatureButtons() {
         if (buttons[0].style.display === 'none' || buttons[0].style.display === '') {
             buttons[0].style.display = 'block';

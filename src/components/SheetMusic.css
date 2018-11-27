@@ -1,6 +1,6 @@
 .sheetMusicDiv {
-	margin: 4.5vw;
 	position: relative;
+	padding: 0 .7rem;
 }
 
 .sheetMusic {
@@ -14,16 +14,27 @@
 	font-size: 6.5vw;
 }
 
+@media only screen and (min-width: 500px) {
+	.sheetMusicDiv { 
+		padding: 0 1rem;
+	}
+}
 
 @media only screen  and (min-width: 768px) {
 	.save-link {
 		font-size: 6vw;
+	}
+	.sheetMusicDiv { 
+		padding: 0 1.5rem;
 	}
 }
 
 @media only screen  and (min-width: 900px) {
 	.save-link {
 		font-size: 5vw;
+	}
+	.sheetMusicDiv { 
+		padding: 0 2rem;
 	}
 }
 
@@ -33,9 +44,18 @@
 		}
 }
 
+@media only screen  and (min-width: 1150px) {
+	.sheetMusicDiv { 
+		padding: 0 2.5rem;
+	}
+}
+
 @media only screen  and (min-width: 1224px) {
 	.save-link {
 		font-size: 2.5vw;
 		margin-left: 3vw;
+	}
+	.sheetMusicDiv {
+		padding: 0 3rem;
 	}
 }

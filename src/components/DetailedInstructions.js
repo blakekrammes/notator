@@ -10,7 +10,7 @@ export default class DetailedInstructions extends Component {
 				<div className="detailed-instructions-div">
 					<div className="main-instructions">
 						<h2>sing or play into the microphone and press keys to create notation</h2>
-						<h3>1. to begin, click the microphone</h3>
+						<h3>1. to begin, click the microphone image</h3>
 						<h3>2. play or sing into the microphone – the range is F1 – C7</h3>
 						<h3>3. while a note displays, press the relevant keyboard key to write it</h3>
 					</div>

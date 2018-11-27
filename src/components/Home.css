@@ -106,7 +106,7 @@ main {
 
 .abc-buttons {
 	display: flex;
-	padding: 0 3rem;
+	padding: 0 .7rem;
 	justify-content: center;
 }
 
@@ -155,7 +155,7 @@ main {
 	}
 	.abc-buttons {
 		display: flex;
-		padding: 0 3rem;
+		padding: 0 1rem;
 		justify-content: start;
 	}
 }
@@ -230,6 +230,9 @@ main {
 	.status {
 		font-size: 1.2rem;
 	}
+	.abc-buttons {
+		padding: 0 1.5rem;
+	}
 }
 
 @media only screen  and (min-width: 900px) {
@@ -270,6 +273,9 @@ main {
 		line-height: 3vw;
 		font-size: 2.3vw;
 	}
+	.abc-buttons {
+		padding: 0 2rem;
+	}
 }
 
 @media only screen  and (min-width: 1050px) {
@@ -278,12 +284,19 @@ main {
 	}
 }
 
+@media only screen  and (min-width: 1150px) {
+	.abc-buttons {
+		padding: 0 2.5rem;
+	}
+}
+
 @media only screen  and (min-width: 1224px) {
 	.logged-in-div, .logged-out-div {
 		margin-right: 3rem;
 	}
 	.abc-buttons {
-		margin-bottom: 2.4rem; 
+		margin-bottom: 3rem; 
+		padding: 0 3rem; 
 	}
 }
 

@@ -73,6 +73,7 @@ button:hover {
 	font-size: 1.5rem;
 	margin-right: 1rem;
 	border-radius: 6px;
+	background: rgba(255,255,255,.5);
 }
 
 .mic-div {
@@ -83,10 +84,8 @@ button:hover {
 
 .fa-microphone {
 	font-size: 2rem;
-	color: rgba(0,0,0,.7);
-	border: 2px solid rgba(0,0,0,.1);
-	border-radius: 50%;
-	padding: .3rem .5rem;
+	color: black;
+	padding: .3rem .55rem;
 }
 
 .clef-icon {
@@ -102,7 +101,7 @@ button:hover {
 .main-title {
 	margin: 0;
 	font-size: 1.7rem;
-	padding: 0 .5rem;
+	padding: 0 .7rem;
 	/* margin-right: -.5rem; */
 }
 
@@ -121,6 +120,7 @@ button:hover {
 	}
 	.main-title {
 		font-size: 2.5rem;
+		padding: 0 1rem;
 	}
 	button {
 		font-size: 5vw;
@@ -142,10 +142,7 @@ button:hover {
 	
 	.fa-microphone {
 		font-size: 2rem;
-		color: rgba(0,0,0,.7);
-		border: 2px solid rgba(0,0,0,.1);
-		border-radius: 50%;
-		padding: .3rem .5rem;
+		padding: .3rem .55rem;
 	}
 	
 	.clef-icon {
@@ -187,10 +184,7 @@ button:hover {
 	
 	.fa-microphone {
 		font-size: 3rem;
-		color: rgba(0,0,0,.7);
-		border: 2px solid rgba(0,0,0,.1);
-		border-radius: 50%;
-		padding: .3rem .5rem;
+		padding: .3rem .6rem;
 	}
 	
 	.clef-icon {
@@ -212,6 +206,15 @@ button:hover {
 	.abcjs-inline-midi {
 		width: 35vw;
 	}
+	.main-title {
+		padding: 0 1.5rem;
+	}
+}
+
+@media only screen and (min-width: 900px) {
+	.main-title {
+		padding: 0 2rem;
+	}
 }
 
 @media only screen and (min-width: 1050px) {
@@ -227,9 +230,16 @@ button:hover {
 	}
 }
 
+@media only screen and (min-width: 1150px) {
+	.main-title {
+		padding: 0 2.5rem;
+	}
+}
+
 @media only screen and (min-width: 1224px) {
 	.main-title {
 		font-size: 4.5vw;
+		padding: 0 3rem;
 	}
 	button {
 		font-size: 2vw;
@@ -252,10 +262,7 @@ button:hover {
 	
 	.fa-microphone {
 		font-size: 4rem;
-		color: rgba(0,0,0,.7);
-		border: 2px solid rgba(0,0,0,.1);
-		border-radius: 50%;
-		padding: .6rem 1rem;
+		padding: .6rem 1.1rem;
 	}
 	
 	.clef-icon {
