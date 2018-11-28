@@ -201,7 +201,7 @@
 
 @media only screen  and (min-width: 1224px) {
 	.instruction-list {
-		margin-top: -1rem;
+		margin-top: -3rem;
 		margin-bottom: -1.1rem;
 	}
 	.note-img-div {
@@ -288,7 +288,6 @@
 	.tooltip {
 		position: relative;
 		display: inline-block;
-		/*cursor: pointer;*/
 	}
 
 	.tooltip .tooltip-text {
@@ -303,10 +302,6 @@
 	    border-radius: 6px;
 	    margin-left: -25%;
 	}
-
-	/*.tooltip:hover .tooltip-text {
-		visibility: visible;
-	}*/
 
 	.x {
 		margin-top: 1.5vw;

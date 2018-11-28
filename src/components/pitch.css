@@ -33,7 +33,7 @@
 @media only screen  and (min-width: 1224px) {
 	.pitch {
 		font-size: 8vw;
-		margin-top: 2rem;
+		margin-top: -1rem;
 		margin-bottom: 1rem;
 	}
 }
