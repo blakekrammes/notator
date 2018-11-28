@@ -27,4 +27,4 @@
 Detect pitch from the microphone, then press keyboard keys while the pitch displays to write music notation. You can play back or download the notes as MIDI after writing. You can also save your past compositions on Notator for later reference if you have an account.
 
 **Technologies used:** 
-(React with Redux, Node.js with Express, MongoDB with Mongoose, abc.js, pitchfinder [npm])
+(React with Redux, abc.js, pitchfinder [npm], The Web Audio API, WebRTC)
