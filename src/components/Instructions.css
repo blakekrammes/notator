@@ -1,7 +1,8 @@
 .instruction-list {
 	display: flex;
 	flex-direction: row;
-	margin: 2vw;
+	margin: 0;
+	padding: 0 .4rem;
 }
 
 .note-img-div {
@@ -97,10 +98,6 @@
     padding: 15px 15px;
 }
 
-/*.tooltip:hover .tooltip-text {
-	visibility: visible;
-}
-*/
 .x {
 	position: relative;
 	right: 17vw;
@@ -128,21 +125,18 @@
 	right: 23.5vw;
 }
 
-/*.tooltip:active .tooltip-text {
-		visibility: visible;
-		/*transition: 3s;*/
-	/*}*/
-
 @media only screen  and (min-width: 500px) {
 	.note-img-whole {
 		margin-top: 3.5vw;
+	}
+	.instruction-list {
+		padding: 0 .6rem;
 	}
 }
 
 @media only screen and (min-width: 768px) {
 	.instruction-list {
-		margin-bottom: -3vw;
-		margin-top: -2vw;
+		margin-top: -3.5rem;
 	}
 }
 
@@ -193,7 +187,7 @@
 	}
 	.note-img-text.whole-text {
 		position: relative;
-		left: -.8vw;
+		left: -.2rem;
 	}
 	.x-img {
 		margin-bottom: -1vw;
@@ -207,7 +201,8 @@
 
 @media only screen  and (min-width: 1224px) {
 	.instruction-list {
-		margin-bottom: -4vw;
+		margin-top: -1rem;
+		margin-bottom: -1.1rem;
 	}
 	.note-img-div {
 		padding: 2.5vw;
@@ -225,6 +220,10 @@
 		margin-top: 1vw;
 		padding-right: 2vw;
 		padding-bottom: .4vw;
+	}
+
+	.note-img-text.whole-text {
+		left: -.7rem;
 	}
 
 	.wholeN {

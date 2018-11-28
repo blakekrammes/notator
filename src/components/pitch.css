@@ -1,7 +1,7 @@
 .pitch {
-	/* margin: 4.5vw; */
 	font-size: 5rem;
 	padding: 0 .7rem;
+	margin: .5rem 0;
 }
 
 @media only screen and (min-width: 500px) {
@@ -13,6 +13,8 @@
 @media only screen  and (min-width: 768px) {
 	.pitch { 
 		padding: 0 1.5rem;
+		margin-top: 2rem;
+		margin-bottom: 4rem;
 	}
 }
 
@@ -31,8 +33,8 @@
 @media only screen  and (min-width: 1224px) {
 	.pitch {
 		font-size: 8vw;
-		margin-top: -1.6vw;
-		margin-bottom: -1.5vw;
+		margin-top: 2rem;
+		margin-bottom: 1rem;
 	}
 }
 

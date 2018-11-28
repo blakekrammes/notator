@@ -102,7 +102,6 @@ button:hover {
 	margin: 0;
 	font-size: 1.7rem;
 	padding: 0 .7rem;
-	/* margin-right: -.5rem; */
 }
 
 .abcjs-inline-midi {
@@ -112,6 +111,14 @@ button:hover {
 
 .abcjs-download-midi {
 	margin: 1.3vw;
+	font-size: 1rem;
+	margin-top: -.3rem;
+}
+
+@media only screen and (min-width: 400px) {
+	.abcjs-download-midi {
+		margin-top: -.5rem;
+	}
 }
 
 @media only screen and (min-width: 500px) {
@@ -154,6 +161,9 @@ button:hover {
 		width: 2rem;
 		height: 2rem;
 	}
+	.abcjs-download-midi {
+		margin-top: -.9rem;
+	}
 }
 
 @media only screen and (min-width: 650px) {
@@ -163,6 +173,10 @@ button:hover {
 	}
 	.abcjs-inline-midi {
 		width: 50vw;
+	}
+	.abcjs-download-midi {
+		font-size: 1.2rem;
+		margin-top: -1.4rem;
 	}
 	button {
 		font-size: 3.7vw;
@@ -206,14 +220,28 @@ button:hover {
 	.abcjs-inline-midi {
 		width: 35vw;
 	}
+	.abcjs-download-midi {
+		font-size: 1.3rem;
+		margin-top: -1.7rem;
+	}
 	.main-title {
 		padding: 0 1.5rem;
+	}
+}
+
+@media only screen and (min-width: 850px) { 
+	.abcjs-download-midi {
+		margin-top: -2rem;
 	}
 }
 
 @media only screen and (min-width: 900px) {
 	.main-title {
 		padding: 0 2rem;
+	}
+	.abcjs-download-midi {
+		margin-top: -.2rem;
+		font-size: 1.4rem;
 	}
 }
 
@@ -224,6 +252,9 @@ button:hover {
 	.abcjs-inline-midi {
 		width: 30vw;
 	}
+	.abcjs-download-midi {
+		margin-top: -.5rem;
+	}
 	button {
 		font-size: 2.5vw;
 		padding: 1vw;
@@ -233,6 +264,9 @@ button:hover {
 @media only screen and (min-width: 1150px) {
 	.main-title {
 		padding: 0 2.5rem;
+	}
+	.abcjs-download-midi {
+		margin-top: -.8rem;
 	}
 }
 
@@ -276,6 +310,15 @@ button:hover {
 	}
 	.abcjs-inline-midi {
 		width: 25vw;
+	}
+	.abcjs-download-midi {
+		margin-top: -.9rem;
+	}
+}
+
+@media only screen and (min-width: 1400px) {
+	.abcjs-download-midi {
+		margin-top: -1.3rem;
 	}
 }
 

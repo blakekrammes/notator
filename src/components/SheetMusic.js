@@ -83,7 +83,25 @@ export class SheetMusic extends Component {
 
  		ABCJS.renderAbc(abcDiv, this.props.sheetMusic, {
  			responsive: 'resize'
- 		});
+		});
+		if (ABCJS.midi.deviceSupportsMidi() && this.props.writtenNotes !== undefined && this.props.writtenNotes.length > 1) {
+			let abcString = this.props.sheetMusic;
+		   const abcMidiDiv = document.querySelector('.sheetMusicDiv > .sheetMusicMidi');
+			ABCJS.renderMidi(abcMidiDiv, abcString, { 
+				generateDownload: true, 
+				generateInline: true,
+				responsive: 'resize'
+			});
+		}
+		// remove the download/playback
+		else {
+		   let abcString = this.props.sheetMusic;
+		   const abcMidiDiv = document.querySelector('.sheetMusicDiv > .sheetMusicMidi');
+		   ABCJS.renderMidi(abcMidiDiv, abcString, { 
+			   generateDownload: false, 
+			   generateInline: false
+		   });
+		}
  	}
 
  	componentDidUpdate() {

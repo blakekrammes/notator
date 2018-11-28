@@ -17,7 +17,7 @@ export class TimeSignatureButton extends Component {
     }
 
     removeTimeSignatureButtons(e) {
-        if (e.target.className !== 'timesignature-button home-buttons' && e.target.className !== 'time-signature-icon' && e.target.className !== 'fa fa-caret-down') {
+        if (buttons[0] !== undefined && e.target.className !== 'timesignature-button home-buttons' && e.target.className !== 'time-signature-icon' && e.target.className !== 'fa fa-caret-down') {
             buttons[0].style.display = 'none';
             buttons[1].style.display = 'none';
             buttons[2].style.display = 'none';
