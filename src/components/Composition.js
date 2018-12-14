@@ -5,7 +5,7 @@ import {deleteDemoNotation} from '../actions/index';
 import ABCJS from 'abcjs/midi';
 import 'font-awesome/css/font-awesome.min.css';
 import 'abcjs/abcjs-midi.css';
-import './Composition.css';
+import './css/Composition.css';
 
 export class Composition extends Component {
 	// constructor(props) {

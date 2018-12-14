@@ -43,10 +43,11 @@ const initialState = {
 			baseNoteValue: '2/8',
 			key: 'CMaj'
 		}
-	]
+	],
+	storeListeningProperty: false
 };
 
-export const singerReducer = (state = initialState, action) => {
+export const notatorReducer = (state = initialState, action) => {
 	if (action.type === actions.CHANGE_PITCH) {
 		return Object.assign({}, state, {
 			pitch: action.pitch
@@ -136,6 +137,11 @@ export const singerReducer = (state = initialState, action) => {
 	else if (action.type === actions.DELETE_DEMO_NOTATION) {
 		return Object.assign({}, state, {
 			demoNotation: state.demoNotation.filter(item => action.title !== item.title)
+		});
+	}
+	else if (action.type === actions.IS_LISTENING_TO_STORE) {
+		return Object.assign({}, state, {
+			storeListeningProperty: true
 		});
 	}
 	return state;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {changeClef, updateMusic} from '../actions';
-import './ClefButton.css';
+import './css/ClefButton.css';
 
 export class ClefButton extends Component {
 	
@@ -32,7 +32,7 @@ export class ClefButton extends Component {
 }
 
 const mapStateToProps = state => ({
-	clef: state.singer.clef
+	clef: state.notator.clef
 });
 
 export default connect(mapStateToProps)(ClefButton);

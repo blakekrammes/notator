@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import ABCJS from 'abcjs/midi';
-import HandleNotes from '../handleNotes';
+// import HandleNotes from '../handleNotes';
+import * as handleNotes from '../handleNotes';
 import {saveUserNotation} from '../actions/users';
 import {saveDemoNotation} from '../actions/index';
+import store from '../store';
 import 'font-awesome/css/font-awesome.min.css';
 import 'abcjs/abcjs-midi.css';
-import './SheetMusic.css';
+import './css/SheetMusic.css';
 
 const SheetMusicJSX = (props) => ( 
 	<div className="sheetMusicDiv">
-		<HandleNotes />
+		{/* <HandleNotes /> */}
 		{/* anonymous function being called to write inline JSX */}
 		{( () => {
     		if (props.writtenNotes.length > 1 && props.authToken !== null) {
@@ -79,6 +81,15 @@ export class SheetMusic extends Component {
 	}
 
  	componentDidMount() {
+
+		document.addEventListener('keydown', handleNotes.pressKey);
+		document.addEventListener('keyup', handleNotes.releaseKey);
+		// change event listener function for the state
+		// need to fix this______________________
+		this.unsubscribe = store.subscribe(() => {
+			handleNotes.handleStateChange();
+		});
+
  		const abcDiv = document.querySelector('.sheetMusicDiv > .sheetMusic');
 
  		ABCJS.renderAbc(abcDiv, this.props.sheetMusic, {
@@ -131,7 +142,13 @@ export class SheetMusic extends Component {
 				generateInline: false
 			});
 		 }
- 	}
+	 }
+
+	componentWillUnmount() {
+		document.removeEventListener('keydown', handleNotes.pressKey);
+		document.removeEventListener('keyup', handleNotes.releaseKey);
+		this.unsubscribe();
+	}
 		
 	render() {
 		return <SheetMusicJSX saveNotation={this.saveNotation} {...this.props} />;
@@ -139,15 +156,15 @@ export class SheetMusic extends Component {
 }
 
 const mapStateToProps = state => ({
-	sheetMusic: state.singer.sheetMusic,
-	keyCode: state.singer.keyCode,
-	augmentationDotPressed: state.singer.augmentationDotPressed,
-	writtenNotes: state.singer.writtenNotes,
-	sixteenthNoteCount: state.singer.sixteenthNoteCount,
-	clef: state.singer.clef,
-	timeSignature: state.singer.timeSignature,
-	baseNoteValue: state.singer.baseNoteValue,
-	key: state.singer.key,
+	sheetMusic: state.notator.sheetMusic,
+	keyCode: state.notator.keyCode,
+	augmentationDotPressed: state.notator.augmentationDotPressed,
+	writtenNotes: state.notator.writtenNotes,
+	sixteenthNoteCount: state.notator.sixteenthNoteCount,
+	clef: state.notator.clef,
+	timeSignature: state.notator.timeSignature,
+	baseNoteValue: state.notator.baseNoteValue,
+	key: state.notator.key,
 	authToken: state.auth.authToken,
 	currentUser: state.auth.currentUser,
 	demo: state.auth.demo

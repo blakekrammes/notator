@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import './pitch.css';
+import './css/pitch.css';
 
 export class Pitch extends Component {
 	render() {
@@ -15,7 +15,7 @@ Pitch.defaultProps = ({
 });
 
 const mapStateToProps = state => ({
-	pitch: state.singer.pitch
+	pitch: state.notator.pitch
 });
 
 export default connect(mapStateToProps)(Pitch);

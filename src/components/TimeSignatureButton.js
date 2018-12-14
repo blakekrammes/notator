@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import './TimeSignatureButton.css';
+import './css/TimeSignatureButton.css';
 import 'font-awesome/css/font-awesome.min.css';
 import {changeTimeSignature, updateMusic} from '../actions/index';
 
@@ -74,7 +74,7 @@ export class TimeSignatureButton extends Component {
 } 
 
 const mapStateToProps = state => ({
-    writtenNotes: state.singer.writtenNotes
+    writtenNotes: state.notator.writtenNotes
 });
 
 export default connect(mapStateToProps)(TimeSignatureButton);

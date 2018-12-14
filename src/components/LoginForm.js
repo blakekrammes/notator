@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 import {Redirect} from 'react-router';
 import {loading} from '../actions/auth';
 import {ResizeSpinLoader} from 'react-css-loaders';
-import './LoginForm.css';
+import './css/LoginForm.css';
 
 export class LoginForm extends Component {
 	onSubmit(values) {

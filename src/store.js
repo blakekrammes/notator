@@ -6,19 +6,19 @@ import authReducer from './reducers/auth';
 import protectedDataReducer from './reducers/protectedData';
 import {setAuthToken, refreshAuthToken} from './actions/auth';
 
-import {singerReducer} from './reducers';
+import {notatorReducer} from './reducers';
 
 const store = createStore(
 		combineReducers({
 			form: formReducer,
 			auth: authReducer,
 			protectedData: protectedDataReducer,
-			singer: singerReducer
+			notator: notatorReducer
 		}),
 		applyMiddleware(thunk)
 );
 
-// Hydrate the authToken from localStorage if it exist
+// Hydrate the authToken from localStorage if it exists
 const authToken = loadAuthToken();
 if (authToken) {
 	const token = authToken;

@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import Pitchfinder from 'pitchfinder';
 import {changePitch} from '../actions';
 import notes from '../noteList';
-import './AudioButton.css';
+import './css/AudioButton.css';
 import 'font-awesome/css/font-awesome.min.css';
 
 export class AudioButton extends Component {

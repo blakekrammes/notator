@@ -73,7 +73,7 @@ const mapStateToProps = state => ({
 	currentUser: state.auth.currentUser,
 	data: state.protectedData.data,
 	demo: state.auth.demo,
-	demoNotation: state.singer.demoNotation
+	demoNotation: state.notator.demoNotation
 });
 
 export default connect(mapStateToProps)(MyCompositions);

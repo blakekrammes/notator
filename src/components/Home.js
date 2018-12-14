@@ -9,8 +9,7 @@ import Pitch from './Pitch';
 import SheetMusic from './SheetMusic';
 import {clearAuth, authError, setDemo} from '../actions/auth';
 import {clearAuthToken} from '../localStorage';
-
-import './Home.css';
+import './css/Home.css';
 
 export class Home extends Component {
 	startDemo(e) {

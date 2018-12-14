@@ -1,4 +1,4 @@
-import {singerReducer} from './index';
+import {notatorReducer} from './index';
 import {
 	changePitch, 
 	changeSheetMusic, 
@@ -19,11 +19,11 @@ let musicTemplate =
 	  "K: CMaj clef=treble\n" +
 	  `|`;
 
-describe('singerReducer', () => {
+describe('notatorReducer', () => {
 
 
 	it('should set the initial state when nothing is passed', () => {
-		const state = singerReducer(undefined, {type: '__UNKNOWN'});
+		const state = notatorReducer(undefined, {type: '__UNKNOWN'});
 		expect(state).toEqual({
 			pitch: undefined,
 			sheetMusic: musicTemplate,
@@ -66,7 +66,7 @@ describe('singerReducer', () => {
 
 	it('Should return the current state on an unknown action', () => {
         let currentState = {};
-        const state = singerReducer(currentState, {type: '__UNKNOWN'});
+        const state = notatorReducer(currentState, {type: '__UNKNOWN'});
         expect(state).toBe(currentState);
     });
 
@@ -74,7 +74,7 @@ describe('singerReducer', () => {
 		it('should change the pitch', () => {
 			let state;
 			let pitch = 'A4';
-			state = singerReducer(state, changePitch(pitch));
+			state = notatorReducer(state, changePitch(pitch));
 			expect(state.pitch).toEqual('A4');
 		});
 	});
@@ -83,7 +83,7 @@ describe('singerReducer', () => {
 		it('should change the sheetMusic', () => {
 			let state;
 			let sheetMusic = '|ABCD|';
-			state = singerReducer(state, changeSheetMusic(sheetMusic));
+			state = notatorReducer(state, changeSheetMusic(sheetMusic));
 			expect(state.sheetMusic).toEqual('|ABCD|');
 		});
 	});
@@ -91,7 +91,7 @@ describe('singerReducer', () => {
 	describe('pressAugmentationDot', () => {
 		it('should change augmentationDotPressed boolean to true', () => {
 			let state;
-			state = singerReducer(state, pressAugmentationDot());
+			state = notatorReducer(state, pressAugmentationDot());
 			expect(state.augmentationDotPressed).toEqual(true);
 		});
 	});
@@ -99,7 +99,7 @@ describe('singerReducer', () => {
 	describe('releaseAugmentationDot', () => {
 		it('should change augmentationDotPressed boolean to false', () => {
 			let state;
-			state = singerReducer(state, releaseAugmentationDot());
+			state = notatorReducer(state, releaseAugmentationDot());
 			expect(state.augmentationDotPressed).toEqual(false);
 		});
 	});
@@ -109,8 +109,8 @@ describe('singerReducer', () => {
 			let state;
 			let note = 'A';
 			let noteTwo = 'B';
-			state = singerReducer(state, addNote(note));
-			state = singerReducer(state, addNote(noteTwo));
+			state = notatorReducer(state, addNote(note));
+			state = notatorReducer(state, addNote(noteTwo));
 			expect(state.writtenNotes[1]).toEqual(note);
 			expect(state.writtenNotes[2]).toEqual(noteTwo);
 		});
@@ -120,8 +120,8 @@ describe('singerReducer', () => {
 		it('should remove a note', () => {
 			let state;
 			let noteToBeAddedThenDeleted = 'C';
-			state = singerReducer(state, addNote(noteToBeAddedThenDeleted));
-			state = singerReducer(state, deleteNote());
+			state = notatorReducer(state, addNote(noteToBeAddedThenDeleted));
+			state = notatorReducer(state, deleteNote());
 			expect(state.writtenNotes[1]).toEqual(undefined);
 		});
 	});
@@ -130,7 +130,7 @@ describe('singerReducer', () => {
 		it('should change the sixteenthNoteCount', () => {
 			let state;
 			let countToBeChangeTo = 16;
-			state = singerReducer(state, changeSixteenthNoteCount(countToBeChangeTo));
+			state = notatorReducer(state, changeSixteenthNoteCount(countToBeChangeTo));
 			expect(state.sixteenthNoteCount).toEqual(countToBeChangeTo);
 		});
 	});
@@ -139,7 +139,7 @@ describe('singerReducer', () => {
 		it('should change the clef', () => {
 			let state;
 			let bassClef = 'bass';
-			state = singerReducer(state, changeClef(bassClef));
+			state = notatorReducer(state, changeClef(bassClef));
 			expect(state.clef).toEqual(bassClef);
 		});
 	});
@@ -147,14 +147,14 @@ describe('singerReducer', () => {
 	describe('updateMusic', () => {
 		it('should update the music', () => {
 			let state;
-			state = singerReducer(state, addNote('c'));
+			state = notatorReducer(state, addNote('c'));
 			let updatedMusicTemplate = 
 				  "T: Composition\n" +
 				  "M: 4/4\n" +
 				  "L: 2/8\n" +
 				  "K: CMaj clef=treble\n" +
 				  `${state.writtenNotes.join('')}`;
-			state = singerReducer(state, updateMusic());
+			state = notatorReducer(state, updateMusic());
 			expect(state.sheetMusic).toEqual(updatedMusicTemplate);
 		});
 	});
