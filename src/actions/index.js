@@ -72,9 +72,4 @@ export const deleteDemoNotation = title => ({
 	title
 });
 
-export const IS_LISTENING_TO_STORE = 'IS_LISTENING_TO_STORE';
-export const isListeningToStore = () => ({
-	type: isListeningToStore
-});
-
 

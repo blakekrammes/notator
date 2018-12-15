@@ -1,7 +1,6 @@
 import React from 'react';
 import {Home} from '../Home';
-import {shallow, mount} from 'enzyme';
-import {Link} from 'react-router-dom';
+import {shallow} from 'enzyme';
 
 describe('Home', () => {
 
@@ -12,7 +11,6 @@ describe('Home', () => {
 	beforeEach(() => {
 	 // pass a logged in component as default 
 	 wrapper = shallow(<Home authToken={'212376538463745fdhsfafv2452635'} currentUser={'sherlock'} dispatch={mockEraseErrorfn} />);
-	 
 	});
 
 	it('should render without crashing', () => {

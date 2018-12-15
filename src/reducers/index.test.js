@@ -34,7 +34,7 @@ describe('notatorReducer', () => {
 			clef: 'treble',
 			timeSignature: '4/4',
 			baseNoteValue: '2/8',
-			key: 'CMaj',
+			keySignature: 'CMaj',
 			demoNotation: [
 				{
 					title: 'Mary Had a Little Lamb',
@@ -42,7 +42,7 @@ describe('notatorReducer', () => {
 					clef: 'treble',
 					timeSignature: '4/4',
 					baseNoteValue: '2/8',
-					key: 'CMaj'
+					keySignature: 'CMaj'
 				},
 				{
 					title: 'Twinkle Twinkle',
@@ -50,7 +50,7 @@ describe('notatorReducer', () => {
 					clef: 'treble',
 					timeSignature: '4/4',
 					baseNoteValue: '2/8',
-					key: 'CMaj'
+					keySignature: 'CMaj'
 				},
 				{
 					title: 'Yankees',
@@ -58,7 +58,7 @@ describe('notatorReducer', () => {
 					clef: 'treble',
 					timeSignature: '4/4',
 					baseNoteValue: '2/8',
-					key: 'CMaj'
+					keySignature: 'CMaj'
 				}
 			]
 		});
