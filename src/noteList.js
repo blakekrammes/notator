@@ -1,5 +1,5 @@
 let notes = [
-	// (C1 - E1 don't register with pitchfinder using YIN or AMDF)
+	// (C1 - E1 don't register with pitchfinder using the YIN or AMDF recognition algorithms)
 	{
 		name: 'C1',
 		hz: {

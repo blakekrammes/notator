@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
-import {reduxForm, Field} from 'redux-form';
-import {registerUser} from '../actions/users';
-import {Redirect} from 'react-router';
-import {Link} from 'react-router-dom';
-import {loading} from '../actions/auth';
-import {ResizeSpinLoader} from 'react-css-loaders';
+import { connect } from 'react-redux';
+import { reduxForm, Field } from 'redux-form';
+import { registerUser } from '../actions/users';
+import { Redirect } from 'react-router';
+import { Link } from 'react-router-dom';
+import { loading } from '../actions/auth';
+import { ResizeSpinLoader } from 'react-css-loaders';
 import './css/SignupForm.css';
 
 export class SignupForm extends Component {

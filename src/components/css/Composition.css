@@ -20,15 +20,6 @@
     border-bottom: 10px solid rgba(0,0,0,.1);
 }
 
-/*.abcjs-inline-midi {
-	width: 65vw;
-	margin: 1.3vw;
-}
-
-.abcjs-download-midi {
-	margin: 1.3vw;
-}*/
-
 @media only screen  and (min-width: 500px) {
 	.delete-button {
 		font-size: 3vw;
