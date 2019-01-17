@@ -13,9 +13,8 @@ body, html {
 }
 
 body {
-	background: linear-gradient(to bottom rgba(255,255,255,.5), rgba(255,255,255,.65)), url('background.jpg') repeat-y;
-	/*background-size: cover;*/
-}
+	background: linear-gradient(to bottom,rgba(255,255,255,.5), rgba(255,255,255,.65)), url('background.jpg');
+}      
 
 header {
 	position: absolute;
@@ -25,14 +24,9 @@ header {
 	justify-content: space-between;
 }
 
-.main-title, .logged-in-div, .logged-out-div {
-	/* margin: 0; */
-}
-
 a {
 	text-decoration: none;
 	color: rgb(0, 0, 0);
-	/* border-bottom: 1px solid rgba(0, 0, 0, .3); */
 	transition: .2s;
 	padding-bottom: 5px;
 }
@@ -44,12 +38,10 @@ a:hover {
 
 input {
 	background: rgb(0,0,0,.1);
-	/*transition: .1s;*/
 }
 
 input:focus {
 	background: rgb(244, 243, 242);
-	/*transition: .1s;*/
 }
 
 button {
