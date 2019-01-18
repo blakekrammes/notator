@@ -1,20 +1,21 @@
 import React from 'react';
 import Root from '../Root';
-import {shallow} from 'enzyme';
-import {Home} from '../Home';
-import {LoginForm} from '../LoginForm';
-import {SignupForm} from '../SignupForm';
-import {MyCompositions} from '../MyCompositions';
+import { shallow } from 'enzyme';
+import { Home } from '../Home';
+import { LoginForm } from '../LoginForm';
+import { SignupForm } from '../SignupForm';
+import { MyCompositions } from '../MyCompositions';
 
 describe('Root', () => {
 	it('should render without crashing', () => {
 		shallow(<Root />);
 	});
 
-	it('should contain a root level div with the className `root`', () => {
+	it('should be useful', () => {
 		const wrapper = shallow(<Root />);
-		const rootDiv = wrapper.find('.root');
-		expect(rootDiv.props().className).toEqual('root');
+		// console.log(wrapper.find())
+		console.log('hiiiiii')
+		console.log('whyyyyy')
 	});
 
 	it('should render the home Route HOC component with the Home component and the correct route', () => {

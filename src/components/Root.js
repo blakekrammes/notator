@@ -9,7 +9,6 @@ import DetailedInstructions from './DetailedInstructions';
 export default function Root() {
   return (
     <Router>
-      <div className="root">
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={LoginForm} />
@@ -17,7 +16,6 @@ export default function Root() {
           <Route exact path="/mycompositions" component={MyCompositions} />
           <Route exact path="/instructions" component={DetailedInstructions} />
         </Switch>
-      </div>
     </Router>
   );
 }
