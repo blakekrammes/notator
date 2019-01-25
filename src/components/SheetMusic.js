@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import ABCJS from 'abcjs/midi';
 import HandleNotes from './HandleNotes';
-import {saveUserNotation} from '../actions/users';
-import {saveDemoNotation} from '../actions/index';
+import { saveUserNotation } from '../actions/users';
+import { saveDemoNotation } from '../actions/index';
 import 'font-awesome/css/font-awesome.min.css';
 import 'abcjs/abcjs-midi.css';
 import './css/SheetMusic.css';
@@ -14,10 +14,10 @@ const SheetMusicJSX = (props) => (
 		{/* anonymous function being called to write inline JSX */}
 		{( () => {
     		if (props.writtenNotes.length > 1 && props.authToken !== null) {
-    			return <a className="save-link" href="" onClick={(e) => props.saveNotation(e)}>Save</a>;
+    			return <button className="save-link" onClick={(e) => props.saveNotation(e)}>Save</button>;
 			}
     		else if (props.writtenNotes.length > 1 && props.demo === true) {
-    			return <a className="save-link" href="" onClick={(e) => props.saveNotation(e)}>Save</a>;
+    			return <button className="save-link" onClick={(e) => props.saveNotation(e)}>Save</button>;
     		}
     	})()}
 		<div className="sheetMusic"></div>

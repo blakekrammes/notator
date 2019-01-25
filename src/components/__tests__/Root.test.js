@@ -11,13 +11,6 @@ describe('Root', () => {
 		shallow(<Root />);
 	});
 
-	it('should be useful', () => {
-		const wrapper = shallow(<Root />);
-		// console.log(wrapper.find())
-		console.log('hiiiiii')
-		console.log('whyyyyy')
-	});
-
 	it('should render the home Route HOC component with the Home component and the correct route', () => {
 		const wrapper = shallow(<Root />);
 		const homeRoute = wrapper.find(`[path='/']`);

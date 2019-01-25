@@ -15,6 +15,8 @@ export class AudioButton extends Component {
 		navigator.mediaDevices.getUserMedia(constraints)
 		.then(stream => {
 
+			let AudioContext = window.AudioContext || window.webkitAudioContext;
+
 			let audioContext = new AudioContext();
 
 			let source = audioContext.createMediaStreamSource(stream);
@@ -32,7 +34,7 @@ export class AudioButton extends Component {
 		     	let float32Array = buffer.getChannelData(0); // get a single channel of sound
 				let pitch = Math.round(detectPitch(float32Array)); // null if pitch cannot be identified
 				let matchedPitch = notes.find(note => {
-					let individualNoteRange = [];
+					let individualNoteRange = []; 
 					for (let i = note.hz.min; i <= note.hz.max; i++) {
     					individualNoteRange.push(i);
     				}
@@ -55,9 +57,6 @@ export class AudioButton extends Component {
 		});	
 	}
 	render() {
-		if (window.webkitAudioContext) {
-				alert('Notator is not supported in this browser. Please use Chrome or Firefox instead.');
-			}
 		return (
 			<button className="input-button home-buttons" onClick={() => this.toggleInput()}>
 			<div className="mic-div">

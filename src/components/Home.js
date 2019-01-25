@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
-import {Instructions} from './Instructions';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { Instructions } from './Instructions';
 import AudioButton from './AudioButton';
 import ClefButton from './ClefButton';
 import TimeSignatureButton from './TimeSignatureButton';
 import Pitch from './Pitch';
 import SheetMusic from './SheetMusic';
-import {clearAuth, authError, setDemo} from '../actions/auth';
-import {clearAuthToken} from '../localStorage';
+import { clearAuth, authError, setDemo } from '../actions/auth';
+import { clearAuthToken } from '../localStorage';
 import './css/Home.css';
 
 export class Home extends Component {

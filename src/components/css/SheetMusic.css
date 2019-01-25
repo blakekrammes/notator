@@ -11,6 +11,8 @@
 
 .save-link {
 	font-size: 1.3rem;
+	background: rgba(255,255,255,.5);
+	width: fit-content;
 }
 
 @media only screen and (min-width: 500px) {
