@@ -7,6 +7,9 @@ import MyCompositions from './MyCompositions';
 import DetailedInstructions from './DetailedInstructions';
 
 export default function Root() {
+  if (typeof window.orientation !== 'undefined') { 
+    alert('Notator is not yet supported for mobile devices or tablets. Please use a desktop.')
+  }
   return (
     <Router>
         <Switch>
