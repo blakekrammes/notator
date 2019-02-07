@@ -8,28 +8,7 @@ import 'font-awesome/css/font-awesome.min.css';
 import 'abcjs/abcjs-midi.css';
 import './css/SheetMusic.css';
 
-const SheetMusicJSX = (props) => ( 
-	<div className="sheetMusicDiv">
-		<HandleNotes />
-		{/* anonymous function being called to write inline JSX */}
-		{( () => {
-    		if (props.writtenNotes.length > 1 && props.authToken !== null) {
-    			return <button className="save-link" onClick={(e) => props.saveNotation(e)}>Save</button>;
-			}
-    		else if (props.writtenNotes.length > 1 && props.demo === true) {
-    			return <button className="save-link" onClick={(e) => props.saveNotation(e)}>Save</button>;
-    		}
-    	})()}
-		<div className="sheetMusic"></div>
-		<div className="sheetMusicMidi"></div>
-	</div>
-);
-
 export class SheetMusic extends Component {
-	constructor(props) {
-		super(props);
-		this.saveNotation = this.saveNotation.bind(this);
-	}
 
 	saveNotation(e) {
 		e.preventDefault();
@@ -135,7 +114,30 @@ export class SheetMusic extends Component {
 	 }
 		
 	render() {
-		return <SheetMusicJSX saveNotation={this.saveNotation} {...this.props} />;
+		// console.log(<SheetMusicJSX/>.type)
+		if (this.props.writtenNotes.length > 1 && this.props.authToken !== null) {
+			return (<div className="sheetMusicDiv">
+						<HandleNotes />
+						<button className="save-link" onClick={(e) => this.saveNotation(e)}>Save</button>
+						<div className="sheetMusic"></div>
+						<div className="sheetMusicMidi"></div>
+					</div>)
+		}
+		else if (this.props.writtenNotes.length > 1 && this.props.demo === true) {
+			return (<div className="sheetMusicDiv">
+						<HandleNotes />
+						<button className="save-link" onClick={(e) => this.saveNotation(e)}>Save</button>
+						<div className="sheetMusic"></div>
+						<div className="sheetMusicMidi"></div>
+					</div>)
+		}
+		else {
+			return (<div className="sheetMusicDiv">
+						<HandleNotes />
+						<div className="sheetMusic"></div>
+						<div className="sheetMusicMidi"></div>
+					</div>)
+		}
 	}
 }
 

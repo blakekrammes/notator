@@ -1,6 +1,6 @@
 import { Component } from 'react';
-import {connect} from 'react-redux';
-import {addNote, deleteNote, pressAugmentationDot, releaseAugmentationDot, changeSixteenthNoteCount, changeSheetMusic} from '../actions';
+import { connect } from 'react-redux';
+import { addNote, deleteNote, pressAugmentationDot, releaseAugmentationDot, changeSixteenthNoteCount, changeSheetMusic } from '../actions';
 
 export class HandleNotes extends Component {
 
@@ -575,9 +575,7 @@ export class HandleNotes extends Component {
 		`L: ${this.props.baseNoteValue}\n` +
 		`K: ${this.props.keySignature} clef=${this.props.clef}\n` +
 		`${notesToDisplay}`;
-		
 		this.props.dispatch(changeSheetMusic(music));
-
 	}
 
 	releaseKey = (e) => {

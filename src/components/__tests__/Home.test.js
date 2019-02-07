@@ -30,7 +30,7 @@ describe('Home', () => {
 	it('should call the logout function when the logout link is clicked', () => {
 		const mockEraseErrorfn = jest.fn();
 		const wrapper = shallow(<Home authToken={'212376538463745fdhsfafv2452635'} currentUser={'sherlock'} dispatch={mockEraseErrorfn} />);
-		const spy = jest.spyOn(Home.prototype, 'logout');
+		jest.spyOn(Home.prototype, 'logout');
 		wrapper.find('a').simulate('click', { preventDefault() {} });
 		expect(Home.prototype.logout).toHaveBeenCalled();
 	});

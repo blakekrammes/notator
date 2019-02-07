@@ -1,8 +1,8 @@
 
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import Pitchfinder from 'pitchfinder';
-import {changePitch} from '../actions';
+import { changePitch } from '../actions';
 import notes from '../noteList';
 import './css/AudioButton.css';
 import 'font-awesome/css/font-awesome.min.css';
