@@ -59,9 +59,7 @@ export class AudioButton extends Component {
 	render() {
 		return (
 			<button className="input-button home-buttons" onClick={() => this.toggleInput()}>
-			<div className="mic-div">
-				<i className="fa fa-microphone"></i>
-			</div>
+			<i className="fa fa-microphone"></i>
 			</button>
 		);
 	}

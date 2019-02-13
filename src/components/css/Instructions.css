@@ -77,27 +77,6 @@
 	right: 6vw;
 }
 
-.tooltip {
-	position: relative;
-	display: inline-block;
-	/*cursor: pointer;*/
-}
-
-.tooltip .tooltip-text {
-	visibility: hidden;
-	position: absolute;
-	width: 6vw;
-    background-color: #555;
-    color: #fff;
-    text-align: center;
-    font-size: 1.1vw;
-    bottom: 125%;
-    left: 50%;
-    border-radius: 6px;
-    margin-left: -25%;
-    padding: 15px 15px;
-}
-
 .x {
 	position: relative;
 	right: 17vw;
@@ -205,7 +184,7 @@
 		margin-bottom: -1.1rem;
 	}
 	.note-img-div {
-		padding: 2.5vw;
+		padding-right: 2.5vw;
 		position: relative;
 	}
 
@@ -236,6 +215,11 @@
 		height: 5vw;
 		position: relative;
 		bottom: .9vw;
+		margin-left: .8rem;
+	}
+
+	.note-img.note-img-dotted-half {
+		margin-right: 1.2rem;
 	}
 
 	.six {
@@ -261,15 +245,15 @@
 	.dotted-note-div {
 		margin-right: 13vw;
 		margin-top: 0;
-		margin-left: -1.7vw;
+		margin-left: -1.3vw; 
 	}
 
 	.augmentation-dot {
 		font-family: 'Cabin', sans-serif;
 		font-size: 7vw;
 		position: absolute;
-		right: 6.5vw;
-		margin-top: -2.7vw;
+		right: 10vw;
+		margin-top: -1.15vw;
 	}
 
 	.divider {
@@ -281,26 +265,8 @@
 	}
 
 	.dotted-note-text {
-		right: -23vw;
-		top: -4vw;
-	}
-
-	.tooltip {
-		position: relative;
-		display: inline-block;
-	}
-
-	.tooltip .tooltip-text {
-		visibility: hidden;
-		position: absolute;
-		width: 6vw;
-	    background-color: #555;
-	    color: #fff;
-	    text-align: center;
-	    bottom: 125%;
-	    left: 50%;
-	    border-radius: 6px;
-	    margin-left: -25%;
+		right: -19.5vw;
+		top: -2.4vw;
 	}
 
 	.x {

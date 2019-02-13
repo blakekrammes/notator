@@ -46,11 +46,11 @@ export class Home extends Component {
 				  	</header>
 					<main>
 						<p className="status"><i>You are logged in as {this.props.currentUser.username}</i></p>
-						<div className="abc-buttons">
+						{/* <div className="abc-buttons">
 							<AudioButton />
 							<ClefButton />
 							<TimeSignatureButton />
-						</div>
+						</div> */}
 						<Pitch />
 						<Instructions />
 						<SheetMusic />
@@ -71,11 +71,11 @@ export class Home extends Component {
 				  	</header>
 					<main>
 						<p className="status"><i>You are logged in as democrates</i></p>
-						<div className="abc-buttons">
+						{/* <div className="abc-buttons">
 							<AudioButton />
 							<ClefButton />
 							<TimeSignatureButton />
-						</div>
+						</div> */}
 						<Pitch />
 						<Instructions />
 						<SheetMusic />
@@ -96,11 +96,11 @@ export class Home extends Component {
 				  		</div>
 				  	</header>
 					<main>
-						<div className="abc-buttons">
+						{/* <div className="abc-buttons">
 							<AudioButton />
 							<ClefButton />
 							<TimeSignatureButton />
-						</div>
+						</div> */}
 						<Pitch />
 						<Instructions />
 						<SheetMusic />

@@ -2,6 +2,8 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import { addNote, deleteNote, pressAugmentationDot, releaseAugmentationDot, changeSixteenthNoteCount, changeSheetMusic } from '../actions';
 
+const suitableKeyCodes = [81, 69, 72, 87, 83, 190, 8];
+
 export class HandleNotes extends Component {
 
 	componentDidMount() {
@@ -17,7 +19,7 @@ export class HandleNotes extends Component {
 	pressKey = (e) => {
 
 		// delete handling for notes
-		if (e.keyCode === 68 && this.props.writtenNotes.length >= 1) {
+		if (e.keyCode === 8 && this.props.writtenNotes.length >= 1) {
 				
 			let length = this.props.writtenNotes.length;
 
@@ -68,6 +70,36 @@ export class HandleNotes extends Component {
 			}
 			this.props.dispatch(deleteNote());
 		}
+
+		// highlight period key
+		if (e.keyCode === 190) {
+			document.querySelector('.c190').classList.add('keydown');
+		}
+		// w key
+		else if (e.keyCode === 87) {
+			document.querySelector('.c87').classList.add('keydown');
+		}
+		// h
+		else if (e.keyCode === 72) {
+			document.querySelector('.c72').classList.add('keydown');
+		}
+		// q
+		else if (e.keyCode === 81) {
+			document.querySelector('.c81').classList.add('keydown');
+		}
+		// e
+		else if (e.keyCode === 69) {
+			document.querySelector('.c69').classList.add('keydown');
+		}
+		// s
+		else if (e.keyCode === 83) {
+			document.querySelector('.c83').classList.add('keydown');
+		}
+		// delete
+		else if (e.keyCode === 8) {
+			document.querySelector('.c46').classList.add('keydown');
+		}
+
 		// if a note is not displaying 
 		if (this.props.pitch === undefined || this.props.pitch === '0') {
 			return;
@@ -75,8 +107,6 @@ export class HandleNotes extends Component {
 
 		let note = this.props.pitch;
 		
-		const suitableKeyCodes = [81, 69, 72, 87, 83, 190, 68];
-
 		if (e.keyCode === 190) {
 			this.props.dispatch(pressAugmentationDot());
 		}
@@ -582,6 +612,17 @@ export class HandleNotes extends Component {
 		if (this.props.augmentationDotPressed === true) {
 			this.props.dispatch(releaseAugmentationDot());
 		}
+		if (!suitableKeyCodes.includes(e.keyCode)) {
+			return;
+		}
+		let stringedKeyCodeClass;
+		if (e.keyCode === 8) {
+			stringedKeyCodeClass = '.c46';
+		}
+		else {
+			stringedKeyCodeClass = '.c'+e.keyCode.toString();
+		}
+		document.querySelector(stringedKeyCodeClass).classList.remove('keydown');
 	}
 
 	render() {

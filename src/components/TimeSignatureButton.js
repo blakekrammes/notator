@@ -59,7 +59,7 @@ export class TimeSignatureButton extends Component {
                     <button className="timesignature-button home-buttons" 
                         onClick={() => this.showTimeSignatureButtons()}>
                         <img src="time-signature.png" alt="time-signature" className="time-signature-icon"/>
-                            <br></br><i className="fa fa-caret-down"></i>
+                            {/* <br></br><i className="fa fa-caret-down"></i> */}
                         </button>
                         <div className="timesignature-buttons-div">
                             <button className="timesignatures 2/4 home-buttons" onClick={(e) => this.changeTimeSignature(e)}>2/4</button>

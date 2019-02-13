@@ -1,11 +1,14 @@
 .sheetMusicDiv {
 	position: relative;
-	padding: 0 .7rem;
+	margin: 1rem;
+	padding: 0 .5rem;
+	border-radius: 4px;
+	background: rgba(255,255,255,.5);
 }
 
 .sheetMusic {
-	background: rgba(255,255,255,.55);
-	border-radius: 4px;
+	/* background: rgba(255,255,255,.55); */
+	/* border-radius: 4px; */
 	margin-top: .4rem;
 }
 
@@ -13,6 +16,13 @@
 	font-size: 1.3rem;
 	background: rgba(255,255,255,.5);
 	width: fit-content;
+}
+
+.control-buttons-div {
+	display: flex;	
+	position: relative;
+	top: .5rem;
+	z-index: 1;
 }
 
 @media only screen and (min-width: 500px) {

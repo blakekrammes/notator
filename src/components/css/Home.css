@@ -104,11 +104,11 @@ main {
 	line-height: 10vw;
 }
 
-.abc-buttons {
+/* .abc-buttons {
 	display: flex;
 	padding: 0 .7rem;
 	justify-content: center;
-}
+} */
 
 @media only screen  and (min-width: 500px) {
 	main {
@@ -153,11 +153,11 @@ main {
 		margin-right: 3rem;
 		margin-top: .65rem;
 	}
-	.abc-buttons {
+	/* .abc-buttons {
 		display: flex;
 		padding: 0 1rem;
 		justify-content: start;
-	}
+	} */
 }
 
 @media only screen  and (min-width: 650px) {
@@ -230,9 +230,9 @@ main {
 	.status {
 		font-size: 1.2rem;
 	}
-	.abc-buttons {
+	/* .abc-buttons {
 		padding: 0 1.5rem;
-	}
+	} */
 }
 
 @media only screen  and (min-width: 900px) {
@@ -273,9 +273,9 @@ main {
 		line-height: 3vw;
 		font-size: 2.3vw;
 	}
-	.abc-buttons {
+	/* .abc-buttons {
 		padding: 0 2rem;
-	}
+	} */
 }
 
 @media only screen  and (min-width: 1050px) {
@@ -285,19 +285,19 @@ main {
 }
 
 @media only screen  and (min-width: 1150px) {
-	.abc-buttons {
+	/* .abc-buttons {
 		padding: 0 2.5rem;
-	}
+	} */
 }
 
 @media only screen  and (min-width: 1224px) {
 	.logged-in-div, .logged-out-div {
 		margin-right: 3rem;
 	}
-	.abc-buttons {
+	/* .abc-buttons {
 		margin-bottom: 3rem; 
 		padding: 0 3rem; 
-	}
+	} */
 }
 
 

@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ABCJS from 'abcjs/midi';
 import HandleNotes from './HandleNotes';
+import AudioButton from './AudioButton';
+import ClefButton from './ClefButton';
+import TimeSignatureButton from './TimeSignatureButton'
 import { saveUserNotation } from '../actions/users';
 import { saveDemoNotation } from '../actions/index';
 import 'font-awesome/css/font-awesome.min.css';
@@ -114,7 +117,6 @@ export class SheetMusic extends Component {
 	 }
 		
 	render() {
-		// console.log(<SheetMusicJSX/>.type)
 		if (this.props.writtenNotes.length > 1 && this.props.authToken !== null) {
 			return (<div className="sheetMusicDiv">
 						<HandleNotes />
@@ -134,6 +136,11 @@ export class SheetMusic extends Component {
 		else {
 			return (<div className="sheetMusicDiv">
 						<HandleNotes />
+						<div className="control-buttons-div">
+							<AudioButton />
+							<ClefButton />
+							<TimeSignatureButton />
+						</div>
 						<div className="sheetMusic"></div>
 						<div className="sheetMusicMidi"></div>
 					</div>)
