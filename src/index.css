@@ -33,8 +33,13 @@
 		0 10px 30px #ddd;
 }
 
-ul {list-style-type: none; width: 784px; margin: 0 auto;}
-li {float: left;}
+#qwerty {
+	list-style-type: none; 
+	width: 100%; 
+	margin: 0 auto;
+
+}
+#qwerty li {float: left;}
 
 
 .key{
@@ -213,13 +218,14 @@ ul ol {list-style-type: none;}
 		
 h1 {
 	color: #888;
-	text-align: center;
-	font: bold 25pt/25pt arial;
+	/* text-align: center; */
+	/* font: bold 25pt/25pt arial; */
 	margin: 30px 0 60px;}
 	
 h2 {
-	color: #666;
-	font: 13pt/0pt arial;}
+	/* color: #666; */
+	/* font: 13pt/0pt arial; */
+}
 	
 p {
 	color: #999;
@@ -240,7 +246,7 @@ cite {
 	color: #999;
 	font: italic bold 8pt arial;}
 
-ul, ol {padding: 0px; margin: 0;}
+/* ul, ol {padding: 0px; margin: 0;} */
 	
 /* Micro Clearfix by Nicolas Gallagher - http://nicolasgallagher.com/micro-clearfix-hack */
         /* For modern browsers */
@@ -248,7 +254,7 @@ ul, ol {padding: 0px; margin: 0;}
 		.cf:after {clear:both;}
 		
 .qwerty-div {
-	margin-left: .6rem;
+	margin-left: -1.8rem;
 }
 
 * {
@@ -345,6 +351,7 @@ button:hover {
 	margin: 0;
 	font-size: 1.7rem;
 	padding: 0 .7rem;
+	margin-top: .1rem;
 }
 
 .abcjs-inline-midi {
@@ -375,6 +382,7 @@ button:hover {
 	.main-title {
 		font-size: 2.5rem;
 		padding: 0 1rem;
+		margin-top: -.4rem;
 	}
 	button {
 		font-size: 5vw;
@@ -483,6 +491,9 @@ button:hover {
 	.main-title {
 		font-size: 3.3rem;
 	}
+	.main-title {
+		margin-top: -.8rem;
+	}
 	.abcjs-inline-midi {
 		width: 30vw;
 	}
@@ -495,6 +506,7 @@ button:hover {
 @media only screen and (min-width: 1150px) {
 	.main-title {
 		padding: 0 2.5rem;
+		margin-top: -1rem;
 	}
 }
 
@@ -502,6 +514,7 @@ button:hover {
 	.main-title {
 		font-size: 4.5vw;
 		padding: 0 3rem;
+		margin-top: -1.5rem;
 	}
 	button {
 		font-size: 2vw;

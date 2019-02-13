@@ -6,4 +6,17 @@
 	padding-left: 15px; 
 	border-radius: 4px;
 	margin: 4.5vw;
+	margin-top: 4rem;
+}
+
+@media only screen and (min-width: 650px) {
+	.detailed-instructions-div {
+		margin-top: 5.5rem;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.detailed-instructions-div {
+		margin-top: 6.5rem;
+	}
 }

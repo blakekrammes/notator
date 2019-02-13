@@ -9,14 +9,34 @@ export class HandleNotes extends Component {
 	componentDidMount() {
 		document.addEventListener('keydown', this.pressKey);
 		document.addEventListener('keyup', this.releaseKey);
+		document.querySelector('.c87').addEventListener('click', this.handleClicks);
+		document.querySelector('.c72').addEventListener('click', this.handleClicks);
+		document.querySelector('.c81').addEventListener('click', this.handleClicks);
+		document.querySelector('.c69').addEventListener('click', this.handleClicks);
+		document.querySelector('.c83').addEventListener('click', this.handleClicks);
+		document.querySelector('.c190').addEventListener('click', this.handleClicks);
+		document.querySelector(`.c46`).addEventListener('click', this.handleClicks);
 	}
 
 	componentWillUnmount() {
 		document.removeEventListener('keydown', this.pressKey);
 		document.removeEventListener('keyup', this.releaseKey);
+		document.querySelector('.c87').removeEventListener('click', this.handleClicks);	
+		document.querySelector('.c72').removeEventListener('click', this.handleClicks);
+		document.querySelector('.c81').removeEventListener('click', this.handleClicks);
+		document.querySelector('.c69').removeEventListener('click', this.handleClicks);
+		document.querySelector('.c83').removeEventListener('click', this.handleClicks);
+		document.querySelector('.c190').removeEventListener('click', this.handleClicks);
+		document.querySelector(`.c46`).removeEventListener('click', this.handleClicks);
 	}
 
 	pressKey = (e) => {
+
+		// console.log(e)
+
+		// if (e.type === 'click') {
+		// 	e.keyCode = e.path
+		// }
 
 		// delete handling for notes
 		if (e.keyCode === 8 && this.props.writtenNotes.length >= 1) {
@@ -623,6 +643,11 @@ export class HandleNotes extends Component {
 			stringedKeyCodeClass = '.c'+e.keyCode.toString();
 		}
 		document.querySelector(stringedKeyCodeClass).classList.remove('keydown');
+	}
+
+	handleClicks = (e) => {
+		// console.log(e.type)
+		// this.pressKey(e);
 	}
 
 	render() {

@@ -6,7 +6,9 @@ export default class DetailedInstructions extends Component {
 	render() {     
 		return (
 			<div>
-				<h1 className="main-title"><Link to="/">Notator</Link></h1>
+				<header>
+					<h1 className="main-title"><Link to="/">Notator</Link></h1>
+				</header>
 				<div className="detailed-instructions-div">
 					<div className="main-instructions">
 						<h2>sing or play into the microphone and press keys to create notation</h2>
