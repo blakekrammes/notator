@@ -119,7 +119,7 @@ export class SheetMusic extends Component {
 	render() {
 		if (this.props.writtenNotes.length > 1 && this.props.authToken !== null) {
 			return (<div className="sheetMusicDiv">
-						<HandleNotes />
+						{/* <HandleNotes onRef={ref => (this.child = ref)} /> */}
 						<button className="save-link" onClick={(e) => this.saveNotation(e)}>Save</button>
 						<div className="sheetMusic"></div>
 						<div className="sheetMusicMidi"></div>
@@ -127,7 +127,7 @@ export class SheetMusic extends Component {
 		}
 		else if (this.props.writtenNotes.length > 1 && this.props.demo === true) {
 			return (<div className="sheetMusicDiv">
-						<HandleNotes />
+						{/* <HandleNotes onRef={ref => (this.child = ref)} /> */}
 						<button className="save-link" onClick={(e) => this.saveNotation(e)}>Save</button>
 						<div className="sheetMusic"></div>
 						<div className="sheetMusicMidi"></div>
@@ -135,7 +135,7 @@ export class SheetMusic extends Component {
 		}
 		else {
 			return (<div className="sheetMusicDiv">
-						<HandleNotes />
+						{/* <HandleNotes onRef={ref => (this.child = ref)} /> */}
 						<div className="control-buttons-div">
 							<AudioButton />
 							<ClefButton />

@@ -18,6 +18,7 @@ const initialState = {
 	timeSignature: '4/4',
 	baseNoteValue: '2/8',
 	keySignature: 'CMaj',
+	keyboardKeyCodeClicked: 0,
 	demoNotation: [
 		{
 			title: 'Mary Had a Little Lamb',
@@ -136,6 +137,11 @@ export const notatorReducer = (state = initialState, action) => {
 	else if (action.type === actions.DELETE_DEMO_NOTATION) {
 		return Object.assign({}, state, {
 			demoNotation: state.demoNotation.filter(item => action.title !== item.title)
+		});
+	}
+	else if (action.type === actions.CLICK_KEYBOARD_KEY) {
+		return Object.assign({}, state, {
+			keyboardKeyCodeClicked: action.keyboardKeyCodeClicked
 		});
 	}
 	return state;

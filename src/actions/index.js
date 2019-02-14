@@ -72,4 +72,10 @@ export const deleteDemoNotation = title => ({
 	title
 });
 
+export const CLICK_KEYBOARD_KEY = 'CLICK_KEYBOARD_KEY';
+export const clickKeyboardKey = (keyboardKeyCodeClicked, keyboardKeyClickedTimeStamp) => ({
+	type: CLICK_KEYBOARD_KEY,
+	keyboardKeyCodeClicked
+});
+
 

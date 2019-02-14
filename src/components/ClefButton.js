@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
-import {changeClef, updateMusic} from '../actions';
+import { connect } from 'react-redux';
+import { changeClef, updateMusic } from '../actions';
 import './css/ClefButton.css';
 
 export class ClefButton extends Component {

@@ -35,6 +35,7 @@ describe('notatorReducer', () => {
 			timeSignature: '4/4',
 			baseNoteValue: '2/8',
 			keySignature: 'CMaj',
+			keyboardKeyCodeClicked: 0,
 			demoNotation: [
 				{
 					title: 'Mary Had a Little Lamb',

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Instructions } from './Instructions';
+import Instructions from './Instructions';
 import AudioButton from './AudioButton';
 import ClefButton from './ClefButton';
 import TimeSignatureButton from './TimeSignatureButton';
@@ -116,6 +116,7 @@ const mapStateToProps = state => ({
 	authToken: state.auth.authToken,
 	currentUser: state.auth.currentUser,
 	demo: state.auth.demo
+	// keyboardKeyCodeClicked: state.notator.keyboardKeyCodeClicked
 });
 
 export default connect(mapStateToProps)(Home);

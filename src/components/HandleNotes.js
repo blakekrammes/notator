@@ -9,35 +9,25 @@ export class HandleNotes extends Component {
 	componentDidMount() {
 		document.addEventListener('keydown', this.pressKey);
 		document.addEventListener('keyup', this.releaseKey);
-		document.querySelector('.c87').addEventListener('click', this.handleClicks);
-		document.querySelector('.c72').addEventListener('click', this.handleClicks);
-		document.querySelector('.c81').addEventListener('click', this.handleClicks);
-		document.querySelector('.c69').addEventListener('click', this.handleClicks);
-		document.querySelector('.c83').addEventListener('click', this.handleClicks);
-		document.querySelector('.c190').addEventListener('click', this.handleClicks);
-		document.querySelector(`.c46`).addEventListener('click', this.handleClicks);
+		// binding the ref for the parent component (Instructions) to access the pressKey method
+		// console.log(this.props.onRef())
+		// if (typeof this.props.onRef === 'function') {
+		this.props.onRef(this);
+		// }
 	}
 
 	componentWillUnmount() {
 		document.removeEventListener('keydown', this.pressKey);
 		document.removeEventListener('keyup', this.releaseKey);
-		document.querySelector('.c87').removeEventListener('click', this.handleClicks);	
-		document.querySelector('.c72').removeEventListener('click', this.handleClicks);
-		document.querySelector('.c81').removeEventListener('click', this.handleClicks);
-		document.querySelector('.c69').removeEventListener('click', this.handleClicks);
-		document.querySelector('.c83').removeEventListener('click', this.handleClicks);
-		document.querySelector('.c190').removeEventListener('click', this.handleClicks);
-		document.querySelector(`.c46`).removeEventListener('click', this.handleClicks);
+		// unbinding the ref
+		this.props.onRef(undefined);
 	}
 
 	pressKey = (e) => {
-
-		// console.log(e)
-
-		// if (e.type === 'click') {
-		// 	e.keyCode = e.path
-		// }
-
+		// if the key pressed isn't in the list return so we don't get an error when trying to find the html class that matches the keyCode
+		if (!suitableKeyCodes.includes(e.keyCode)) {
+			return;
+		}
 		// delete handling for notes
 		if (e.keyCode === 8 && this.props.writtenNotes.length >= 1) {
 				
@@ -91,33 +81,18 @@ export class HandleNotes extends Component {
 			this.props.dispatch(deleteNote());
 		}
 
-		// highlight period key
-		if (e.keyCode === 190) {
-			document.querySelector('.c190').classList.add('keydown');
-		}
-		// w key
-		else if (e.keyCode === 87) {
-			document.querySelector('.c87').classList.add('keydown');
-		}
-		// h
-		else if (e.keyCode === 72) {
-			document.querySelector('.c72').classList.add('keydown');
-		}
-		// q
-		else if (e.keyCode === 81) {
-			document.querySelector('.c81').classList.add('keydown');
-		}
-		// e
-		else if (e.keyCode === 69) {
-			document.querySelector('.c69').classList.add('keydown');
-		}
-		// s
-		else if (e.keyCode === 83) {
-			document.querySelector('.c83').classList.add('keydown');
-		}
-		// delete
-		else if (e.keyCode === 8) {
-			document.querySelector('.c46').classList.add('keydown');
+		// highlight the css key if the event is a keypress and not a click
+		// highlighting css keys for clicks is already handled with the :active css pseudo class
+		if (!e.clickEvent) {
+			let keyCodeStr = e.keyCode.toString();
+			switch(e.keyCode) {
+				case 8:
+				document.querySelector('.c46').classList.add('keydown');
+				break
+				default:
+				document.querySelector(`.c${keyCodeStr}`).classList.add('keydown');
+				break
+			}
 		}
 
 		// if a note is not displaying 
@@ -127,165 +102,162 @@ export class HandleNotes extends Component {
 
 		let note = this.props.pitch;
 		
-		if (e.keyCode === 190) {
+		if (e.keyCode === 190 && !e.clickEvent) {
 			this.props.dispatch(pressAugmentationDot());
 		}
 
-		if (suitableKeyCodes.includes(e.keyCode)) {
+	let filteredNote;
 
-		let filteredNote;
+	if (note[1] !== '#') {
 
-		if (note[1] !== '#') {
+		let noteInt = parseInt(note[1], 10);
 
-			let noteInt = parseInt(note[1], 10);
-
-			//really high this.props.pitches (C7 - TBD)
-			if (noteInt === 7) {
-				filteredNote = `${note[0].toLowerCase()}''`;
-			}
-			//high this.props.pitches (C6 - B6)
-			else if (noteInt === 6) {
-				filteredNote = `${note[0].toLowerCase()}'`;
-			}
-			//mid-high this.props.pitches (C5 - B5)
-			else if (noteInt === 5) {
-				filteredNote = note[0].toLowerCase();
-			}
-			//lower this.props.pitches (C3 - B3)
-			else if (noteInt === 3) {
-				//commas are used to designate lower octave
-				let lowNote = `${note[0]},`;
-				filteredNote = `${lowNote}`;
-			}
-			//low this.props.pitches (C2 – B2)
-			else if (noteInt === 2) {
-				//commas are used to designate lower octave
-				let lowNote = `${note[0]},,`;
-				filteredNote = lowNote;
-			}
-			//very low this.props.pitches (C1 – B1)
-			else if (noteInt === 1) {
-				//commas are used to designate lower octave
-				let lowNote = `${note[0]},,,`;
-				filteredNote = lowNote;
-			}
-			//mid-range this.props.pitches (C4 - B4)
-			else {
-				filteredNote = note[0];
-			}
-
-			let musicString = this.props.writtenNotes.toString();
-
-			let currentMeasure = musicString.substr(musicString.lastIndexOf('|'), musicString.length);
-
-			if (currentMeasure.includes(`^${note[0]},,,`)
-				|| currentMeasure.includes(`^${note[0]},,`)
-				|| currentMeasure.includes(`^${note[0]},`)
-				|| currentMeasure.includes(`^${note[0].toLowerCase()}''`)
-				|| currentMeasure.includes(`^${note[0].toLowerCase()}'`)
-				|| currentMeasure.includes(`^${note[0].toLowerCase()}`)
-				|| currentMeasure.includes(`^${note[0]}`)) {
-
-				let stringSinceLastSharp = currentMeasure.substr(currentMeasure.lastIndexOf('^'), currentMeasure.length);
-				// checks if a natural was stated before in the measure
-				if (stringSinceLastSharp.includes(`=${note[0]},,,`)
-					|| stringSinceLastSharp.includes(`=${note[0]},,`)
-					|| stringSinceLastSharp.includes(`=${note[0]},`)
-					|| stringSinceLastSharp.includes(`=${note[0].toLowerCase()}''`)
-					|| stringSinceLastSharp.includes(`=${note[0].toLowerCase()}'`)
-					|| stringSinceLastSharp.includes(`=${note[0].toLowerCase()}`)
-					|| stringSinceLastSharp.includes(`=${note[0]}`)) {
-				}
-				else {
-					filteredNote = `=${filteredNote}`;
-				}
-			}
+		//really high this.props.pitches (C7 - TBD)
+		if (noteInt === 7) {
+			filteredNote = `${note[0].toLowerCase()}''`;
+		}
+		//high this.props.pitches (C6 - B6)
+		else if (noteInt === 6) {
+			filteredNote = `${note[0].toLowerCase()}'`;
+		}
+		//mid-high this.props.pitches (C5 - B5)
+		else if (noteInt === 5) {
+			filteredNote = note[0].toLowerCase();
+		}
+		//lower this.props.pitches (C3 - B3)
+		else if (noteInt === 3) {
+			//commas are used to designate lower octave
+			let lowNote = `${note[0]},`;
+			filteredNote = `${lowNote}`;
+		}
+		//low this.props.pitches (C2 – B2)
+		else if (noteInt === 2) {
+			//commas are used to designate lower octave
+			let lowNote = `${note[0]},,`;
+			filteredNote = lowNote;
+		}
+		//very low this.props.pitches (C1 – B1)
+		else if (noteInt === 1) {
+			//commas are used to designate lower octave
+			let lowNote = `${note[0]},,,`;
+			filteredNote = lowNote;
+		}
+		//mid-range this.props.pitches (C4 - B4)
+		else {
+			filteredNote = note[0];
 		}
 
-		else if (note[1] === '#') {
+		let musicString = this.props.writtenNotes.toString();
 
-			let regexOfHash = /#/;
-			let noHashNote = note.replace(regexOfHash, '');
-			let noHashNoteInt = parseInt(noHashNote[1], 10);
+		let currentMeasure = musicString.substr(musicString.lastIndexOf('|'), musicString.length);
 
-			//very high this.props.pitches (C7 - TBD)
-			if (noHashNoteInt === 7) {
-				filteredNote = `^${noHashNote[0].toLowerCase()}''`;
+		if (currentMeasure.includes(`^${note[0]},,,`)
+			|| currentMeasure.includes(`^${note[0]},,`)
+			|| currentMeasure.includes(`^${note[0]},`)
+			|| currentMeasure.includes(`^${note[0].toLowerCase()}''`)
+			|| currentMeasure.includes(`^${note[0].toLowerCase()}'`)
+			|| currentMeasure.includes(`^${note[0].toLowerCase()}`)
+			|| currentMeasure.includes(`^${note[0]}`)) {
+
+			let stringSinceLastSharp = currentMeasure.substr(currentMeasure.lastIndexOf('^'), currentMeasure.length);
+			// checks if a natural was stated before in the measure
+			if (stringSinceLastSharp.includes(`=${note[0]},,,`)
+				|| stringSinceLastSharp.includes(`=${note[0]},,`)
+				|| stringSinceLastSharp.includes(`=${note[0]},`)
+				|| stringSinceLastSharp.includes(`=${note[0].toLowerCase()}''`)
+				|| stringSinceLastSharp.includes(`=${note[0].toLowerCase()}'`)
+				|| stringSinceLastSharp.includes(`=${note[0].toLowerCase()}`)
+				|| stringSinceLastSharp.includes(`=${note[0]}`)) {
 			}
-			//high this.props.pitches (C6 - B6)
-			else if (noHashNoteInt === 6) {
-				filteredNote = `^${noHashNote[0].toLowerCase()}'`;
-			}
-			//mid-high this.props.pitches (C5 to B5)
-			else if (noHashNoteInt === 5) {
-				filteredNote = `^${noHashNote[0].toLowerCase()}`;
-			}
-			//lower this.props.pitches (C3 - B3)
-			else if (noHashNoteInt === 3) {
-				//commas are used to designate lower octave
-				let lowNote = `${noHashNote[0]},`;
-				filteredNote = `^${lowNote}`;
-			}
-			//low this.props.pitches (C2 – B2)
-			else if (noHashNoteInt === 2) {
-				let lowNote = `${noHashNote[0]},,`;
-				filteredNote = `^${lowNote}`;
-			}
-			//very low this.props.pitches (C1 – B1)
-			else if (noHashNoteInt === 1) {
-				let lowNote = `${noHashNote[0]},,,`;
-				filteredNote = `^${lowNote}`;
-			}
-			//mid-range this.props.pitches (C4 - B4)
 			else {
-				filteredNote = `^${noHashNote[0]}`;
-			} 
+				filteredNote = `=${filteredNote}`;
+			}
 		}
+	}
 
-			//dotted notes
-			if (this.props.augmentationDotPressed === true && e.keyCode !== 190) {
+	else if (note[1] === '#') {
 
-				//dotted half
-				if (e.keyCode === 72) {
-					this.writeABCNotation(`${filteredNote}3`);
-				}
-				//dotted quarter
-				else if (e.keyCode === 81) {
-					this.writeABCNotation(`${filteredNote}3/`);
-				}
-				//dotted eighth
-				else if (e.keyCode === 69) {
-					this.writeABCNotation(`${filteredNote}3//`);
-				}
-			}
+		let regexOfHash = /#/;
+		let noHashNote = note.replace(regexOfHash, '');
+		let noHashNoteInt = parseInt(noHashNote[1], 10);
 
-			//non-dotted notes
-			
-			//whole note 
-			else if (e.keyCode === 87) {
-				this.writeABCNotation(`${filteredNote}4`);
-			}
-
-			//half note
-			else if (e.keyCode === 72) {
-				this.writeABCNotation(`${filteredNote}2`);
-			}
-
-			//quarter note
-			else if (e.keyCode === 81) {
-				this.writeABCNotation(`${filteredNote}`);
-			}
-
-			//eighth note
-			else if (e.keyCode === 69) {
-				this.writeABCNotation(`${filteredNote}/2`);
-			}
-
-			//sixteenth note
-			else if (e.keyCode === 83) {
-				this.writeABCNotation(`${filteredNote}/4`);
-			}
+		//very high this.props.pitches (C7 - TBD)
+		if (noHashNoteInt === 7) {
+			filteredNote = `^${noHashNote[0].toLowerCase()}''`;
+		}
+		//high this.props.pitches (C6 - B6)
+		else if (noHashNoteInt === 6) {
+			filteredNote = `^${noHashNote[0].toLowerCase()}'`;
+		}
+		//mid-high this.props.pitches (C5 to B5)
+		else if (noHashNoteInt === 5) {
+			filteredNote = `^${noHashNote[0].toLowerCase()}`;
+		}
+		//lower this.props.pitches (C3 - B3)
+		else if (noHashNoteInt === 3) {
+			//commas are used to designate lower octave
+			let lowNote = `${noHashNote[0]},`;
+			filteredNote = `^${lowNote}`;
+		}
+		//low this.props.pitches (C2 – B2)
+		else if (noHashNoteInt === 2) {
+			let lowNote = `${noHashNote[0]},,`;
+			filteredNote = `^${lowNote}`;
+		}
+		//very low this.props.pitches (C1 – B1)
+		else if (noHashNoteInt === 1) {
+			let lowNote = `${noHashNote[0]},,,`;
+			filteredNote = `^${lowNote}`;
+		}
+		//mid-range this.props.pitches (C4 - B4)
+		else {
+			filteredNote = `^${noHashNote[0]}`;
 		} 
+	}
+
+		//dotted notes
+		if (this.props.augmentationDotPressed === true && e.keyCode !== 190) {
+			console.log('heerrrrrr')
+			//dotted half
+			if (e.keyCode === 72) {
+				this.writeABCNotation(`${filteredNote}3`);
+			}
+			//dotted quarter
+			else if (e.keyCode === 81) {
+				this.writeABCNotation(`${filteredNote}3/`);
+			}
+			//dotted eighth
+			else if (e.keyCode === 69) {
+				this.writeABCNotation(`${filteredNote}3//`);
+			}
+		}
+
+		//non-dotted notes
+		
+		//whole note 
+		else if (e.keyCode === 87) {
+			this.writeABCNotation(`${filteredNote}4`);
+		}
+
+		//half note
+		else if (e.keyCode === 72) {
+			this.writeABCNotation(`${filteredNote}2`);
+		}
+
+		//quarter note
+		else if (e.keyCode === 81) {
+			this.writeABCNotation(`${filteredNote}`);
+		}
+
+		//eighth note
+		else if (e.keyCode === 69) {
+			this.writeABCNotation(`${filteredNote}/2`);
+		}
+
+		//sixteenth note
+		else if (e.keyCode === 83) {
+			this.writeABCNotation(`${filteredNote}/4`);
+		}
 	}
 
 	writeABCNotation = (noteToBeWritten) => {
@@ -579,6 +551,7 @@ export class HandleNotes extends Component {
 		//if quarter note
 		else {
 			if (this.props.timeSignature === '4/4') {
+				// console.log(noteToBeWritten)
 				if (this.props.sixteenthNoteCount > 12 && this.props.sixteenthNoteCount < 16) { 
 					alert('There is not enough room for a quarter note in this measure.');
 					return;
@@ -619,7 +592,7 @@ export class HandleNotes extends Component {
 			this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount + 4));
 		}
 		
-		let music = 
+		let music =
 		"T: Composition\n" +
 		`M: ${this.props.timeSignature}\n` +
 		`L: ${this.props.baseNoteValue}\n` +
@@ -645,11 +618,6 @@ export class HandleNotes extends Component {
 		document.querySelector(stringedKeyCodeClass).classList.remove('keydown');
 	}
 
-	handleClicks = (e) => {
-		// console.log(e.type)
-		// this.pressKey(e);
-	}
-
 	render() {
 		return null;
 	}
@@ -663,7 +631,9 @@ const mapStateToProps = state => ({
 	clef: state.notator.clef,
 	baseNoteValue: state.notator.baseNoteValue,
 	keySignature: state.notator.keySignature,
-	augmentationDotPressed: state.notator.augmentationDotPressed
+	augmentationDotPressed: state.notator.augmentationDotPressed,
+	keyboardKeyCodeClicked: state.notator.keyboardKeyCodeClicked,
+	keyboardKeyClickedTimeStamp: state.notator.keyboardKeyClickedTimeStamp
 });
 
 export default connect(mapStateToProps)(HandleNotes);
