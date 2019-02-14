@@ -92,12 +92,17 @@ main {
 }
 
 .status {
-	color: rgba(0,0,0,.8);
+	color: whitesmoke;
 	position: absolute;
-	right: 0;
-	top: -.5rem;
+	right: -1.1rem;
+	top: -.1rem;
 	margin-right: 1.8rem;
 	font-size: .68rem;
+	padding: .1rem .2rem;
+	background: rgba(52,61,70,.6);
+	border-radius: 4px;
+	text-shadow: none;
+	font-weight: 200;
 }
 
 .sheetMusicMidi {

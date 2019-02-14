@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import Composition from './Composition';
-import {fetchCompositions} from '../actions/protectedData';
-import {Redirect} from 'react-router-dom';
-import {Link} from 'react-router-dom';
+import { fetchCompositions } from '../actions/protectedData';
+import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export class MyCompositions extends Component {
 	
@@ -57,7 +57,9 @@ export class MyCompositions extends Component {
 		}
 		return (
 			<div>
-				<h1 className="main-title"><Link to="/">Notator</Link></h1>
+				<header>
+					<h1 className="main-title"><Link to="/">Notator</Link></h1>
+				</header>
 				{compositionList}
 			</div>
 		);

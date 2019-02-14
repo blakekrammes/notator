@@ -55,15 +55,65 @@ export class Instructions extends Component {
 	render() {
 		return (
 			<div className="qwerty-div">
-				<HandleNotes onRef={ref => (this.child = ref)} />
+				<HandleNotes onRef={ref => (this.child = ref)} 
+							 wholeNoteKey={this.wholeNoteKey}
+							 halfNoteKey={this.halfNoteKey}
+							 quarterNoteKey={this.quarterNoteKey}
+							 eighthNoteKey={this.eighthNoteKey}
+							 sixteenthNoteKey={this.sixteenthNoteKey}
+							 augmentationDotKey={this.augmentationDotKey}
+							 deleteKey={this.deleteKey} />
 				<ul className="cf" id="qwerty">
-					<li><a onMouseDown={(e) => this.onMouseDown(e)} onMouseUp={(e) => this.onMouseUp(e)} href="#" className="key c87"><span>w</span></a></li>
-					<li><a onMouseDown={(e) => this.onMouseDown(e)} onMouseUp={(e) => this.onMouseUp(e)} href="#" className="key c72"><span>h</span></a></li>
-					<li><a onMouseDown={(e) => this.onMouseDown(e)} onMouseUp={(e) => this.onMouseUp(e)} href="#" className="key c81"><span>q</span></a></li>
-					<li><a onMouseDown={(e) => this.onMouseDown(e)} onMouseUp={(e) => this.onMouseUp(e)} href="#" className="key c69"><span>e</span></a></li>
-					<li><a onMouseDown={(e) => this.onMouseDown(e)} onMouseUp={(e) => this.onMouseUp(e)} href="#" className="key c83"><span>s</span></a></li>
-					<li><a onMouseDown={(e) => this.onMouseDown(e)} onMouseUp={(e) => this.onMouseUp(e)} href="#" className="key c190 alt"><b>&gt;</b><span>.</span></a></li>
-					<li><a onMouseDown={(e) => this.onMouseDown(e)} onMouseUp={(e) => this.onMouseUp(e)} href="#" className="key c46" id="delete"><span>Delete</span></a></li>
+					<li>
+						<a onMouseDown={(e) => this.onMouseDown(e)} 
+						   onMouseUp={(e) => this.onMouseUp(e)} 
+						   ref={ref => this.wholeNoteKey = ref}
+						   href="#" className="key c87"><span>w</span>
+						</a>
+					</li>
+					<li>
+						<a onMouseDown={(e) => this.onMouseDown(e)} 
+						   onMouseUp={(e) => this.onMouseUp(e)} 
+						   ref={ref => this.halfNoteKey = ref}
+						   href="#" className="key c72"><span>h</span>
+						</a>
+					</li>
+					<li>
+						<a onMouseDown={(e) => this.onMouseDown(e)} 
+						   onMouseUp={(e) => this.onMouseUp(e)} 
+						   ref={ref => this.quarterNoteKey = ref}
+						   href="#" className="key c81"><span>q</span>
+						</a>
+					</li>
+					<li>
+						<a onMouseDown={(e) => this.onMouseDown(e)} 
+						   onMouseUp={(e) => this.onMouseUp(e)} 
+						   ref={ref => this.eighthNoteKey = ref}
+						   href="#" className="key c69"><span>e</span>
+						</a>
+					</li>
+					<li>
+						<a onMouseDown={(e) => this.onMouseDown(e)} 
+						   onMouseUp={(e) => this.onMouseUp(e)} 
+						   ref={ref => this.sixteenthNoteKey = ref}
+						   href="#" 
+						   className="key c83"><span>s</span>
+						</a>
+					</li>
+					<li>
+						<a onMouseDown={(e) => this.onMouseDown(e)} 
+						   onMouseUp={(e) => this.onMouseUp(e)} 
+						   ref={ref => this.augmentationDotKey = ref}
+						   href="#" className="key c190 alt"><b>&gt;</b><span>.</span>
+						</a>
+					</li>
+					<li>
+						<a onMouseDown={(e) => this.onMouseDown(e)} 
+						   onMouseUp={(e) => this.onMouseUp(e)} 
+						   ref={ref => this.deleteKey = ref}
+						   href="#" className="key c46" id="delete"><span>Delete</span>
+						</a>
+					</li>
 				</ul>
 			</div>
 		);

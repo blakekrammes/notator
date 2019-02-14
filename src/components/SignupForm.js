@@ -31,8 +31,10 @@ export class SignupForm extends Component {
 		}
 		else {
 			return (
-				<div>
-					<h1 className="main-title"><Link to="/">Notator</Link></h1>
+				<div className="signup-form-div">
+					<header>
+						<h1 className="main-title"><Link to="/">Notator</Link></h1>
+					</header>
 					<form className="signup-form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
 						{error}
 						<label htmlFor="signup-username">Username</label>

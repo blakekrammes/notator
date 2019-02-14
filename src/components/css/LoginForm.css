@@ -1,3 +1,7 @@
+.login-form-div {
+	margin-top: 3rem;
+}
+
 .login-form {
 	display: flex;
 	flex-flow: column;
@@ -25,6 +29,7 @@
 .account-status {
 	font-size: 1.4rem;
 	width: 100vw;
+	margin-top: 1rem;
 }
 
 .login-error {
@@ -34,6 +39,9 @@
 }
 
 @media only screen and (min-width: 500px) {
+	.login-form-div {
+		margin-top: 4.5rem;
+	}
 	.login-username, .login-password {
 		font-size: 1.5rem;
 	}
@@ -65,6 +73,9 @@
 }
 
 @media only screen and (min-width: 650px) {
+	.login-form-div {
+		margin-top: 6rem;
+	}
 	.login-username, .login-password {
 		font-size: 1.5rem;
 	}

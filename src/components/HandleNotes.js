@@ -10,10 +10,7 @@ export class HandleNotes extends Component {
 		document.addEventListener('keydown', this.pressKey);
 		document.addEventListener('keyup', this.releaseKey);
 		// binding the ref for the parent component (Instructions) to access the pressKey method
-		// console.log(this.props.onRef())
-		// if (typeof this.props.onRef === 'function') {
 		this.props.onRef(this);
-		// }
 	}
 
 	componentWillUnmount() {
@@ -84,13 +81,28 @@ export class HandleNotes extends Component {
 		// highlight the css key if the event is a keypress and not a click
 		// highlighting css keys for clicks is already handled with the :active css pseudo class
 		if (!e.clickEvent) {
-			let keyCodeStr = e.keyCode.toString();
 			switch(e.keyCode) {
 				case 8:
-				document.querySelector('.c46').classList.add('keydown');
+				// react equivalent of document.querySelector()
+				this.props.deleteKey.classList.add('keydown');
+				break
+				case 87:
+				this.props.wholeNoteKey.classList.add('keydown');
+				break
+				case 72:
+				this.props.halfNoteKey.classList.add('keydown');
+				break
+				case 81:
+				this.props.quarterNoteKey.classList.add('keydown');
+				break
+				case 69:
+				this.props.eighthNoteKey.classList.add('keydown');
+				break
+				case 83:
+				this.props.sixteenthNoteKey.classList.add('keydown');
 				break
 				default:
-				document.querySelector(`.c${keyCodeStr}`).classList.add('keydown');
+				this.props.augmentationDotKey.classList.add('keydown');
 				break
 			}
 		}
@@ -217,7 +229,6 @@ export class HandleNotes extends Component {
 
 		//dotted notes
 		if (this.props.augmentationDotPressed === true && e.keyCode !== 190) {
-			console.log('heerrrrrr')
 			//dotted half
 			if (e.keyCode === 72) {
 				this.writeABCNotation(`${filteredNote}3`);
@@ -551,7 +562,6 @@ export class HandleNotes extends Component {
 		//if quarter note
 		else {
 			if (this.props.timeSignature === '4/4') {
-				// console.log(noteToBeWritten)
 				if (this.props.sixteenthNoteCount > 12 && this.props.sixteenthNoteCount < 16) { 
 					alert('There is not enough room for a quarter note in this measure.');
 					return;
@@ -608,14 +618,33 @@ export class HandleNotes extends Component {
 		if (!suitableKeyCodes.includes(e.keyCode)) {
 			return;
 		}
-		let stringedKeyCodeClass;
-		if (e.keyCode === 8) {
-			stringedKeyCodeClass = '.c46';
+		let keyboardKeyNode;
+
+		switch(e.keyCode) {
+			case 8:
+			// react equivalent of document.querySelector()
+			keyboardKeyNode = this.props.deleteKey;
+			break
+			case 87:
+			keyboardKeyNode = this.props.wholeNoteKey;
+			break
+			case 72:
+			keyboardKeyNode = this.props.halfNoteKey;
+			break
+			case 81:
+			keyboardKeyNode = this.props.quarterNoteKey;
+			break
+			case 69:
+			keyboardKeyNode = this.props.eighthNoteKey;
+			break
+			case 83:
+			keyboardKeyNode = this.props.sixteenthNoteKey;
+			break
+			default:
+			keyboardKeyNode = this.props.augmentationDotKey;
+			break
 		}
-		else {
-			stringedKeyCodeClass = '.c'+e.keyCode.toString();
-		}
-		document.querySelector(stringedKeyCodeClass).classList.remove('keydown');
+		keyboardKeyNode.classList.remove('keydown');
 	}
 
 	render() {

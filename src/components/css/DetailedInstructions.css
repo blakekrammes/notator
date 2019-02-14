@@ -1,3 +1,28 @@
+.detailed-instructions-line-flex-container {
+	display: flex;
+	align-items: center;
+}
+
+.detailed-instructions-list {
+	margin-left: -2.5rem;
+	list-style: none;
+}
+
+.detailed-instructions-step-one-div {
+	display: flex;
+	align-items: center;
+}
+
+.fa-microphone.detailed-instructions-mic-icon {
+	margin-left: .75rem;
+	font-size: 2rem;
+}
+
+.detailed-instructions-qwerty#qwerty {
+	width: 0;
+	margin-left: -2.2rem;
+}
+
 .detailed-instructions-div {
 	width: 85vw;
 	max-width: 1000px;
@@ -8,6 +33,14 @@
 	margin: 4.5vw;
 	margin-top: 4rem;
 }
+
+@media only screen and (min-width: 400px) {
+	.detailed-instructions-list {
+		list-style: disc;
+		margin-left: 0;
+	}
+}
+
 
 @media only screen and (min-width: 650px) {
 	.detailed-instructions-div {
