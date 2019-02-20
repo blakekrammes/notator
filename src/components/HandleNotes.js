@@ -25,9 +25,42 @@ export class HandleNotes extends Component {
 		if (!suitableKeyCodes.includes(e.keyCode)) {
 			return;
 		}
+
+		// highlight the css key if the event is a keypress and not a click
+		// highlighting css keys for clicks is already handled with the :active css pseudo class
+		if (!e.clickEvent) {
+			switch(e.keyCode) {
+				case 8:
+				// react equivalent of document.querySelector()
+				this.props.deleteKey.classList.add('keydown');
+				break
+				case 87:
+				this.props.wholeNoteKey.classList.add('keydown');
+				break
+				case 72:
+				this.props.halfNoteKey.classList.add('keydown');
+				break
+				case 81:
+				this.props.quarterNoteKey.classList.add('keydown');
+				break
+				case 69:
+				this.props.eighthNoteKey.classList.add('keydown');
+				break
+				case 83:
+				this.props.sixteenthNoteKey.classList.add('keydown');
+				break
+				default:
+				this.props.augmentationDotKey.classList.add('keydown');
+				break
+			}
+		}
+
 		// delete handling for notes
 		if (e.keyCode === 8 && this.props.writtenNotes.length >= 1) {
-				
+			// keep FF from routing back a page 
+			if (typeof e.preventDefault === 'function') {
+				e.preventDefault();
+			}
 			let length = this.props.writtenNotes.length;
 
 			//if last entry was a barline
@@ -76,35 +109,6 @@ export class HandleNotes extends Component {
 				this.props.dispatch(changeSixteenthNoteCount(this.props.sixteenthNoteCount - 4));
 			}
 			this.props.dispatch(deleteNote());
-		}
-
-		// highlight the css key if the event is a keypress and not a click
-		// highlighting css keys for clicks is already handled with the :active css pseudo class
-		if (!e.clickEvent) {
-			switch(e.keyCode) {
-				case 8:
-				// react equivalent of document.querySelector()
-				this.props.deleteKey.classList.add('keydown');
-				break
-				case 87:
-				this.props.wholeNoteKey.classList.add('keydown');
-				break
-				case 72:
-				this.props.halfNoteKey.classList.add('keydown');
-				break
-				case 81:
-				this.props.quarterNoteKey.classList.add('keydown');
-				break
-				case 69:
-				this.props.eighthNoteKey.classList.add('keydown');
-				break
-				case 83:
-				this.props.sixteenthNoteKey.classList.add('keydown');
-				break
-				default:
-				this.props.augmentationDotKey.classList.add('keydown');
-				break
-			}
 		}
 
 		// if a note is not displaying 
@@ -623,6 +627,11 @@ export class HandleNotes extends Component {
 		switch(e.keyCode) {
 			case 8:
 			// react equivalent of document.querySelector()
+			// keep FF from routing back a page
+			if (typeof e.preventDefault === 'function') {
+				console.log('hooooo')
+				e.preventDefault();
+			}
 			keyboardKeyNode = this.props.deleteKey;
 			break
 			case 87:
