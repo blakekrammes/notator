@@ -1,4 +1,3 @@
-### Link to live site: https://notator.herokuapp.com
 ## Home page
 
 ![Home Page](https://github.com/Blakesters/notator/blob/master/screenshots/home.png)
